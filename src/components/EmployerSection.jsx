@@ -69,10 +69,6 @@ export default function EmployerSection() {
           backgroundPosition: 'center',
         }}
       />
-      {/* Glow orb */}
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-[0.05]"
-           style={{ background: 'radial-gradient(circle, #f5a623, transparent)', transform: 'translate(30%, -30%)' }} />
-
       <div className="container-main relative z-10">
         {/* Top: heading + key stats */}
         <div className="text-center mb-14" ref={ref}>

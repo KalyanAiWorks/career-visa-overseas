@@ -69,7 +69,7 @@ export default function SocialProofPopup() {
         {/* Close */}
         <button
           onClick={dismiss}
-          className="flex-shrink-0 text-muted hover:text-primary transition-colors w-11 h-11 -mr-2 -mt-2 rounded-lg hover:bg-surface flex items-center justify-center"
+          className="flex-shrink-0 text-muted hover:text-primary transition-colors w-11 h-11 rounded-lg hover:bg-surface flex items-center justify-center"
           aria-label="Close notification"
         >
           <X size={15} />
