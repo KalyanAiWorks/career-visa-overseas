@@ -1,0 +1,148 @@
+import { Users, Zap, DollarSign, UserCheck, ArrowRight, TrendingUp, Clock, Star } from 'lucide-react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
+
+const benefits = [
+  {
+    icon: <UserCheck size={22} />,
+    title: 'Pre-Verified Talent',
+    desc: 'Every candidate undergoes skills testing, background check, and document verification before presentation.',
+  },
+  {
+    icon: <Users size={22} />,
+    title: 'Dedicated Account Manager',
+    desc: 'A single point of contact who understands your requirements and manages your entire hiring cycle.',
+  },
+  {
+    icon: <Zap size={22} />,
+    title: 'Fast Turnaround',
+    desc: 'Mobilize bulk manpower within 30–45 days for urgent project requirements. Proven track record.',
+  },
+  {
+    icon: <DollarSign size={22} />,
+    title: 'Competitive Rates',
+    desc: 'Transparent pricing with no hidden charges. Flexible billing for both ongoing and project-based supply.',
+  },
+]
+
+const employerLogos = [
+  'Emaar', 'SABIC', 'Qatar Airways', 'Aldar', 'ADNOC', 'Naffco',
+  'DP World', 'Marriott', 'Deyaar', 'KPMG Gulf',
+]
+
+const stats = [
+  { value: '15 days', label: 'Avg. Hiring Time',  icon: <Clock size={18} /> },
+  { value: '95%',     label: 'Retention Rate',    icon: <TrendingUp size={18} /> },
+  { value: '4.8/5',   label: 'Satisfaction Score',icon: <Star size={18} /> },
+]
+
+function BenefitCard({ benefit, delay }) {
+  const ref = useScrollAnimation()
+  return (
+    <div
+      ref={ref}
+      className="animate-on-scroll glass-card rounded-2xl p-5 hover:bg-white/10 transition-colors duration-300"
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-4">
+        {benefit.icon}
+      </div>
+      <h3 className="text-white font-heading font-bold text-base mb-2">{benefit.title}</h3>
+      <p className="text-white/60 font-body text-base leading-relaxed">{benefit.desc}</p>
+    </div>
+  )
+}
+
+export default function EmployerSection() {
+  const ref = useScrollAnimation()
+  return (
+    <section
+      id="employer"
+      className="py-20 relative overflow-hidden"
+      style={{ background: 'linear-gradient(135deg, #0a1628 0%, #0d1e36 50%, #061020 100%)' }}
+    >
+      {/* BG texture */}
+      <div
+        className="absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&q=60')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      />
+      {/* Glow orb */}
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-[0.05]"
+           style={{ background: 'radial-gradient(circle, #f5a623, transparent)', transform: 'translate(30%, -30%)' }} />
+
+      <div className="container-main relative z-10">
+        {/* Top: heading + key stats */}
+        <div className="text-center mb-14" ref={ref}>
+          <div className="section-badge !bg-accent/10 !text-accent !border !border-accent/20">For Employers</div>
+          <h2 className="text-3xl md:text-4xl font-heading font-black text-white mb-4">
+            Partner With Career Visa —<br />
+            <span className="text-gradient">Reliable Indian Manpower</span> On Demand
+          </h2>
+          <p className="text-white/60 font-body text-base max-w-xl mx-auto leading-relaxed">
+            We supply verified, skilled Indian workers across all major trades and professions.
+            Fast mobilization. Full compliance. Trusted by 200+ Gulf employers.
+          </p>
+
+          {/* Key stats */}
+          <div className="flex flex-wrap justify-center gap-4 mt-8">
+            {stats.map((s) => (
+              <div key={s.label} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-6 py-4">
+                <span className="text-accent">{s.icon}</span>
+                <div className="text-left">
+                  <div className="text-accent font-heading font-black text-xl">{s.value}</div>
+                  <div className="text-white/50 text-xs font-body uppercase tracking-wide">{s.label}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Grid: benefits + CTA */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid sm:grid-cols-2 gap-4">
+            {benefits.map((b, i) => (
+              <BenefitCard key={b.title} benefit={b} delay={i * 100} />
+            ))}
+          </div>
+
+          <div className="text-center lg:text-left">
+            <h3 className="text-2xl font-heading font-black text-white mb-4">
+              Ready to hire?<br />
+              <span className="text-accent">Get a free manpower quote.</span>
+            </h3>
+            <p className="text-white/60 font-body text-base leading-relaxed mb-8">
+              Fill in your requirement and our team will get back to you within 2 hours with a
+              tailored proposal including candidate profiles and pricing.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a
+                href="#register"
+                className="bg-accent text-white font-heading font-black text-base px-8 py-4 rounded-xl hover:bg-accent-dark hover:shadow-glow hover:scale-105 transition-all inline-flex items-center justify-center gap-2"
+              >
+                Request Manpower Quote <ArrowRight size={18} />
+              </a>
+              <a href="mailto:info@careervisa.in" className="btn-outline justify-center">
+                Email Us
+              </a>
+            </div>
+
+            {/* Client logos */}
+            <div className="mt-10">
+              <p className="text-white/30 text-xs uppercase tracking-widest mb-4 font-bold">Trusted by</p>
+              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+                {employerLogos.map((logo) => (
+                  <span key={logo} className="bg-white/5 border border-white/10 text-white/50 font-bold text-xs px-3 py-1.5 rounded-lg">
+                    {logo}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
