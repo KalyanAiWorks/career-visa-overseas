@@ -57,7 +57,7 @@ export default function EmployerSection() {
   return (
     <section
       id="employer"
-      className="py-20 relative overflow-hidden"
+      className="py-14 sm:py-20 relative overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #0a1628 0%, #0d1e36 50%, #061020 100%)' }}
     >
       {/* BG texture */}
@@ -77,8 +77,8 @@ export default function EmployerSection() {
         {/* Top: heading + key stats */}
         <div className="text-center mb-14" ref={ref}>
           <div className="section-badge !bg-accent/10 !text-accent !border !border-accent/20">For Employers</div>
-          <h2 className="text-3xl md:text-4xl font-heading font-black text-white mb-4">
-            Partner With Career Visa —<br />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-black text-white mb-4">
+            Partner With Career Visa —{' '}
             <span className="text-gradient">Reliable Indian Manpower</span> On Demand
           </h2>
           <p className="text-white/60 font-body text-base max-w-xl mx-auto leading-relaxed">
@@ -87,13 +87,13 @@ export default function EmployerSection() {
           </p>
 
           {/* Key stats */}
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-8 max-w-3xl mx-auto">
             {stats.map((s) => (
-              <div key={s.label} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-6 py-4">
-                <span className="text-accent">{s.icon}</span>
-                <div className="text-left">
-                  <div className="text-accent font-heading font-black text-xl">{s.value}</div>
-                  <div className="text-white/50 text-xs font-body uppercase tracking-wide">{s.label}</div>
+              <div key={s.label} className="flex items-center justify-center sm:justify-start gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 sm:px-5 py-3 sm:py-4 min-w-0">
+                <span className="text-accent flex-shrink-0">{s.icon}</span>
+                <div className="text-left min-w-0">
+                  <div className="text-accent font-heading font-black text-lg sm:text-xl">{s.value}</div>
+                  <div className="text-white/50 text-xs font-body uppercase tracking-wide leading-tight">{s.label}</div>
                 </div>
               </div>
             ))}
@@ -101,7 +101,7 @@ export default function EmployerSection() {
         </div>
 
         {/* Grid: benefits + CTA */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="grid sm:grid-cols-2 gap-4">
             {benefits.map((b, i) => (
               <BenefitCard key={b.title} benefit={b} delay={i * 100} />
@@ -120,7 +120,7 @@ export default function EmployerSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
                 href="#register"
-                className="bg-accent text-white font-heading font-black text-base px-8 py-4 rounded-xl hover:bg-accent-dark hover:shadow-glow hover:scale-105 transition-all inline-flex items-center justify-center gap-2"
+                className="bg-accent text-white font-heading font-black text-sm sm:text-base px-5 sm:px-8 py-3.5 sm:py-4 rounded-xl hover:bg-accent-dark hover:shadow-glow hover:scale-105 transition-all inline-flex items-center justify-center gap-2 min-h-11 w-full sm:w-auto text-center leading-tight"
               >
                 Request Manpower Quote <ArrowRight size={18} />
               </a>

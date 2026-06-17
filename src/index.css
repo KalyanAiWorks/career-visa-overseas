@@ -3,9 +3,16 @@
 @tailwind utilities;
 
 @layer base {
+  :root { --announcement-bar-height: 0px; }
+
   *, *::before, *::after { box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
 
   body {
     margin: 0;
@@ -16,13 +23,25 @@
     color: #1e293b;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
-  #root { width: 100%; min-height: 100vh; }
+  #root { width: 100%; min-height: 100vh; overflow-x: hidden; }
+
+  img, video, iframe { max-width: 100%; }
+  img { height: auto; }
+
+  button, a { touch-action: manipulation; }
+
+  section,
+  [id] {
+    scroll-margin-top: calc(var(--announcement-bar-height, 0px) + 88px);
+  }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto', sans-serif;
     line-height: 1.2;
+    overflow-wrap: anywhere;
   }
 
   p { font-family: 'Lato', sans-serif; line-height: 1.6; font-size: 16px; }
@@ -30,34 +49,36 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-accent text-white font-heading font-bold px-7 py-3.5 rounded-xl
+    @apply bg-accent text-white font-heading font-bold px-5 py-3 sm:px-7 sm:py-3.5 rounded-xl
            transition-all duration-200 hover:bg-accent-dark hover:shadow-glow hover:scale-105
            active:scale-95 inline-flex items-center gap-2 text-sm uppercase tracking-wide
-           focus:outline-none focus:ring-2 focus:ring-accent/50;
+           focus:outline-none focus:ring-2 focus:ring-accent/50 min-h-[44px]
+           justify-center text-center leading-tight max-w-full;
   }
 
   .btn-outline {
-    @apply border-2 border-white text-white font-heading font-bold px-7 py-3.5 rounded-xl
+    @apply border-2 border-white text-white font-heading font-bold px-5 py-3 sm:px-7 sm:py-3.5 rounded-xl
            transition-all duration-200 hover:bg-white hover:text-primary hover:scale-105
-           active:scale-95 inline-flex items-center gap-2 text-sm uppercase tracking-wide;
+           active:scale-95 inline-flex items-center gap-2 text-sm uppercase tracking-wide min-h-[44px]
+           justify-center text-center leading-tight max-w-full;
   }
 
   .btn-secondary {
-    @apply bg-primary text-white font-heading font-bold px-7 py-3.5 rounded-xl
+    @apply bg-primary text-white font-heading font-bold px-5 py-3 sm:px-7 sm:py-3.5 rounded-xl
            transition-all duration-200 hover:bg-primary-700 inline-flex items-center gap-2
-           text-sm uppercase tracking-wide;
+           text-sm uppercase tracking-wide min-h-[44px] justify-center text-center leading-tight max-w-full;
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-heading font-black text-primary mb-3;
+    @apply text-2xl sm:text-3xl md:text-4xl font-heading font-black text-primary mb-3;
   }
 
   .section-subtitle {
-    @apply text-muted font-body text-base max-w-2xl mx-auto leading-relaxed;
+    @apply text-muted font-body text-sm sm:text-base max-w-2xl mx-auto leading-relaxed;
   }
 
   .card {
-    @apply bg-white rounded-2xl p-6 shadow-card border border-border
+    @apply bg-white rounded-2xl p-5 sm:p-6 shadow-card border border-border
            transition-all duration-300 hover:shadow-float hover:-translate-y-1.5;
   }
 
@@ -81,13 +102,13 @@
   .input-field {
     @apply w-full border border-border rounded-xl px-4 py-3.5 font-body text-base
            text-primary placeholder:text-muted/50 focus:outline-none focus:border-accent
-           focus:ring-2 focus:ring-accent/20 transition-all bg-white;
+           focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[44px];
   }
 
   .select-field {
     @apply w-full border border-border rounded-xl px-4 py-3.5 font-body text-base
            text-primary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20
-           transition-all appearance-none bg-white;
+           transition-all appearance-none bg-white min-h-[44px];
   }
 }
 
@@ -269,6 +290,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .animate-on-scroll,
-  .ticker-track { animation: none !important; transition: none !important; }
+  .ticker-scroll { animation: none !important; transition: none !important; }
   .animate-on-scroll { opacity: 1; transform: none; }
 }

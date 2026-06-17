@@ -58,29 +58,29 @@ export default function Footer() {
     <footer className="bg-primary text-white">
       {/* Newsletter strip */}
       <div className="border-b border-white/10" style={{ background: 'rgba(245,166,35,0.08)' }}>
-        <div className="container-main py-8">
+        <div className="container-main py-7 sm:py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-5">
-            <div>
+            <div className="text-center md:text-left">
               <h3 className="font-heading font-black text-lg text-white mb-1">Get Latest Gulf Job Alerts</h3>
               <p className="text-white/50 font-body text-sm">New openings delivered to your inbox every week — free.</p>
             </div>
             {subDone ? (
-              <div className="flex items-center gap-2 bg-green-500/10 border border-green-500/30 rounded-xl px-5 py-3 text-green-400 font-bold">
+              <div className="flex items-center justify-center gap-2 bg-green-500/10 border border-green-500/30 rounded-xl px-4 sm:px-5 py-3 text-green-400 font-bold text-sm sm:text-base text-center">
                 ✓ Subscribed! Watch your inbox.
               </div>
             ) : (
-              <form onSubmit={handleSubscribe} className="flex gap-2 w-full md:w-auto">
+              <form onSubmit={handleSubscribe} className="flex flex-col min-[390px]:flex-row gap-2 w-full md:w-auto">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   required
-                  className="flex-1 md:w-64 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder:text-white/30 font-body text-sm focus:outline-none focus:border-accent transition-colors"
+                  className="flex-1 min-w-0 md:w-64 bg-white/10 border border-white/20 rounded-xl px-3 sm:px-4 py-3 text-white placeholder:text-white/30 font-body text-sm focus:outline-none focus:border-accent transition-colors min-h-11"
                 />
-                <button type="submit" className="btn-primary !py-3 !px-5 flex-shrink-0">
+                <button type="submit" className="btn-primary flex-shrink-0 w-full min-[390px]:w-auto">
                   <Send size={15} />
-                  <span className="hidden sm:inline">Subscribe</span>
+                  <span>Subscribe</span>
                 </button>
               </form>
             )}
@@ -89,8 +89,8 @@ export default function Footer() {
       </div>
 
       {/* Main footer grid */}
-      <div className="container-main py-14">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="container-main py-12 sm:py-14">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
           {/* Brand column */}
           <div className="lg:col-span-1">
             <a href="#home" className="inline-flex mb-5">
@@ -128,7 +128,7 @@ export default function Footer() {
                   aria-label={s.label}
                   target={s.href.startsWith('http') ? '_blank' : undefined}
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:bg-accent hover:text-white hover:border-accent transition-all duration-200"
+                  className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:bg-accent hover:text-white hover:border-accent transition-all duration-200"
                 >
                   {s.icon}
                 </a>
@@ -143,7 +143,7 @@ export default function Footer() {
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <a href={link.href}
-                     className="text-white/50 hover:text-accent font-body text-sm transition-colors flex items-center gap-2">
+                     className="text-white/50 hover:text-accent font-body text-sm transition-colors flex items-center gap-2 min-h-11">
                     <span className="w-1 h-1 rounded-full bg-accent/40 flex-shrink-0" />
                     {link.label}
                   </a>
@@ -163,7 +163,7 @@ export default function Footer() {
               ].map((item) => (
                 <li key={item.label}>
                   <a href={item.href}
-                     className="flex items-start gap-3 text-white/50 hover:text-accent transition-colors group">
+                     className="flex items-start gap-3 text-white/50 hover:text-accent transition-colors group min-h-11">
                     <span className="mt-0.5 flex-shrink-0 group-hover:text-accent">{item.icon}</span>
                     <div>
                       <div className="text-white/30 font-body text-[10px] uppercase tracking-wide mb-0.5">{item.label}</div>
@@ -213,14 +213,14 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/8">
-        <div className="container-main py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-white/30 font-body text-xs">
-            © 2026 Career Visa. All rights reserved. | Licensed Overseas Recruitment Agency | MEA Reg. No: XXXXXXXXX
+        <div className="container-main py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <p className="text-white/30 font-body text-[11px] sm:text-xs">
+            © 2026 Career Visa. All rights reserved.<br className="sm:hidden" /> Licensed Overseas Recruitment Agency | MEA Reg. No: XXXXXXXXX
           </p>
-          <div className="flex items-center gap-5">
-            <a href="#" className="text-white/30 hover:text-accent font-body text-xs transition-colors">Privacy Policy</a>
-            <a href="#" className="text-white/30 hover:text-accent font-body text-xs transition-colors">Terms of Service</a>
-            <a href="#" className="text-white/30 hover:text-accent font-body text-xs transition-colors">Sitemap</a>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 flex-shrink-0">
+            <a href="#" className="text-white/30 hover:text-accent font-body text-xs transition-colors min-h-[44px] flex items-center">Privacy Policy</a>
+            <a href="#" className="text-white/30 hover:text-accent font-body text-xs transition-colors min-h-[44px] flex items-center">Terms</a>
+            <a href="#" className="text-white/30 hover:text-accent font-body text-xs transition-colors min-h-[44px] flex items-center">Sitemap</a>
           </div>
         </div>
       </div>

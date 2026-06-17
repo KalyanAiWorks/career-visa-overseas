@@ -32,7 +32,7 @@ const steps = [
   },
 ]
 
-function StepCard({ step, index, total }) {
+function StepCard({ step, index }) {
   const ref = useScrollAnimation()
   return (
     <div
@@ -69,7 +69,7 @@ export default function HowItWorks() {
   const titleRef = useScrollAnimation()
 
   return (
-    <section id="how-it-works" className="py-20" style={{ background: '#f4f6f9' }}>
+    <section id="how-it-works" className="py-14 sm:py-20" style={{ background: '#f4f6f9' }}>
       <div className="container-main">
         <div className="text-center mb-16" ref={titleRef}>
           <div className="section-badge">Process</div>
@@ -78,9 +78,9 @@ export default function HowItWorks() {
             Our proven 4-step process gets you from application to deployment.
           </p>
           {/* Average time badge */}
-          <div className="inline-flex items-center gap-2 bg-primary text-white rounded-full px-5 py-2 mt-4 shadow-card">
+          <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-2 bg-primary text-white rounded-full px-4 sm:px-5 py-2 mt-4 shadow-card">
             <Clock size={15} className="text-accent" />
-            <span className="font-body text-sm font-bold">Average deployment time: <span className="text-accent">30–45 days</span></span>
+            <span className="font-body text-sm font-bold text-center leading-snug">Average deployment time: <span className="text-accent">30–45 days</span></span>
           </div>
         </div>
 
@@ -100,9 +100,9 @@ export default function HowItWorks() {
           </div>
 
           {/* Steps grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 relative z-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 relative z-10">
             {steps.map((step, i) => (
-              <StepCard key={step.num} step={step} index={i} total={steps.length} />
+              <StepCard key={step.num} step={step} index={i} />
             ))}
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Phone, ChevronDown } from 'lucide-react'
+import { Menu, X, Phone } from 'lucide-react'
 
 const navLinks = [
   { label: 'Home',       href: '#home' },
@@ -13,7 +13,6 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled]   = useState(false)
   const [menuOpen, setMenuOpen]   = useState(false)
-  const [activeLink, setActiveLink] = useState('#home')
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60)
@@ -21,22 +20,34 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    const handleKey = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false)
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', handleKey)
+    }
+  }, [menuOpen])
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled ? 'glass-nav py-0' : 'bg-primary/90 py-0'
       }`}
-      style={scrolled ? {} : {}}
+      style={{ top: 'var(--announcement-bar-height, 0px)' }}
     >
       <div className="container-main">
         <div className="flex items-center justify-between h-16 md:h-[70px]">
           {/* Logo */}
-          <a href="#home" className="flex items-center flex-shrink-0 group">
+          <a href="#home" onClick={() => setMenuOpen(false)} className="flex items-center flex-shrink-0 group min-h-11">
             <img
               src="/images/logo-mark.png"
               alt="Career Visa"
-              style={{ height: 40, width: 'auto', mixBlendMode: 'screen' }}
-              className="group-hover:opacity-90 transition-opacity"
+              style={{ width: 'auto', mixBlendMode: 'screen' }}
+              className="h-[38px] sm:h-10 group-hover:opacity-90 transition-opacity"
             />
           </a>
 
@@ -66,9 +77,10 @@ export default function Navbar() {
               Register Free
             </a>
             <button
-              className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+              className="lg:hidden text-white min-w-11 min-h-11 rounded-lg hover:bg-white/10 transition-colors flex items-center justify-center"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
+              aria-expanded={menuOpen}
             >
               {menuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
@@ -82,13 +94,16 @@ export default function Navbar() {
           className="lg:hidden border-t border-white/10"
           style={{ background: 'rgba(10,22,40,0.97)', backdropFilter: 'blur(16px)' }}
         >
-          <div className="container-main py-4 flex flex-col gap-1">
+          <div
+            className="container-main py-4 flex flex-col gap-1 overflow-y-auto"
+            style={{ maxHeight: 'calc(100dvh - var(--announcement-bar-height, 0px) - 4rem)' }}
+          >
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="text-white/80 hover:text-accent font-body text-sm px-4 py-3 rounded-xl transition-colors hover:bg-white/5 font-bold uppercase tracking-wide"
+                className="text-white/80 hover:text-accent font-body text-sm px-4 py-3 rounded-xl transition-colors hover:bg-white/5 font-bold uppercase tracking-wide min-h-11 flex items-center"
               >
                 {link.label}
               </a>

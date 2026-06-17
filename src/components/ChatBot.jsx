@@ -56,7 +56,7 @@ function RobotSvg({ glowing }) {
 function Tooltip({ text }) {
   return (
     <div
-      className="absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap
+      className="hidden sm:block absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap
                  bg-gray-900 text-white font-body font-bold text-xs px-3 py-1.5
                  rounded-lg shadow-overlay pointer-events-none select-none"
       style={{ animation: 'chatSlideUp 0.2s ease-out' }}
@@ -77,7 +77,7 @@ export default function ChatBot() {
   const [mounted,  setMounted]  = useState(false)
   const [btnHover, setBtnHover] = useState(false)
   const [messages, setMessages] = useState([
-    { from: 'bot', text: WELCOME, ts: Date.now() },
+    { from: 'bot', text: WELCOME, ts: 0 },
   ])
   const bottomRef = useRef(null)
   const inputRef  = useRef(null)
@@ -127,9 +127,10 @@ export default function ChatBot() {
         <div
           className="fixed z-[9998] flex flex-col rounded-2xl overflow-hidden shadow-overlay"
           style={{
-            bottom: 92, left: 24,
-            width: 'min(350px, calc(100vw - 48px))',
-            height: 500,
+            bottom: 'calc(80px + env(safe-area-inset-bottom))',
+            left: 16,
+            width: 'min(350px, calc(100vw - 32px))',
+            height: 'min(500px, calc(100dvh - 112px))',
             background: 'rgba(255,255,255,0.97)',
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
@@ -158,7 +159,7 @@ export default function ChatBot() {
             </div>
             <button
               onClick={handleClose}
-              className="text-white/50 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/10 flex-shrink-0"
+              className="text-white/50 hover:text-white transition-colors rounded-lg hover:bg-white/10 flex-shrink-0 w-11 h-11 flex items-center justify-center"
               aria-label="Close chat"
             >
               <X size={16} />
@@ -198,13 +199,13 @@ export default function ChatBot() {
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleKey}
               placeholder="Type a message..."
-              className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 font-body text-sm text-primary placeholder:text-muted/50 focus:outline-none focus:border-accent transition-colors"
+              className="flex-1 min-w-0 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 font-body text-sm text-primary placeholder:text-muted/50 focus:outline-none focus:border-accent transition-colors min-h-11"
             />
             <button
               onClick={handleSend}
               disabled={!input.trim()}
               aria-label="Send message"
-              className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 flex-shrink-0 active:scale-90"
+              className="w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-200 flex-shrink-0 active:scale-90"
               style={{
                 background:  input.trim() ? '#f5a623' : '#e2e8f0',
                 transform:   input.trim() ? 'scale(1)' : undefined,
@@ -219,7 +220,7 @@ export default function ChatBot() {
       {/* ── Trigger button ── */}
       <div
         className="fixed z-[9999]"
-        style={{ bottom: 24, left: 24 }}
+        style={{ bottom: 'calc(16px + env(safe-area-inset-bottom))', left: 16 }}
       >
         <div className="relative">
           <button

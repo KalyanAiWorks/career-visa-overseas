@@ -45,7 +45,7 @@ function SoundWaves() {
 function Tooltip({ text }) {
   return (
     <div
-      className="absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap
+      className="hidden sm:block absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap
                  bg-gray-900 text-white font-body font-bold text-xs px-3 py-1.5
                  rounded-lg shadow-overlay pointer-events-none select-none"
       style={{ animation: 'chatSlideUp 0.2s ease-out' }}
@@ -89,7 +89,7 @@ export default function FloatingButtons() {
       {/* ── Call button ── */}
       <div
         className="fixed z-[9998]"
-        style={{ bottom: 104, right: 24 }}
+        style={{ bottom: 'calc(88px + env(safe-area-inset-bottom))', right: 16 }}
       >
         <div className="relative">
           <a
@@ -97,7 +97,7 @@ export default function FloatingButtons() {
             aria-label="Call Career Visa"
             className="fab-float flex items-center justify-center rounded-full relative overflow-hidden"
             style={{
-              width:  callHover ? 52 : 52,
+              width:  52,
               height: 52,
               background: 'linear-gradient(135deg, #1a365d 0%, #2563eb 100%)',
               transform: callHover ? 'scale(1.12)' : 'scale(1)',
@@ -120,7 +120,7 @@ export default function FloatingButtons() {
       {/* ── WhatsApp button ── */}
       <div
         className="fixed z-[9999]"
-        style={{ bottom: 24, right: 24 }}
+        style={{ bottom: 'calc(16px + env(safe-area-inset-bottom))', right: 16 }}
       >
         <div className="relative">
           {/* Notification badge */}
@@ -141,7 +141,7 @@ export default function FloatingButtons() {
             aria-label="Chat on WhatsApp"
             className="fab-float wa-pulse flex items-center justify-center rounded-full"
             style={{
-              width: 60, height: 60,
+              width: 56, height: 56,
               background: '#25D366',
               animationDelay: '0.5s',
               transform: waHover ? 'scale(1.2) rotate(15deg)' : 'scale(1) rotate(0deg)',

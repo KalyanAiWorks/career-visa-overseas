@@ -11,7 +11,6 @@ const notifications = [
 export default function SocialProofPopup() {
   const [visible, setVisible] = useState(false)
   const [current, setCurrent] = useState(0)
-  const [dismissed, setDismissed] = useState(false)
 
   useEffect(() => {
     // Don't show if dismissed in this session
@@ -38,8 +37,8 @@ export default function SocialProofPopup() {
 
   return (
     <div
-      className="fixed bottom-24 left-4 sm:left-6 z-50 max-w-xs"
-      style={{ animation: 'fadeUp 0.4s ease-out' }}
+      className="fixed left-4 right-4 sm:left-6 sm:right-auto z-50 max-w-sm sm:max-w-xs"
+      style={{ bottom: 'calc(88px + env(safe-area-inset-bottom))', animation: 'fadeUp 0.4s ease-out' }}
     >
       <div className="bg-white rounded-2xl shadow-overlay border border-border p-4 flex gap-3 items-start">
         {/* Avatar */}
@@ -58,11 +57,11 @@ export default function SocialProofPopup() {
             <span className="font-bold">{n.name}</span> from {n.city} got placed as{' '}
             <span className="font-bold">{n.job}</span> in <span className="font-bold">{n.dest}</span>
           </p>
-          <p className="text-muted text-xs mt-1">{n.time} · Join 5,000+ placed candidates</p>
+          <p className="text-muted text-sm mt-1 leading-snug">{n.time} · Join 5,000+ placed candidates</p>
           <a
             href="#register"
             onClick={dismiss}
-            className="inline-block mt-2 bg-accent text-white font-bold text-xs px-3 py-1.5 rounded-lg hover:bg-accent-dark transition-colors"
+            className="inline-flex items-center justify-center mt-2 bg-accent text-white font-bold text-xs px-3 py-2 rounded-lg hover:bg-accent-dark transition-colors min-h-11"
           >
             Register Free →
           </a>
@@ -70,7 +69,7 @@ export default function SocialProofPopup() {
         {/* Close */}
         <button
           onClick={dismiss}
-          className="flex-shrink-0 text-muted hover:text-primary transition-colors"
+          className="flex-shrink-0 text-muted hover:text-primary transition-colors w-11 h-11 -mr-2 -mt-2 rounded-lg hover:bg-surface flex items-center justify-center"
           aria-label="Close notification"
         >
           <X size={15} />

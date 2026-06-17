@@ -28,7 +28,7 @@ const track = [...jobs, ...jobs]
 
 function TickerItem({ job }) {
   return (
-    <div className="flex items-center gap-2.5 px-5 flex-shrink-0 select-none">
+    <div className="flex items-center gap-2 px-3 sm:px-5 flex-shrink-0 select-none min-h-11">
       <span className="text-lg leading-none">{job.flag}</span>
       <span className="text-white font-heading font-bold text-sm whitespace-nowrap">
         {job.title}
@@ -50,10 +50,10 @@ function TickerItem({ job }) {
 export default function JobsTicker() {
   return (
     <div className="bg-primary border-y border-white/10" style={{ overflow: 'hidden' }}>
-      <div className="flex items-stretch">
+      <div className="flex items-stretch min-h-11">
 
         {/* Static "LIVE JOBS" label */}
-        <div className="flex-shrink-0 bg-accent flex items-center gap-2 px-4 z-10">
+        <div className="flex-shrink-0 bg-accent flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 z-10">
           <Briefcase size={13} className="text-white" />
           <span className="text-white font-heading font-black text-[11px] uppercase tracking-widest whitespace-nowrap">
             Live Jobs
@@ -62,7 +62,7 @@ export default function JobsTicker() {
 
         {/* Scrolling track */}
         <div style={{ overflow: 'hidden', flex: 1 }}>
-          <div className="ticker-scroll py-3">
+          <div className="ticker-scroll">
             {track.map((job, i) => (
               <TickerItem key={i} job={job} />
             ))}

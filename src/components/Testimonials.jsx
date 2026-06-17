@@ -77,22 +77,22 @@ function Stars() {
 
 function TestimonialCard({ t }) {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-card border border-border h-full flex flex-col gap-4">
-      <div className="flex items-start justify-between">
+    <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-card border border-border h-full flex flex-col gap-4">
+      <div className="flex items-start justify-between gap-2 flex-wrap">
         <Stars />
-        <div className="flex items-center gap-1 bg-green-50 border border-green-200 rounded-full px-2.5 py-1">
+        <div className="flex items-center gap-1 bg-green-50 border border-green-200 rounded-full px-2 py-1 flex-shrink-0">
           <CheckCircle size={11} className="text-green-500" />
-          <span className="text-green-600 font-bold text-[10px] uppercase tracking-wide">Verified Placement</span>
+          <span className="text-green-600 font-bold text-[10px] uppercase tracking-wide whitespace-nowrap">Verified</span>
         </div>
       </div>
 
       <div className="relative flex-1">
         <Quote size={20} className="text-accent/20 absolute -top-1 -left-1" />
-        <p className="text-muted font-body text-base leading-relaxed pl-4">"{t.text}"</p>
+        <p className="text-muted font-body text-sm sm:text-base leading-relaxed pl-4">"{t.text}"</p>
       </div>
 
       {/* Salary + date */}
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         <span className="bg-accent/10 text-accent font-bold text-xs px-2.5 py-1 rounded-full">{t.salary}</span>
         <span className="bg-surface text-muted font-bold text-xs px-2.5 py-1 rounded-full">Placed {t.placed}</span>
       </div>
@@ -104,14 +104,14 @@ function TestimonialCard({ t }) {
           loading="lazy"
           className="w-12 h-12 rounded-full object-cover ring-2 ring-accent/20"
         />
-        <div className="flex-1">
+        <div className="flex-1 min-w-0">
           <div className="text-primary font-heading font-bold text-sm">{t.name}</div>
-          <div className="text-muted font-body text-xs">{t.role} · {t.location} {t.flag}</div>
+          <div className="text-muted font-body text-sm sm:text-xs leading-snug">{t.role} · {t.location} {t.flag}</div>
         </div>
         {/* Video placeholder */}
         <button
           aria-label="Watch video testimonial"
-          className="w-9 h-9 rounded-full bg-primary flex items-center justify-center hover:bg-accent transition-colors group"
+          className="w-11 h-11 rounded-full bg-primary flex items-center justify-center hover:bg-accent transition-colors group flex-shrink-0"
         >
           <Play size={13} className="text-white group-hover:scale-110 transition-transform" fill="white" />
         </button>
@@ -145,7 +145,7 @@ export default function Testimonials() {
   const visible = Array.from({ length: VISIBLE }, (_, i) => (current + i) % total)
 
   return (
-    <section id="testimonials" className="py-20 bg-white">
+    <section id="testimonials" className="py-14 sm:py-20 bg-white">
       <div className="container-main">
         <div className="text-center mb-14" ref={titleRef}>
           <div className="section-badge">Success Stories</div>
@@ -176,7 +176,7 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-4 mt-10">
             <button
               onClick={() => go(-1)}
-              className="w-10 h-10 rounded-full border-2 border-border flex items-center justify-center text-muted hover:border-accent hover:text-accent transition-all"
+              className="w-11 h-11 rounded-full border-2 border-border flex items-center justify-center text-muted hover:border-accent hover:text-accent transition-all"
               aria-label="Previous testimonials"
             >
               <ChevronLeft size={18} />
@@ -188,19 +188,23 @@ export default function Testimonials() {
                 <button
                   key={i}
                   onClick={() => { if (!isAnimating) { setIsAnimating(true); setCurrent(i); setTimeout(() => setIsAnimating(false), 450) } }}
-                  className={`rounded-full transition-all duration-300 ${
+                  className="min-w-11 min-h-11 flex items-center justify-center rounded-full transition-all duration-300"
+                  aria-label={`Go to testimonial ${i + 1}`}
+                >
+                  <span
+                    className={`block rounded-full transition-all duration-300 ${
                     i === current
                       ? 'w-6 h-2.5 bg-accent'
                       : 'w-2.5 h-2.5 bg-border hover:bg-accent/40'
-                  }`}
-                  aria-label={`Go to testimonial ${i + 1}`}
-                />
+                    }`}
+                  />
+                </button>
               ))}
             </div>
 
             <button
               onClick={() => go(1)}
-              className="w-10 h-10 rounded-full border-2 border-border flex items-center justify-center text-muted hover:border-accent hover:text-accent transition-all"
+              className="w-11 h-11 rounded-full border-2 border-border flex items-center justify-center text-muted hover:border-accent hover:text-accent transition-all"
               aria-label="Next testimonials"
             >
               <ChevronRight size={18} />

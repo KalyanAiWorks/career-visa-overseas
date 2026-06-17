@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Send, Upload, CheckCircle, Lock, ChevronRight, ChevronLeft, Phone, Mail, User, Briefcase } from 'lucide-react'
+import { Send, Upload, CheckCircle, Lock, ChevronRight, ChevronLeft, Phone, User, Briefcase } from 'lucide-react'
 
 const jobCategories = [
   'Construction & Engineering', 'Hospitality & Hotels', 'Healthcare',
@@ -91,7 +91,7 @@ export default function RegisterForm() {
 
   if (submitted) {
     return (
-      <section id="register" className="py-20 bg-white">
+      <section id="register" className="py-14 sm:py-20 bg-white">
         <div className="container-main">
           <div className="max-w-md mx-auto text-center py-12">
             <div className="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-5 animate-bounce-sm">
@@ -120,7 +120,7 @@ export default function RegisterForm() {
   }
 
   return (
-    <section id="register" className="py-20" style={{ background: '#f4f6f9' }}>
+    <section id="register" className="py-14 sm:py-20" style={{ background: '#f4f6f9' }}>
       <div className="container-main">
         <div className="text-center mb-12">
           <div className="section-badge">Apply Now</div>
@@ -133,12 +133,12 @@ export default function RegisterForm() {
 
         <div className="max-w-xl mx-auto">
           {/* Progress bar */}
-          <div className="flex items-center gap-0 mb-8">
+          <div className="flex items-center gap-0 mb-8 overflow-hidden">
             {STEPS.map((s, i) => (
               <div key={s.label} className="flex-1 flex items-center">
                 {/* Step bubble */}
                 <div className="flex flex-col items-center">
-                  <div className={`w-9 h-9 rounded-full flex items-center justify-center font-heading font-black text-sm transition-all duration-300 ${
+                  <div className={`w-10 h-10 sm:w-9 sm:h-9 rounded-full flex items-center justify-center font-heading font-black text-sm transition-all duration-300 ${
                     i < step  ? 'bg-green-500 text-white shadow-card' :
                     i === step? 'bg-accent text-white shadow-glow' :
                                'bg-border text-muted'
@@ -161,14 +161,14 @@ export default function RegisterForm() {
           </div>
 
           {/* Form card */}
-          <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-overlay p-8 sm:p-10">
+          <form onSubmit={handleSubmit} className="bg-white rounded-2xl sm:rounded-3xl shadow-overlay p-4 min-[390px]:p-5 sm:p-8 md:p-10">
             {/* Step label */}
-            <div className="flex items-center gap-2 mb-6">
-              <span className="w-6 h-6 rounded-full bg-accent/10 text-accent flex items-center justify-center">
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              <span className="w-7 h-7 rounded-full bg-accent/10 text-accent flex items-center justify-center flex-shrink-0">
                 {STEPS[step].icon}
               </span>
               <span className="text-primary font-heading font-bold text-lg">{STEPS[step].label}</span>
-              <span className="text-muted font-body text-sm ml-auto">Step {step + 1} of {STEPS.length}</span>
+              <span className="text-muted font-body text-sm min-[390px]:ml-auto">Step {step + 1} of {STEPS.length}</span>
             </div>
 
             {/* Step 1: Personal Info */}
@@ -236,12 +236,12 @@ export default function RegisterForm() {
                 <label className="block text-muted font-body text-xs uppercase tracking-wide mb-1.5">
                   Upload CV / Resume
                 </label>
-                <label className="flex items-center gap-4 border-2 border-dashed border-border rounded-2xl px-5 py-6 cursor-pointer hover:border-accent/60 transition-colors group mb-5">
+                <label className="flex items-center gap-3 sm:gap-4 border-2 border-dashed border-border rounded-2xl px-4 sm:px-5 py-5 sm:py-6 cursor-pointer hover:border-accent/60 transition-colors group mb-5 min-h-[88px]">
                   <div className="w-12 h-12 rounded-xl bg-surface flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-colors">
                     <Upload size={20} className="text-muted group-hover:text-accent" />
                   </div>
-                  <div>
-                    <div className="text-primary font-body text-base font-bold">
+                  <div className="min-w-0">
+                    <div className="text-primary font-body text-base font-bold truncate">
                       {fileName || 'Click to upload your CV'}
                     </div>
                     <div className="text-muted font-body text-sm">PDF, DOC, DOCX — up to 5 MB</div>
@@ -252,37 +252,44 @@ export default function RegisterForm() {
                 {/* Summary */}
                 <div className="bg-surface rounded-2xl p-4 text-sm font-body mb-5 space-y-2">
                   <div className="font-bold text-primary mb-2">Application Summary</div>
-                  <div className="flex justify-between"><span className="text-muted">Name</span><span className="font-bold text-primary">{form.name}</span></div>
-                  <div className="flex justify-between"><span className="text-muted">Phone</span><span className="font-bold text-primary">{form.phone}</span></div>
-                  <div className="flex justify-between"><span className="text-muted">Category</span><span className="font-bold text-primary">{form.category}</span></div>
-                  <div className="flex justify-between"><span className="text-muted">Country</span><span className="font-bold text-primary">{form.country}</span></div>
+                  {[
+                    { label: 'Name', val: form.name },
+                    { label: 'Phone', val: form.phone },
+                    { label: 'Category', val: form.category },
+                    { label: 'Country', val: form.country },
+                  ].map(({ label, val }) => (
+                    <div key={label} className="flex justify-between gap-2 min-w-0">
+                      <span className="text-muted flex-shrink-0">{label}</span>
+                      <span className="font-bold text-primary text-right break-words min-w-0 max-w-[60%]">{val}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
 
             {/* Navigation */}
-            <div className="flex items-center justify-between mt-7 gap-3">
+            <div className="flex flex-col-reverse min-[390px]:flex-row min-[390px]:items-center min-[390px]:justify-between mt-6 gap-3">
               {step > 0 ? (
                 <button type="button" onClick={() => setStep((s) => s - 1)}
-                        className="flex items-center gap-2 text-muted font-bold text-sm hover:text-primary transition-colors">
+                        className="flex items-center justify-center min-[390px]:justify-start gap-2 text-muted font-bold text-sm hover:text-primary transition-colors min-h-[44px] px-2">
                   <ChevronLeft size={16} /> Back
                 </button>
               ) : <div />}
 
               {step < 2 ? (
-                <button type="button" onClick={nextStep} className="btn-primary !py-3 !px-7">
+                <button type="button" onClick={nextStep} className="btn-primary w-full min-[390px]:w-auto">
                   Continue <ChevronRight size={16} />
                 </button>
               ) : (
-                <button type="submit" className="btn-primary !py-3 !px-7 shadow-glow">
+                <button type="submit" className="btn-primary shadow-glow w-full min-[390px]:w-auto">
                   <Send size={16} /> Submit Application
                 </button>
               )}
             </div>
 
             {/* Security note */}
-            <div className="flex items-center justify-center gap-2 mt-5 text-muted text-xs font-body">
-              <Lock size={12} />
+            <div className="flex items-start justify-center gap-2 mt-5 text-muted text-xs font-body text-center leading-snug">
+              <Lock size={12} className="mt-0.5 flex-shrink-0" />
               <span>Your data is 100% secure and never shared without your consent.</span>
             </div>
           </form>

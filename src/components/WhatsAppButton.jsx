@@ -12,11 +12,12 @@ export default function WhatsAppButton() {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-3"
+      className="fixed right-4 z-50 flex items-center gap-3"
+      style={{ bottom: 'calc(16px + env(safe-area-inset-bottom))' }}
     >
       {/* Tooltip */}
       <span
-        className={`bg-primary text-white font-body font-bold text-sm px-4 py-2.5 rounded-2xl shadow-overlay transition-all duration-300 whitespace-nowrap pointer-events-none ${
+        className={`hidden sm:inline-flex bg-primary text-white font-body font-bold text-sm px-4 py-2.5 rounded-2xl shadow-overlay transition-all duration-300 whitespace-nowrap pointer-events-none ${
           hovered ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-3'
         }`}
       >

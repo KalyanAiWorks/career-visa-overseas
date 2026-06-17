@@ -79,11 +79,11 @@ function CategoryCard({ cat, delay }) {
         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
         boxShadow: '0 2px 8px rgba(0,0,0,.08)',
       }}
-      onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(0,0,0,.22)' }}
+      onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 16px 40px rgba(0,0,0,.22)' }}
       onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)';    e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,.08)' }}
     >
       {/* Background image */}
-      <div className="h-56 overflow-hidden">
+      <div className="h-52 min-[390px]:h-48 sm:h-56 overflow-hidden">
         <img
           src={cat.image}
           alt={cat.title}
@@ -105,13 +105,21 @@ function CategoryCard({ cat, delay }) {
       )}
 
       {/* Content */}
-      <div className="absolute bottom-0 left-0 right-0 p-4">
-        <h3 className="text-white font-heading font-black text-[15px] leading-snug mb-2">
+      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+        <h3 className="text-white font-heading font-black text-base min-[390px]:text-sm sm:text-[15px] leading-snug mb-1.5">
           {cat.title}
         </h3>
-        <ul className="space-y-0.5 mb-3">
+        <ul className="space-y-0.5 mb-2 hidden sm:block">
           {cat.roles.map(role => (
             <li key={role} className="flex items-center gap-1.5 text-white/70 font-body text-xs">
+              <span className="w-1 h-1 rounded-full bg-accent flex-shrink-0" />
+              {role}
+            </li>
+          ))}
+        </ul>
+        <ul className="space-y-0.5 mb-2 sm:hidden">
+          {cat.roles.slice(0, 2).map(role => (
+            <li key={role} className="flex items-center gap-1.5 text-white/75 font-body text-sm">
               <span className="w-1 h-1 rounded-full bg-accent flex-shrink-0" />
               {role}
             </li>
@@ -127,7 +135,7 @@ function CategoryCard({ cat, delay }) {
 
 export default function JobCategories() {
   return (
-    <section id="jobs" className="py-20" style={{ background: '#f4f6f9' }}>
+    <section id="jobs" className="py-14 sm:py-20" style={{ background: '#f4f6f9' }}>
       <div className="container-main">
         <div className="text-center mb-14">
           <div className="section-badge">Opportunities</div>
@@ -138,7 +146,7 @@ export default function JobCategories() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 min-[390px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
           {categories.map((cat, i) => (
             <CategoryCard key={cat.title} cat={cat} delay={Math.min(i * 60, 400)} />
           ))}

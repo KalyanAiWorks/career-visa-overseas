@@ -14,7 +14,7 @@ export default function LoadingScreen() {
 
   return (
     <div
-      className="fixed inset-0 z-[99999] flex flex-col items-center justify-center"
+      className="fixed inset-0 z-[99999] flex flex-col items-center justify-center px-4 text-center"
       style={{
         background: 'linear-gradient(135deg, #0a1628, #0f2040)',
         opacity: fading ? 0 : 1,
@@ -38,7 +38,7 @@ export default function LoadingScreen() {
         />
       </div>
       <div className="text-white font-heading font-bold text-xl tracking-wide mb-1">Career Visa</div>
-      <div className="text-accent font-body text-sm tracking-widest uppercase">Your Gateway to Global Careers</div>
+      <div className="text-accent font-body text-xs sm:text-sm tracking-wide uppercase leading-snug">Your Gateway to Global Careers</div>
       {/* Progress bar */}
       <div className="mt-8 w-40 h-0.5 bg-white/10 rounded-full overflow-hidden">
         <div

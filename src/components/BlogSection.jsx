@@ -47,7 +47,7 @@ function BlogCard({ post, delay }) {
           className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-      <div className="p-6">
+      <div className="p-5 sm:p-6">
         <div className="flex items-center gap-2 mb-3">
           <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${post.tagColor}`}>{post.tag}</span>
         </div>
@@ -55,12 +55,12 @@ function BlogCard({ post, delay }) {
           {post.title}
         </h3>
         <p className="text-muted font-body text-base leading-relaxed mb-4 line-clamp-2">{post.excerpt}</p>
-        <div className="flex items-center justify-between pt-4 border-t border-border">
-          <div className="flex items-center gap-3 text-muted text-sm">
+        <div className="flex flex-col min-[390px]:flex-row min-[390px]:items-center min-[390px]:justify-between gap-3 pt-4 border-t border-border">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-muted text-sm">
             <span className="flex items-center gap-1"><Calendar size={13} />{post.date}</span>
             <span className="flex items-center gap-1"><Clock size={13} />{post.readTime}</span>
           </div>
-          <a href="#" className="text-accent font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+          <a href="#" className="text-accent font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all min-h-11">
             Read <ArrowRight size={14} />
           </a>
         </div>
@@ -71,7 +71,7 @@ function BlogCard({ post, delay }) {
 
 export default function BlogSection() {
   return (
-    <section id="blog" className="py-20" style={{ background: '#f4f6f9' }}>
+    <section id="blog" className="py-14 sm:py-20" style={{ background: '#f4f6f9' }}>
       <div className="container-main">
         <div className="text-center mb-14">
           <div className="section-badge">Insights & Guides</div>

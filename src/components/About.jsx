@@ -15,9 +15,9 @@ const highlights = [
 function CountStat({ end, suffix, label }) {
   const [count, ref] = useCountUp(end, 2000)
   return (
-    <div ref={ref} className="text-center">
-      <div className="text-3xl font-heading font-black text-accent mb-1">{count.toLocaleString()}{suffix}</div>
-      <div className="text-white/60 font-body text-xs uppercase tracking-wide">{label}</div>
+    <div ref={ref} className="text-center px-2 py-1">
+      <div className="text-2xl sm:text-3xl font-heading font-black text-accent mb-1">{count.toLocaleString()}{suffix}</div>
+      <div className="text-white/60 font-body text-xs uppercase tracking-wide leading-tight">{label}</div>
     </div>
   )
 }
@@ -26,25 +26,25 @@ export default function About() {
   const titleRef = useScrollAnimation()
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-14 sm:py-20 bg-white">
       <div className="container-main">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left — image + stats */}
           <div ref={titleRef} className="animate-on-scroll">
-            <div className="relative rounded-3xl overflow-hidden bg-primary mb-6" style={{ minHeight: 280 }}>
+            <div className="relative rounded-3xl overflow-hidden bg-primary mb-6 min-h-[250px] sm:min-h-[280px]">
               <img
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80"
                 alt="Career Visa office team"
                 loading="lazy"
-                className="w-full h-72 object-cover opacity-80"
+                className="w-full h-64 sm:h-72 object-cover opacity-80"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 bg-white/10 border border-white/20 rounded-2xl p-4 text-white">
+              <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5 bg-white/10 border border-white/20 rounded-2xl p-4 text-white">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-xl bg-accent flex items-center justify-center flex-shrink-0">
                     <Award size={18} className="text-white" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="font-heading font-bold text-sm">MEA Licensed Agency</div>
                     <div className="text-white/60 text-xs">Govt. of India — Ministry of External Affairs</div>
                   </div>
@@ -53,7 +53,7 @@ export default function About() {
             </div>
 
             <div
-              className="rounded-2xl p-6 grid grid-cols-3 divide-x divide-white/10"
+              className="rounded-2xl p-5 sm:p-6 grid grid-cols-1 min-[390px]:grid-cols-3 divide-y min-[390px]:divide-y-0 min-[390px]:divide-x divide-white/10 gap-y-3 min-[390px]:gap-y-0"
               style={{ background: 'linear-gradient(135deg, #0a1628, #0f2040)' }}
             >
               <CountStat end={15000} suffix="+" label="Workers Deployed" />

@@ -84,11 +84,11 @@ function CountryCard({ country, delay }) {
         transitionDelay: `${delay}ms`,
         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
       }}
-      onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.boxShadow = '0 16px 48px rgba(0,0,0,.22)' }}
+      onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)'; e.currentTarget.style.boxShadow = '0 16px 48px rgba(0,0,0,.22)' }}
       onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)';    e.currentTarget.style.boxShadow = '' }}
     >
       {/* Image */}
-      <div className="h-48 overflow-hidden">
+      <div className="h-44 min-[390px]:h-40 sm:h-44 lg:h-48 overflow-hidden">
         <img
           src={country.image}
           alt={`${country.name} skyline`}
@@ -101,12 +101,12 @@ function CountryCard({ country, delay }) {
       <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent pointer-events-none" />
 
       {/* Info */}
-      <div className="absolute bottom-0 left-0 right-0 p-4">
-        <span className="text-3xl leading-none block mb-1">{country.flag}</span>
-        <h3 className="text-white font-heading font-black text-base leading-tight">{country.name}</h3>
-        <div className="flex items-center gap-1 mt-1">
-          <MapPin size={11} className="text-accent flex-shrink-0" />
-          <span className="text-white/65 font-body text-xs">{country.cities.join(' · ')}</span>
+      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+        <span className="text-2xl sm:text-3xl leading-none block mb-0.5 sm:mb-1">{country.flag}</span>
+        <h3 className="text-white font-heading font-black text-base min-[390px]:text-sm sm:text-base leading-tight">{country.name}</h3>
+        <div className="flex items-center gap-1 mt-0.5 sm:mt-1">
+          <MapPin size={10} className="text-accent flex-shrink-0" />
+          <span className="text-white/70 font-body text-sm truncate">{country.cities.join(' · ')}</span>
         </div>
       </div>
     </div>
@@ -115,7 +115,7 @@ function CountryCard({ country, delay }) {
 
 export default function Countries() {
   return (
-    <section id="countries" className="py-20 bg-white">
+    <section id="countries" className="py-14 sm:py-20 bg-white">
       <div className="container-main">
         <div className="text-center mb-14">
           <div className="section-badge">Global Placement</div>
@@ -126,7 +126,7 @@ export default function Countries() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+        <div className="grid grid-cols-1 min-[390px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
           {countries.map((country, i) => (
             <CountryCard key={country.name} country={country} delay={Math.min(i * 50, 350)} />
           ))}

@@ -35,7 +35,7 @@ function PremiumCTA({ href, children, variant = 'primary', icon, jiggleOffset = 
 
   return (
     <div
-      className="relative inline-flex flex-shrink-0"
+      className="relative inline-flex flex-shrink-0 max-w-full"
       style={{ animation: jiggling ? 'btnJiggle 0.6s ease' : undefined }}
     >
       {/* ── Rotating gradient border ring ── */}
@@ -57,18 +57,18 @@ function PremiumCTA({ href, children, variant = 'primary', icon, jiggleOffset = 
       {/* ── Button ── */}
       <a
         href={href}
-        className="relative overflow-hidden inline-flex items-center gap-2.5 font-heading font-bold text-base uppercase tracking-wide"
+        className="relative overflow-hidden inline-flex items-center gap-2.5 font-heading font-bold text-sm sm:text-base uppercase tracking-wide w-full sm:w-auto justify-center sm:justify-start min-h-11 max-w-full"
         style={{
           zIndex: 1,
           margin: 2,
           borderRadius: 11,
-          padding: '14px 30px',
+          padding: '12px 18px',
           color: 'white',
           background: isPrimary
             ? (hovered ? '#ffb740' : '#f5a623')
             : (hovered ? 'rgba(255,255,255,0.14)' : 'rgba(255,255,255,0.04)'),
           border: isPrimary ? 'none' : '1.5px solid rgba(255,255,255,0.7)',
-          transform: hovered ? 'scale(1.08)' : 'scale(1)',
+          transform: hovered ? 'scale(1.03)' : 'scale(1)',
           transition: 'transform 0.22s cubic-bezier(.34,1.56,.64,1), background 0.18s ease, box-shadow 0.18s ease',
           animation: isPrimary
             ? 'btnGlow 2.2s ease-in-out infinite'
@@ -93,7 +93,7 @@ function PremiumCTA({ href, children, variant = 'primary', icon, jiggleOffset = 
         {/* Leading icon */}
         {icon && <span style={{ position: 'relative', zIndex: 3, flexShrink: 0 }}>{icon}</span>}
         {/* Label */}
-        <span style={{ position: 'relative', zIndex: 3 }}>{children}</span>
+        <span className="min-w-0 whitespace-normal text-center leading-tight" style={{ position: 'relative', zIndex: 3 }}>{children}</span>
         {/* Trailing arrow — slides on hover (primary only) */}
         {isPrimary && (
           <span style={{
@@ -143,7 +143,7 @@ const trustBadges = [
 function StatCounter({ end, suffix = '', label }) {
   const [count, ref] = useCountUp(end, 2200)
   return (
-    <div ref={ref} className="text-center px-4 py-2">
+    <div ref={ref} className="text-center px-2 min-[390px]:px-3 sm:px-4 py-3">
       <div className="text-3xl sm:text-4xl font-heading font-black text-accent leading-none">
         {count.toLocaleString()}{suffix}
       </div>
@@ -170,7 +170,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-[100svh] flex items-center overflow-hidden"
       style={{ background: '#0a1628' }}
     >
       {/* ── Fallback image (behind video, shows if video fails) ── */}
@@ -206,30 +206,30 @@ export default function Hero() {
       />
 
       {/* ── All hero content ── */}
-      <div className="container-main relative py-36 md:py-44" style={{ zIndex: 3 }}>
+      <div className="container-main relative py-28 sm:py-32 md:py-40 lg:py-44" style={{ zIndex: 3 }}>
 
         {/* Rotating jobs ticker */}
         <div
-          className="inline-flex items-center gap-2 bg-white/5 border border-accent/20 rounded-full px-4 py-2 mb-7"
+          className="inline-flex items-center gap-2 bg-white/5 border border-accent/20 rounded-full px-3 sm:px-4 py-2 mb-6 max-w-full overflow-hidden"
           style={{ transition: 'opacity 0.35s ease', opacity: fade ? 1 : 0 }}
         >
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse flex-shrink-0" />
-          <span className="text-accent font-body text-sm font-bold">{rotatingJobs[jobIndex]}</span>
+          <span className="text-accent font-body text-xs sm:text-sm font-bold truncate">{rotatingJobs[jobIndex]}</span>
         </div>
 
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-heading font-black text-white leading-[1.05] mb-6 max-w-4xl">
+        <h1 className="text-[2.35rem] min-[390px]:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black text-white leading-[1.05] mb-5 max-w-4xl">
           Your Gateway to
           <span className="block text-gradient">Global Careers</span>
-          <span className="block text-white text-4xl sm:text-5xl md:text-6xl font-black opacity-90">Worldwide</span>
+          <span className="block text-white text-3xl min-[390px]:text-[2.1rem] sm:text-4xl md:text-5xl lg:text-6xl font-black opacity-90">Worldwide</span>
         </h1>
 
-        <p className="text-white/70 font-body text-lg leading-relaxed mb-10 max-w-xl">
+        <p className="text-white/70 font-body text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
           We connect skilled Indian workers with world-class employers across 14+ countries
           in the Gulf, Europe, Asia Pacific &amp; North America. Registration is always free.
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-10">
           <PremiumCTA
             href="#register"
             variant="primary"
@@ -239,7 +239,9 @@ export default function Hero() {
             Register as Candidate — Free
           </PremiumCTA>
 
-          <BouncingPointer />
+          <span className="hidden sm:inline-flex">
+            <BouncingPointer />
+          </span>
 
           <PremiumCTA
             href="#employer"
@@ -250,20 +252,28 @@ export default function Hero() {
           </PremiumCTA>
         </div>
 
-        {/* Stats */}
-        <div className="inline-flex flex-wrap divide-x divide-white/10 border border-white/10 rounded-2xl bg-white/5 mb-10">
-          <StatCounter end={10}   suffix="+" label="Years Experience"  />
-          <StatCounter end={5000} suffix="+" label="Candidates Placed" />
-          <StatCounter end={200}  suffix="+" label="Employer Partners" />
-          <StatCounter end={6}    suffix=""  label="Gulf Countries"    />
+        {/* Stats — 2×2 on mobile, 4 cols on sm+ */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 border border-white/10 rounded-2xl bg-white/5 mb-8 overflow-hidden w-full sm:w-auto sm:inline-grid">
+          <div className="border-r border-b sm:border-b-0 border-white/10">
+            <StatCounter end={10}   suffix="+" label="Years Experience"  />
+          </div>
+          <div className="border-b sm:border-b-0 sm:border-r border-white/10">
+            <StatCounter end={5000} suffix="+" label="Candidates Placed" />
+          </div>
+          <div className="border-r sm:border-r border-white/10">
+            <StatCounter end={200}  suffix="+" label="Employer Partners" />
+          </div>
+          <div>
+            <StatCounter end={6}    suffix=""  label="Gulf Countries"    />
+          </div>
         </div>
 
         {/* Trust badges */}
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-2 sm:gap-3">
           {trustBadges.map((b) => (
             <div
               key={b.label}
-              className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 text-white/70 text-xs font-body font-bold"
+              className="flex items-center gap-1.5 sm:gap-2 bg-white/5 border border-white/10 rounded-full px-2.5 sm:px-3 py-1.5 text-white/70 text-xs font-body font-bold"
             >
               <span className="text-accent">{b.icon}</span>
               {b.label}
