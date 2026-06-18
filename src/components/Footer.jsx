@@ -97,7 +97,7 @@ export default function Footer() {
               <img
                 src="/images/logo.png"
                 alt="Career Visa"
-                style={{ height: 60, width: 'auto', mixBlendMode: 'screen' }}
+                style={{ height: 48, width: 'auto' }}
                 className="hover:opacity-90 transition-opacity"
               />
             </a>
@@ -177,7 +177,7 @@ export default function Footer() {
                   <MapPin size={15} className="mt-0.5 flex-shrink-0" />
                   <div>
                     <div className="text-white/30 font-body text-[10px] uppercase tracking-wide mb-0.5">Office</div>
-                    <div className="font-body text-sm">Hyderabad, Telangana<br />India — 500001</div>
+                    <div className="font-body text-sm">H.No 2-94, 3rd Floor, Gangaram,<br />Annapurna Enclave, Chanda Nagar,<br />Serilingampalle (M), Hyderabad,<br />Telangana 500050</div>
                   </div>
                 </div>
               </li>
@@ -189,8 +189,8 @@ export default function Footer() {
             <h4 className="text-white font-heading font-black text-xs uppercase tracking-widest mb-5">Our Location</h4>
             <div className="rounded-2xl overflow-hidden border border-white/10 shadow-card">
               <iframe
-                title="Career Visa Office Location — Hyderabad"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.4097932298!2d78.24323153773638!3d17.41262771022399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1718000000000"
+                title="Career Visa Office Location — Chanda Nagar, Hyderabad"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.0!2d78.3456!3d17.4875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAnnapurna%20Enclave%2C%20Chanda%20Nagar%2C%20Serilingampalle%2C%20Hyderabad%2C%20Telangana%20500050!5e0!3m2!1sen!2sin!4v1718000000000"
                 width="100%"
                 height="180"
                 style={{ border: 0, display: 'block' }}
@@ -200,7 +200,7 @@ export default function Footer() {
               />
             </div>
             <a
-              href="https://maps.google.com/?q=Hyderabad,Telangana,India"
+              href="https://maps.google.com/?q=H.No+2-94,+3rd+Floor,+Gangaram,+Annapurna+Enclave,+Chanda+Nagar,+Serilingampalle,+Hyderabad,+Telangana+500050"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 text-accent font-body text-xs mt-2 hover:underline"

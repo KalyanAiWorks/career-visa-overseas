@@ -24,8 +24,8 @@ export default function LoadingScreen() {
     >
       {/* Logo mark */}
       <div className="relative mb-5">
-        <div className="w-20 h-20 rounded-2xl bg-accent flex items-center justify-center shadow-glow">
-          <span className="text-white font-heading font-black text-3xl">CV</span>
+        <div className="w-24 h-24 rounded-2xl flex items-center justify-center">
+          <img src="/images/logo-mark.png" alt="Career Visa" style={{ height: 80, width: 'auto' }} />
         </div>
         {/* Spinner ring */}
         <div

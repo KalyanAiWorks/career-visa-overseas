@@ -46,8 +46,8 @@ export default function Navbar() {
             <img
               src="/images/logo-mark.png"
               alt="Career Visa"
-              style={{ width: 'auto', mixBlendMode: 'screen' }}
-              className="h-[38px] sm:h-10 group-hover:opacity-90 transition-opacity"
+              style={{ width: 'auto' }}
+              className="h-[50px] sm:h-[56px] group-hover:opacity-90 transition-opacity"
             />
           </a>
 
