@@ -4,36 +4,52 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const faqs = [
   {
-    q: 'What documents do I need to apply for a Gulf job?',
-    a: 'You need a valid passport (minimum 2-year validity), educational/skill certificates, experience letters, passport-size photographs, and a medical fitness certificate. For healthcare roles, additional professional licences may be required. We will guide you on the exact checklist based on your trade and destination country.',
+    q: 'What documents do I need to apply for a Gulf job from Hyderabad?',
+    a: 'You need a valid passport (minimum 2-year validity), educational/skill certificates, experience letters, passport-size photographs, and a medical fitness certificate. For healthcare roles, additional professional licenses may be required. We will guide you on the exact checklist based on your trade and destination country.',
   },
   {
-    q: 'How long does the entire visa process take?',
+    q: 'How long does the Gulf visa process typically take from India?',
     a: 'Typically 30–45 days from job offer to deployment. The breakdown: document attestation (7–10 days), employer visa application (10–15 days), medical + GAMCA clearance (3–5 days), and visa stamping + emigration (5–7 days). Express timelines are possible for urgent employer requirements.',
   },
   {
-    q: 'Is Career Visa a government-licensed recruitment agency?',
-    a: 'Yes. Career Visa is registered and licensed by the Ministry of External Affairs (MEA), Government of India under the Emigration Act 1983. Our licence number is available on request and verifiable on the MEA eMigrate portal.',
+    q: 'Is Career Visa Overseas a government-licensed overseas recruitment agency?',
+    a: 'Yes. Career Visa Overseas is registered and licensed by the Ministry of External Affairs (MEA), Government of India under the Emigration Act 1983. Our license number is available on request and verifiable on the MEA eMigrate portal.',
   },
   {
-    q: 'Do candidates have to pay any fees?',
+    q: 'Do candidates have to pay any fees to Career Visa Overseas?',
     a: 'Registration and profile screening are completely FREE for candidates. Service charges, if any (for specific categories), are disclosed upfront before you sign any agreement. We comply fully with MEA fee regulations and never charge hidden amounts.',
   },
   {
-    q: 'Can I apply if I have no prior Gulf work experience?',
+    q: 'Can I apply for Gulf jobs without prior overseas experience?',
     a: 'Yes, many employers accept freshers or candidates with only Indian work experience. Roles in construction, hospitality, and facility management regularly hire freshers. Our team will honestly assess your profile and only send you for roles where you have a strong chance.',
   },
   {
-    q: 'What is the average salary package in Gulf countries?',
-    a: 'Salaries vary by trade and country. As a general guide — skilled technicians (AED 1,800–3,500/mo in UAE), nurses (SAR 4,000–7,000/mo in KSA), IT professionals (AED 4,000–8,000/mo in UAE). Most packages include free accommodation, transportation, and medical insurance on top of the basic salary.',
+    q: 'What is the average salary for Indian workers in Gulf countries?',
+    a: 'Salaries vary by trade and country. As a general guide — skilled technicians earn AED 1,800–3,500/month in UAE, nurses earn SAR 4,000–7,000/month in Saudi Arabia, IT professionals earn AED 4,000–8,000/month in UAE. Most packages include free accommodation, transportation, and medical insurance on top of the basic salary.',
   },
   {
-    q: 'How do I track my application status after registering?',
+    q: 'How do I track my application status after registering with Career Visa?',
     a: 'After registration you will receive an SMS/email with your unique Application ID. Our team will call you within 24 hours. You can also WhatsApp us at any time for a status update. We aim for full transparency at every stage of the process.',
   },
   {
     q: 'What happens if my visa is rejected or I face issues abroad?',
     a: 'Visa rejections are rare but possible due to employer requirements or policy changes. In such cases, we immediately re-shortlist you for alternate employers at no extra charge. For issues faced abroad, we have a 24/7 helpline and coordinate with the employer and Indian Embassy to resolve problems swiftly.',
+  },
+  {
+    q: 'Which is the best overseas recruitment agency in Hyderabad for Gulf jobs?',
+    a: 'Career Visa Overseas is widely recognized as one of the best overseas recruitment agencies in Hyderabad for Gulf jobs. With 10+ years of experience, MEA government licensing, 5,000+ successful placements, and a 95% success rate, we have established ourselves as the most trusted overseas consultancy in Hyderabad for UAE, Saudi Arabia, Qatar, Kuwait, Oman, and Bahrain placements.',
+  },
+  {
+    q: 'How can I verify if an overseas recruitment agency is genuine and not fake?',
+    a: 'To verify a genuine overseas recruitment agency: 1) Check MEA registration on emigrate.gov.in, 2) Verify the physical office address exists, 3) Check for ISO certification, 4) Review their track record and testimonials, 5) Ensure they do not charge illegal upfront fees, 6) Confirm they provide written agreements. Career Visa Overseas meets all these criteria as a verified, licensed agency.',
+  },
+  {
+    q: 'What are the highest-paying Gulf jobs for Indians in 2026?',
+    a: 'The highest-paying Gulf jobs for Indians in 2026 include: Surgeons and Specialist Doctors (AED 40,000-80,000/month), IT Project Managers (AED 25,000-45,000/month), Petroleum Engineers (AED 30,000-50,000/month), Chartered Accountants (AED 15,000-30,000/month), and Construction Project Managers (AED 18,000-35,000/month). Salaries vary by experience and specific employer.',
+  },
+  {
+    q: 'What is the process for getting a work visa for Dubai from India?',
+    a: 'The Dubai work visa process from India involves: 1) Secure a job offer through a licensed agency like Career Visa, 2) Employer applies for your entry permit, 3) Complete GAMCA medical examination, 4) Get documents attested (MEA and UAE Embassy), 5) Travel to Dubai and complete Emirates ID and medical, 6) Residence visa is stamped on your passport. Total time: 30-45 days.',
   },
 ]
 
