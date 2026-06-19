@@ -121,12 +121,20 @@ function TestimonialCard({ t }) {
 }
 
 export default function Testimonials() {
-  const VISIBLE = 3
   const total = testimonials.length
   const [current, setCurrent] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const autoRef = useRef(null)
   const titleRef = useScrollAnimation()
+
+  // Check mobile viewport
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const go = useCallback((dir) => {
     if (isAnimating) return
@@ -141,7 +149,8 @@ export default function Testimonials() {
     return () => clearInterval(autoRef.current)
   }, [go])
 
-  // Get visible indices (circular)
+  // On mobile, show 1 card at a time. On larger screens, show 3 cards.
+  const VISIBLE = isMobile ? 1 : 3
   const visible = Array.from({ length: VISIBLE }, (_, i) => (current + i) % total)
 
   return (
@@ -176,38 +185,45 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-4 mt-10">
             <button
               onClick={() => go(-1)}
-              className="w-11 h-11 rounded-full border-2 border-border flex items-center justify-center text-muted hover:border-accent hover:text-accent transition-all"
+              className="w-11 h-11 min-h-[44px] min-w-[44px] rounded-full border-2 border-border flex items-center justify-center text-muted hover:border-accent hover:text-accent transition-all"
               aria-label="Previous testimonials"
             >
-              <ChevronLeft size={18} />
+              <ChevronLeft size={20} />
             </button>
 
-            {/* Dots */}
+            {/* Dots - show fewer on mobile */}
             <div className="flex gap-2">
-              {testimonials.map((_, i) => (
+              {testimonials.slice(0, isMobile ? total : 1).map((_, i) => (
                 <button
                   key={i}
                   onClick={() => { if (!isAnimating) { setIsAnimating(true); setCurrent(i); setTimeout(() => setIsAnimating(false), 450) } }}
-                  className="min-w-11 min-h-11 flex items-center justify-center rounded-full transition-all duration-300"
+                  className="w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-full transition-all duration-300"
                   aria-label={`Go to testimonial ${i + 1}`}
                 >
                   <span
                     className={`block rounded-full transition-all duration-300 ${
                     i === current
-                      ? 'w-6 h-2.5 bg-accent'
+                      ? 'w-8 h-2.5 bg-accent'
                       : 'w-2.5 h-2.5 bg-border hover:bg-accent/40'
                     }`}
                   />
                 </button>
               ))}
+              {!isMobile && Array.from({ length: Math.min(total - 1, 2) }, (_, i) => (
+                <button
+                  key={`hidden-${i}`}
+                  className="hidden"
+                  aria-hidden="true"
+                />
+              ))}
             </div>
 
             <button
               onClick={() => go(1)}
-              className="w-11 h-11 rounded-full border-2 border-border flex items-center justify-center text-muted hover:border-accent hover:text-accent transition-all"
+              className="w-11 h-11 min-h-[44px] min-w-[44px] rounded-full border-2 border-border flex items-center justify-center text-muted hover:border-accent hover:text-accent transition-all"
               aria-label="Next testimonials"
             >
-              <ChevronRight size={18} />
+              <ChevronRight size={20} />
             </button>
           </div>
         </div>

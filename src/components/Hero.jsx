@@ -217,14 +217,14 @@ export default function Hero() {
           <span className="text-accent font-body text-xs sm:text-sm font-bold truncate">{rotatingJobs[jobIndex]}</span>
         </div>
 
-        <h1 className="text-[2.35rem] min-[390px]:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black text-white leading-[1.05] mb-5 max-w-4xl">
+        <h1 className="text-[1.75rem] min-[375px]:text-[2rem] min-[390px]:text-[2.25rem] sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black text-white leading-[1.1] mb-4 max-w-4xl">
           Your Gateway to
           <span className="block text-gradient">Global Careers</span>
-          <span className="block text-white text-3xl min-[390px]:text-[2.1rem] sm:text-4xl md:text-5xl lg:text-6xl font-black opacity-90">Worldwide</span>
+          <span className="block text-white text-xl min-[375px]:text-2xl min-[390px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black opacity-90">Worldwide</span>
         </h1>
 
-        <p className="text-white/70 font-body text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
-          We connect skilled Indian workers with world-class employers across 14+ countries
+        <p className="text-white/70 font-body text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 max-w-xl">
+          We connect skilled Indian workers with verified employers across 14+ countries
           in the Gulf, Europe, Asia Pacific &amp; North America. Registration is always free.
         </p>
 

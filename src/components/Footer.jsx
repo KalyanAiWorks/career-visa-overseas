@@ -89,9 +89,9 @@ export default function Footer() {
       </div>
 
       {/* Main footer grid */}
-      <div className="container-main py-12 sm:py-14">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
-          {/* Brand column */}
+      <div className="container-main py-10 sm:py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+          {/* Brand column - full width on mobile */}
           <div className="lg:col-span-1">
             <a href="#home" className="inline-flex mb-5">
               <img
@@ -214,8 +214,8 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/8">
         <div className="container-main py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <p className="text-white/30 font-body text-[11px] sm:text-xs">
-            © 2026 Career Visa Overseas. All rights reserved.<br className="sm:hidden" /> Licensed Overseas Recruitment Agency | MEA Reg. No: Applied
+          <p className="text-white/30 font-body text-[11px] sm:text-xs px-4 sm:px-0">
+            © 2026 Career Visa Overseas. All rights reserved. <span className="sm:hidden"><br /></span>Licensed Overseas Recruitment Agency | MEA Registered
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 flex-shrink-0">
             <a href="#" className="text-white/30 hover:text-accent font-body text-xs transition-colors min-h-[44px] flex items-center">Privacy Policy</a>

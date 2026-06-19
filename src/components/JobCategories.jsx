@@ -92,8 +92,8 @@ function CategoryCard({ cat, delay }) {
         />
       </div>
 
-      {/* Dark gradient overlay — strong enough for white text */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10 pointer-events-none" />
+      {/* Dark gradient overlay — strong enough for white text visibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/30 pointer-events-none" />
 
       {/* Badge */}
       {cat.badge && (

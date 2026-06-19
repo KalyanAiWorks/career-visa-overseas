@@ -84,10 +84,10 @@ export default function EmployerSection() {
           {/* Key stats */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-8 max-w-3xl mx-auto">
             {stats.map((s) => (
-              <div key={s.label} className="flex items-center justify-center sm:justify-start gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 sm:px-5 py-3 sm:py-4 min-w-0">
-                <span className="text-accent flex-shrink-0">{s.icon}</span>
+              <div key={s.label} className="flex items-center justify-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 sm:px-5 py-4 min-w-0">
+                <span className="text-accent flex-shrink-0 w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">{s.icon}</span>
                 <div className="text-left min-w-0">
-                  <div className="text-accent font-heading font-black text-lg sm:text-xl">{s.value}</div>
+                  <div className="text-accent font-heading font-black text-xl sm:text-2xl md:text-3xl">{s.value}</div>
                   <div className="text-white/50 text-xs font-body uppercase tracking-wide leading-tight">{s.label}</div>
                 </div>
               </div>

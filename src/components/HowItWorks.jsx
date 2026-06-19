@@ -44,12 +44,12 @@ function StepCard({ step, index }) {
       <div className="relative mb-6 z-10">
         {/* Outer glow ring */}
         <div className="absolute inset-0 rounded-full bg-accent/10 scale-125" />
-        <div className="relative w-24 h-24 rounded-full bg-primary flex items-center justify-center shadow-overlay border-4 border-white">
-          <span className="text-accent">{step.icon}</span>
+        <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-primary flex items-center justify-center shadow-overlay border-4 border-white">
+          <span className="text-accent scale-90 sm:scale-100">{step.icon}</span>
         </div>
         {/* Step number badge */}
-        <div className="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-accent flex items-center justify-center shadow-card border-2 border-white">
-          <span className="text-white font-heading font-black text-xs">{step.num}</span>
+        <div className="absolute -top-1 -right-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-accent flex items-center justify-center shadow-card border-2 border-white">
+          <span className="text-white font-heading font-black text-[10px] sm:text-xs">{step.num}</span>
         </div>
       </div>
 

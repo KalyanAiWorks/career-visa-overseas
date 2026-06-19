@@ -57,19 +57,19 @@ function FAQItem({ faq, index, isOpen, onToggle }) {
   return (
     <div className={`border rounded-xl overflow-hidden transition-all duration-300 ${isOpen ? 'border-accent shadow-card' : 'border-border'}`}>
       <button
-        className="w-full flex items-center justify-between gap-3 p-4 sm:p-5 text-left hover:bg-surface transition-colors min-h-[52px]"
+        className="w-full flex items-center justify-between gap-4 p-4 sm:p-5 text-left hover:bg-surface transition-colors min-h-[44px]"
         onClick={() => onToggle(index)}
         aria-expanded={isOpen}
       >
-        <span className={`font-heading font-bold text-sm sm:text-base ${isOpen ? 'text-accent' : 'text-primary'}`}>
+        <span className={`font-heading font-bold text-sm sm:text-base pr-4 ${isOpen ? 'text-accent' : 'text-primary'}`}>
           {faq.q}
         </span>
-        <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isOpen ? 'bg-accent text-white' : 'bg-surface text-muted'}`}>
-          {isOpen ? <Minus size={14} /> : <Plus size={14} />}
+        <div className={`flex-shrink-0 w-11 h-11 min-w-[44px] rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-accent text-white rotate-0' : 'bg-surface text-muted'}`}>
+          {isOpen ? <Minus size={20} /> : <Plus size={20} />}
         </div>
       </button>
       <div
-        className="faq-answer"
+        className="overflow-hidden transition-all duration-300 ease-in-out"
         style={{
           maxHeight: isOpen ? '900px' : '0',
           opacity: isOpen ? 1 : 0,

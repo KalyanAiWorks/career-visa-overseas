@@ -97,8 +97,8 @@ function CountryCard({ country, delay }) {
         />
       </div>
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent pointer-events-none" />
+      {/* Gradient overlay - darker for better text visibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20 pointer-events-none" />
 
       {/* Info */}
       <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
