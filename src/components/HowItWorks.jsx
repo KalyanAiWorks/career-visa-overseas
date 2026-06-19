@@ -71,10 +71,10 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="py-10 sm:py-20" style={{ background: '#f4f6f9' }}>
       <div className="container-main">
-        <div className="text-center mb-12 sm:mb-16" ref={titleRef}>
-          <div className="section-badge">Process</div>
-          <h2 className="section-title">How It Works</h2>
-          <p className="section-subtitle">
+        <div className="text-center mb-6 sm:mb-16" ref={titleRef}>
+          <div className="inline-block bg-accent/10 text-accent font-body text-[10px] font-bold px-2 py-0.5 rounded-full mb-2 uppercase tracking-wide">Process</div>
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-heading font-black text-primary mb-2 sm:mb-3">How It Works</h2>
+          <p className="hidden sm:block text-muted font-body text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
             Our proven 4-step process gets you from application to deployment.
           </p>
           {/* Average time badge - hidden on mobile */}
@@ -99,15 +99,15 @@ export default function HowItWorks() {
             </div>
           </div>
 
-          {/* Steps grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-10 relative z-10">
+          {/* Steps grid — 2 columns on mobile */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-10 relative z-10">
             {steps.map((step, i) => (
               <StepCard key={step.num} step={step} index={i} />
             ))}
           </div>
         </div>
 
-        <div className="text-center mt-10 sm:mt-14">
+        <div className="text-center mt-8 sm:mt-14">
           <a href="#register" className="btn-primary shadow-glow">
             Start My Application
           </a>

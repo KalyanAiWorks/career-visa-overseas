@@ -89,7 +89,7 @@ function CategoryCard({ cat, delay }) {
     <a
       href="#register"
       ref={ref}
-      className="animate-on-scroll block group relative overflow-hidden rounded-2xl"
+      className="animate-on-scroll block group relative overflow-hidden rounded-xl sm:rounded-2xl"
       style={{
         transitionDelay: `${delay}ms`,
         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
@@ -99,7 +99,7 @@ function CategoryCard({ cat, delay }) {
       onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)';    e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,.08)' }}
     >
       {/* Background image */}
-      <div className="h-36 sm:h-56 overflow-hidden">
+      <div className="h-28 sm:h-52 overflow-hidden">
         <img
           src={cat.image}
           alt={`${cat.title} overseas jobs from Hyderabad — Career Visa`}
@@ -113,19 +113,19 @@ function CategoryCard({ cat, delay }) {
 
       {/* Badge */}
       {cat.badge && (
-        <div className="absolute top-3 right-3">
-          <span className={`${cat.badgeColor} text-white text-[10px] font-black px-2 py-1 rounded-lg uppercase tracking-wide shadow`}>
+        <div className="absolute top-2 right-2 sm:top-3 sm:right-3">
+          <span className={`${cat.badgeColor} text-white text-[8px] sm:text-[10px] font-black px-1.5 sm:px-2 py-0.5 sm:py-1 rounded sm:rounded-lg uppercase tracking-wide shadow`}>
             {cat.badge}
           </span>
         </div>
       )}
 
       {/* Content */}
-      <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-        <h3 className="text-white font-heading font-black text-sm sm:text-[15px] leading-snug mb-1.5">
+      <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4">
+        <h3 className="text-white font-heading font-bold text-xs sm:text-[15px] leading-tight sm:leading-snug mb-1">
           {cat.title}
         </h3>
-        {/* Role list - hidden on mobile */}
+        {/* Role list - hidden completely on mobile */}
         <ul className="space-y-0.5 mb-2 hidden sm:block">
           {cat.roles.map(role => (
             <li key={role} className="flex items-center gap-1.5 text-white/70 font-body text-xs">
@@ -134,7 +134,7 @@ function CategoryCard({ cat, delay }) {
             </li>
           ))}
         </ul>
-        <span className="inline-flex items-center gap-1 text-accent font-heading font-bold text-xs uppercase tracking-wide group-hover:gap-2 transition-all">
+        <span className="inline-flex items-center gap-1 text-accent font-heading font-bold text-[10px] sm:text-xs uppercase tracking-wide group-hover:gap-2 transition-all">
           Apply →
         </span>
       </div>
@@ -144,22 +144,22 @@ function CategoryCard({ cat, delay }) {
 
 export default function JobCategories() {
   const [showAll, setShowAll] = useState(false)
-  const INITIAL_COUNT = 6
+  const INITIAL_COUNT = 8
   const visibleCategories = showAll ? categories : categories.slice(0, INITIAL_COUNT)
 
   return (
-    <section id="jobs" className="py-14 sm:py-20" style={{ background: '#f4f6f9' }}>
+    <section id="jobs" className="py-8 sm:py-20" style={{ background: '#f4f6f9' }}>
       <div className="container-main">
-        <div className="text-center mb-14">
-          <div className="section-badge">Opportunities</div>
-          <h2 className="section-title">Job Categories We Recruit For</h2>
-          <p className="section-subtitle">
+        <div className="text-center mb-6 sm:mb-14">
+          <div className="inline-block bg-accent/10 text-accent font-body text-[10px] font-bold px-2 py-0.5 rounded-full mb-2 uppercase tracking-wide">Opportunities</div>
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-heading font-black text-primary mb-2 sm:mb-3">Job Categories We Recruit For</h2>
+          <p className="hidden sm:block text-muted font-body text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
             We specialize in sourcing verified talent across 10 key industries. Whatever your trade,
             we have the right opportunity for you worldwide.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 sm:gap-4 md:gap-5 gap-2">
           {visibleCategories.map((cat, i) => (
             <CategoryCard key={cat.title} cat={cat} delay={Math.min(i * 60, 400)} />
           ))}
@@ -167,13 +167,13 @@ export default function JobCategories() {
 
         {/* View All button - only on mobile when not showing all */}
         {!showAll && categories.length > INITIAL_COUNT && (
-          <div className="text-center mt-8 sm:hidden">
+          <div className="text-center mt-6 sm:hidden">
             <button
               onClick={() => setShowAll(true)}
-              className="inline-flex items-center gap-2 bg-primary text-white font-heading font-bold px-5 py-3 rounded-xl transition-all active:scale-95"
+              className="inline-flex items-center gap-2 bg-primary text-white font-heading font-bold px-4 py-2 rounded-xl transition-all active:scale-95 text-xs"
             >
-              View All Categories
-              <ChevronDown size={18} />
+              View All
+              <ChevronDown size={16} />
             </button>
           </div>
         )}
