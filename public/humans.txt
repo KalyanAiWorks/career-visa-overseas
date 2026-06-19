@@ -1,0 +1,20 @@
+/* TEAM */
+  Agency: Career Visa Overseas
+  Location: Hyderabad, Telangana, India
+  Site: https://www.careervisaoverseas.com
+  Email: info@careervisaoverseas.com
+  Phone: +91-8978537368
+
+/* THANKS */
+  Node.js: https://nodejs.org
+  React: https://reactjs.org
+  Vite: https://vitejs.dev
+  Tailwind CSS: https://tailwindcss.com
+
+/* SITE */
+  Standards: HTML5, CSS3, JavaScript
+  Components: React 19, Framer Motion, Lucide Icons
+  Software: Vite, Tailwind CSS
+  Build Date: 2026-06-19
+  Language: English (en-IN)
+  Doctype: HTML5

@@ -2,8 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="/favicon-32x32.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link type="text/plain" rel="author" href="/humans.txt" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- ─── Primary SEO ─────────────────────────────────────────────── -->
@@ -46,17 +51,20 @@
     <!-- ─── Fonts ────────────────────────────────────────────────────── -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+    <!-- ─── Preconnect to CDN resources ──────────────────────────────── -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
     <!-- ─── Google Analytics 4 ───────────────────────────────────────── -->
-    <!-- Replace G-XXXXXXXXXX with your actual GA4 Measurement ID        -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX', { page_path: window.location.pathname });
-    </script> -->
+      gtag('config', 'G-XXXXXXXXXX', { page_path: window.location.pathname, send_page_view: true });
+    </script>
 
     <!-- ─── JSON-LD Structured Data ──────────────────────────────────── -->
     <script type="application/ld+json">
@@ -160,14 +168,14 @@
         "@type": "BreadcrumbList",
         "@id": "https://www.careervisaoverseas.com/#breadcrumb",
         "itemListElement": [
-          {"@type":"ListItem","position":1,"name":"Home",         "item":"https://www.careervisaoverseas.com/"},
-          {"@type":"ListItem","position":2,"name":"About Us",     "item":"https://www.careervisaoverseas.com/#about"},
-          {"@type":"ListItem","position":3,"name":"Jobs",         "item":"https://www.careervisaoverseas.com/#jobs"},
-          {"@type":"ListItem","position":4,"name":"Countries",    "item":"https://www.careervisaoverseas.com/#countries"},
-          {"@type":"ListItem","position":5,"name":"How It Works", "item":"https://www.careervisaoverseas.com/#how-it-works"},
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.careervisaoverseas.com/"},
+          {"@type":"ListItem","position":2,"name":"About Us","item":"https://www.careervisaoverseas.com/#about"},
+          {"@type":"ListItem","position":3,"name":"Jobs","item":"https://www.careervisaoverseas.com/#jobs"},
+          {"@type":"ListItem","position":4,"name":"Countries","item":"https://www.careervisaoverseas.com/#countries"},
+          {"@type":"ListItem","position":5,"name":"How It Works","item":"https://www.careervisaoverseas.com/#how-it-works"},
           {"@type":"ListItem","position":6,"name":"For Employers","item":"https://www.careervisaoverseas.com/#employer"},
-          {"@type":"ListItem","position":7,"name":"FAQ",          "item":"https://www.careervisaoverseas.com/#faq"},
-          {"@type":"ListItem","position":8,"name":"Register",     "item":"https://www.careervisaoverseas.com/#register"}
+          {"@type":"ListItem","position":7,"name":"FAQ","item":"https://www.careervisaoverseas.com/#faq"},
+          {"@type":"ListItem","position":8,"name":"Register","item":"https://www.careervisaoverseas.com/#register"}
         ]
       },
       {
@@ -223,11 +231,94 @@
             }
           }
         ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "JobPosting",
+        "title": "Multiple Gulf Job Opportunities",
+        "description": "Explore verified job openings across UAE, Saudi Arabia, Qatar, Kuwait, Oman, and Bahrain. Positions available in construction, healthcare, hospitality, IT, engineering, and more.",
+        "hiringOrganization": {
+          "@type": "Organization",
+          "name": "Career Visa Overseas",
+          "sameAs": "https://www.careervisaoverseas.com"
+        },
+        "jobLocation": [
+          {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "AE"}},
+          {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "SA"}},
+          {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "QA"}},
+          {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "KW"}},
+          {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "OM"}},
+          {"@type": "Place", "address": {"@type": "PostalAddress", "addressCountry": "BH"}}
+        ],
+        "employmentType": ["FULL_TIME", "CONTRACTOR"],
+        "occupationalCategory": "Construction, Healthcare, Hospitality, IT, Engineering, Administration, Sales",
+        "validThrough": "2026-12-31"
       }
     ]
     </script>
   </head>
   <body>
+    <!-- PRERENDERED CONTENT FOR SEO - This content is visible to search engines before React hydrates -->
+    <div id="seo-content" style="position:absolute;left:-9999px;top:-9999px;">
+      <h1>Career Visa Overseas - Leading Gulf Jobs & Overseas Recruitment Agency in Hyderabad</h1>
+      <p>Welcome to Career Visa Overseas, a trusted MEA-licensed overseas recruitment consultancy in Hyderabad. Since 2014, we have placed over 5,000 Indian workers across premium employers in UAE, Saudi Arabia, Qatar, Kuwait, Oman, and Bahrain. Our expert team provides end-to-end support for job seekers and employers.</p>
+
+      <h2>Our Services</h2>
+      <h3>Overseas Job Placement</h3>
+      <p>Connect with verified Gulf employers across construction, healthcare, hospitality, IT, and engineering sectors. We maintain partnerships with 200+ accredited companies.</p>
+
+      <h3>Gulf Manpower Recruitment</h3>
+      <p>Professional recruitment services for employers seeking skilled Indian talent. We handle sourcing, screening, documentation, and deployment.</p>
+
+      <h3>Visa Processing Assistance</h3>
+      <p>Expert guidance through emigration clearance, work permit applications, and visa stamping. Average processing time: 30-45 days.</p>
+
+      <h3>Document Attestation Support</h3>
+      <p>Complete assistance with MEA attestation, Apostille, and embassy legalization for educational and professional documents.</p>
+
+      <h2>Countries We Serve</h2>
+      <ul>
+        <li>United Arab Emirates (UAE) - Dubai, Abu Dhabi, Sharjah</li>
+        <li>Saudi Arabia - Riyadh, Jeddah, Dammam</li>
+        <li>Qatar - Doha, Al Rayyan</li>
+        <li>Kuwait - Kuwait City</li>
+        <li>Oman - Muscat, Salalah</li>
+        <li>Bahrain - Manama</li>
+      </ul>
+
+      <h2>Job Categories Available</h2>
+      <ul>
+        <li>Construction workers and engineers</li>
+        <li>Healthcare professionals (nurses, doctors, technicians)</li>
+        <li>Hospitality staff (hotels, restaurants, tourism)</li>
+        <li>IT and software professionals</li>
+        <li>Administration and HR</li>
+        <li>Sales and marketing executives</li>
+        <li>Security personnel</li>
+        <li>Drivers and logistics staff</li>
+      </ul>
+
+      <h2>About Career Visa Overseas</h2>
+      <p>Established in 2014, Career Visa Overseas is a government-licensed recruitment agency headquartered in Hyderabad, Telangana. Our MEA registration ensures full compliance with Indian emigration laws. We operate from Chanda Nagar, Serilingampalle, serving candidates across Telangana and neighboring states.</p>
+
+      <h2>Contact Information</h2>
+      <p>Address: H.No 2-94, 3rd Floor, Gangaram, Annapurna Enclave, Chanda Nagar, Serilingampalle (M), Hyderabad, Telangana 500050</p>
+      <p>Phone: +91-8978537368</p>
+      <p>Email: info@careervisaoverseas.com</p>
+      <p>Business Hours: Monday to Saturday, 9:00 AM to 6:00 PM</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>Is registration free for job seekers?</h3>
+      <p>Yes, candidate registration and profile screening are completely free. We comply with MEA fee regulations and never charge hidden amounts.</p>
+
+      <h3>Do I need prior overseas experience?</h3>
+      <p>Many employers accept freshers or candidates with Indian experience, especially in construction, hospitality, and facility management sectors.</p>
+
+      <h3>What is the typical salary range?</h3>
+      <p>Skilled technicians earn AED 1,800-3,500/month in UAE. Nurses earn SAR 4,000-7,000/month in Saudi Arabia. Most packages include free accommodation, transportation, and medical insurance.</p>
+    </div>
+
+    <!-- React App Mount Point -->
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
