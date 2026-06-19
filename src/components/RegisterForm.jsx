@@ -1,341 +1,188 @@
-import { useState, useRef } from 'react'
 import { Send, Upload, CheckCircle, Lock, ChevronRight, ChevronLeft, Phone, User, Briefcase } from 'lucide-react'
 
-const jobCategories = [
-  'Construction & Engineering', 'Hospitality & Hotels', 'Healthcare',
-  'Security Services', 'Facility Management', 'Oil & Gas',
-  'Catering & Food Service', 'Logistics & Warehouse', 'IT & Technology', 'Retail & Sales',
-]
-const countries = ['UAE', 'Saudi Arabia', 'Qatar', 'Kuwait', 'Oman', 'Bahrain', 'Any Gulf Country']
-const experienceOptions = ['Fresher (0 years)', '1–2 years', '3–5 years', '6–10 years', '10+ years']
-
-const STEPS = [
-  { label: 'Personal Info',    icon: <User size={14} /> },
-  { label: 'Job Preferences',  icon: <Briefcase size={14} /> },
-  { label: 'Documents',        icon: <Upload size={14} /> },
+const services = [
+  'Overseas Job Placement',
+  'Document Attestation',
+  'Visa Processing',
+  'Ticketing & Travel',
+  'Emigration Support',
+  'Medical Assistance',
 ]
 
-function validate(field, value) {
-  if (!value || value.trim() === '') return false
-  if (field === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-  if (field === 'phone' || field === 'whatsapp') return /^[+\d\s-]{7,}$/.test(value)
-  return value.length >= 2
-}
+const gulfCountries = [
+  { name: 'UAE', flag: '🇦🇪' },
+  { name: 'Saudi Arabia', flag: '🇸🇦' },
+  { name: 'Qatar', flag: '🇶🇦' },
+  { name: 'Kuwait', flag: '🇰🇼' },
+  { name: 'Oman', flag: '🇴🇲' },
+  { name: 'Bahrain', flag: '🇧🇭' },
+]
 
-function FieldWrapper({ label, required, children }) {
-  return (
-    <div>
-      <label className="block text-muted font-body text-xs uppercase tracking-wide mb-1.5">
-        {label} {required && <span className="text-red-500">*</span>}
-      </label>
-      {children}
-    </div>
-  )
-}
+const experienceLevels = [
+  '0-1 years',
+  '1-3 years',
+  '3-5 years',
+  '5-10 years',
+  '10+ years',
+]
+
+const jobTypes = [
+  'Engineer',
+  'Doctor/Nurse',
+  'IT Professional',
+  'Accountant',
+  'Sales/Marketing',
+  'Electrician/Technician',
+  'Driver',
+  'Chef/Cook',
+  'Helper/Laborer',
+  'Security Guard',
+  'Office Assistant',
+  'Other',
+]
 
 export default function RegisterForm() {
-  const [step, setStep] = useState(0)
-  const [submitted, setSubmitted] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
-  const [submitError, setSubmitError] = useState('')
-  const [fileName, setFileName] = useState('')
-  const [touched, setTouched] = useState({})
-  const [form, setForm] = useState({
-    name: '', phone: '', email: '', whatsapp: '',
-    category: '', experience: '', country: '', cv: null,
-  })
-  const fileInputRef = useRef(null)
-
-  function handleChange(e) {
-    const { name, value, files } = e.target
-    if (name === 'cv' && files?.[0]) {
-      setFileName(files[0].name)
-      setForm((f) => ({ ...f, cv: files[0] }))
-    } else {
-      setForm((f) => ({ ...f, [name]: value }))
-    }
-    setTouched((t) => ({ ...t, [name]: true }))
-  }
-
-  function fieldClass(field) {
-    if (!touched[field]) return 'input-field'
-    return validate(field, form[field]) ? 'input-field input-valid' : 'input-field input-invalid'
-  }
-
-  function selectClass(field) {
-    if (!touched[field]) return 'select-field'
-    return form[field] ? 'select-field input-valid' : 'select-field input-invalid'
-  }
-
-  function step1Valid() {
-    return validate('name', form.name) && validate('phone', form.phone) && validate('email', form.email)
-  }
-
-  function step2Valid() {
-    return form.category !== '' && form.experience !== '' && form.country !== ''
-  }
-
-  function nextStep() {
-    if (step === 0 && !step1Valid()) {
-      setTouched({ name: true, phone: true, email: true })
-      return
-    }
-    if (step === 1 && !step2Valid()) {
-      setTouched((t) => ({ ...t, category: true, experience: true, country: true }))
-      return
-    }
-    setStep((s) => Math.min(s + 1, 2))
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault()
-    setSubmitting(true)
-    setSubmitError('')
-    try {
-      const data = new FormData()
-      data.append('name', form.name)
-      data.append('phone', form.phone)
-      data.append('whatsapp', form.whatsapp || form.phone)
-      data.append('email', form.email)
-      data.append('jobCategory', form.category)
-      data.append('experience', form.experience)
-      data.append('preferredCountry', form.country)
-      data.append('_subject', `New Job Application — ${form.name} (${form.category})`)
-      data.append('_captcha', 'false')
-      data.append('_template', 'table')
-      if (form.cv) data.append('cv', form.cv)
-
-      const res = await fetch('https://formsubmit.co/ajax/info@careervisaoverseas.com', {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: data,
-      })
-      if (res.ok) {
-        setSubmitted(true)
-      } else {
-        setSubmitError('Submission failed — please WhatsApp us directly at +91 89785 37368.')
-      }
-    } catch {
-      setSubmitError('Network error — please WhatsApp us directly at +91 89785 37368.')
-    } finally {
-      setSubmitting(false)
-    }
-  }
-
-  if (submitted) {
-    return (
-      <section id="register" className="py-14 sm:py-20 bg-white">
-        <div className="container-main">
-          <div className="max-w-md mx-auto text-center py-12">
-            <div className="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-5 animate-bounce-sm">
-              <CheckCircle size={40} className="text-green-500" />
-            </div>
-            <h2 className="text-2xl font-heading font-black text-primary mb-3">Application Received!</h2>
-            <p className="text-muted font-body text-base leading-relaxed mb-2">
-              Thank you for registering with Career Visa.
-            </p>
-            <div className="bg-green-50 border border-green-200 rounded-2xl p-4 my-5 flex items-center gap-3">
-              <Phone size={18} className="text-green-500 flex-shrink-0" />
-              <span className="text-green-700 font-body text-base font-bold">
-                We will call you within 24 hours!
-              </span>
-            </div>
-            <a
-              href="https://wa.me/918978537368?text=Hi%21%20I%20just%20registered%20on%20Career%20Visa%20Overseas."
-              target="_blank" rel="noopener noreferrer"
-              className="btn-primary mt-4 mx-auto inline-flex"
-            >
-              Join our WhatsApp for Job Updates
-            </a>
-            <button className="btn-secondary mt-3 mx-auto" onClick={() => { setSubmitted(false); setStep(0) }}>
-              Submit Another Application
-            </button>
-          </div>
-        </div>
-      </section>
-    )
-  }
-
   return (
-    <section id="register" className="py-14 sm:py-20" style={{ background: '#f4f6f9' }}>
-      <div className="container-main">
-        <div className="text-center mb-12">
-          <div className="section-badge">Apply Now</div>
-          <h2 className="section-title">Candidate Registration</h2>
-          <p className="section-subtitle">
-            Fill in your details below. Our team will match you with the right opportunity.
-            Registration is <span className="text-accent font-bold">100% free</span> for candidates.
-          </p>
-        </div>
-
-        <div className="max-w-xl mx-auto">
-          {/* Progress bar */}
-          <div className="flex items-center gap-0 mb-8 overflow-hidden">
-            {STEPS.map((s, i) => (
-              <div key={s.label} className="flex-1 flex items-center">
-                {/* Step bubble */}
-                <div className="flex flex-col items-center">
-                  <div className={`w-10 h-10 sm:w-9 sm:h-9 rounded-full flex items-center justify-center font-heading font-black text-sm transition-all duration-300 ${
-                    i < step  ? 'bg-green-500 text-white shadow-card' :
-                    i === step? 'bg-accent text-white shadow-glow' :
-                               'bg-border text-muted'
-                  }`}>
-                    {i < step ? <CheckCircle size={16} /> : i + 1}
-                  </div>
-                  <span className={`text-xs font-bold mt-1 whitespace-nowrap transition-colors hidden sm:block ${
-                    i === step ? 'text-accent' : 'text-muted'
-                  }`}>
-                    {s.label}
-                  </span>
-                </div>
-                {/* Connector */}
-                {i < STEPS.length - 1 && (
-                  <div className="flex-1 mx-1 h-0.5 transition-colors duration-300"
-                       style={{ background: i < step ? '#22c55e' : '#e2e8f0' }} />
-                )}
-              </div>
-            ))}
+    <section id="register" className="py-14 sm:py-20 bg-white">
+      <div className="container-main mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="section-badge">Register Now</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-black text-primary mb-4">
+              Start Your Gulf Career Journey
+            </h2>
+            <p className="text-muted font-body text-base sm:text-lg">
+              Fill in your details below and our experts will contact you within 24 hours.
+            </p>
           </div>
 
-          {/* Form card */}
-          <form onSubmit={handleSubmit} className="bg-white rounded-2xl sm:rounded-3xl shadow-overlay p-4 min-[390px]:p-5 sm:p-8 md:p-10">
-            {/* Step label */}
-            <div className="flex flex-wrap items-center gap-2 mb-6">
-              <span className="w-7 h-7 rounded-full bg-accent/10 text-accent flex items-center justify-center flex-shrink-0">
-                {STEPS[step].icon}
-              </span>
-              <span className="text-primary font-heading font-bold text-lg">{STEPS[step].label}</span>
-              <span className="text-muted font-body text-sm min-[390px]:ml-auto">Step {step + 1} of {STEPS.length}</span>
-            </div>
-
-            {/* Step 1: Personal Info */}
-            {step === 0 && (
-              <div className="grid sm:grid-cols-2 gap-5 animate-fade-in">
-                <div className="sm:col-span-2">
-                  <FieldWrapper label="Full Name" required>
-                    <input type="text" name="name" value={form.name} onChange={handleChange}
-                           placeholder="Enter your full name" className={fieldClass('name')} />
-                  </FieldWrapper>
+          <form
+            className="bg-white rounded-2xl sm:rounded-3xl shadow-card border border-border p-6 sm:p-8 md:p-10"
+            onSubmit={(e) => {
+              e.preventDefault()
+              alert('Thank you for registering! We will contact you soon.')
+            }}
+          >
+            <div className="space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-muted font-body text-xs uppercase tracking-wide mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter your full name"
+                    className="w-full border border-border rounded-xl px-4 py-3.5 font-body text-base text-primary placeholder:text-muted/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
+                    required
+                  />
                 </div>
-                <FieldWrapper label="Phone Number" required>
-                  <input type="tel" name="phone" value={form.phone} onChange={handleChange}
-                         placeholder="+91 89785 37368" className={fieldClass('phone')} />
-                </FieldWrapper>
-                <FieldWrapper label="WhatsApp Number">
-                  <input type="tel" name="whatsapp" value={form.whatsapp} onChange={handleChange}
-                         placeholder="+91 89785 37368" className={fieldClass('whatsapp')} />
-                </FieldWrapper>
-                <div className="sm:col-span-2">
-                  <FieldWrapper label="Email Address" required>
-                    <input type="email" name="email" value={form.email} onChange={handleChange}
-                           placeholder="yourname@example.com" className={fieldClass('email')} />
-                  </FieldWrapper>
+                <div>
+                  <label className="block text-muted font-body text-xs uppercase tracking-wide mb-2">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="+91 89785 37368"
+                    className="w-full border border-border rounded-xl px-4 py-3.5 font-body text-base text-primary placeholder:text-muted/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
+                    required
+                  />
                 </div>
               </div>
-            )}
 
-            {/* Step 2: Job Preferences */}
-            {step === 1 && (
-              <div className="grid gap-5 animate-fade-in">
-                <FieldWrapper label="Job Category" required>
-                  <div className="relative">
-                    <select name="category" value={form.category} onChange={handleChange} className={selectClass('category')}>
-                      <option value="">Select category</option>
-                      {jobCategories.map((c) => <option key={c} value={c}>{c}</option>)}
-                    </select>
-                    <ChevronRight size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-muted pointer-events-none rotate-90" />
-                  </div>
-                </FieldWrapper>
-                <FieldWrapper label="Years of Experience" required>
-                  <div className="relative">
-                    <select name="experience" value={form.experience} onChange={handleChange} className={selectClass('experience')}>
-                      <option value="">Select experience</option>
-                      {experienceOptions.map((e) => <option key={e} value={e}>{e}</option>)}
-                    </select>
-                    <ChevronRight size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-muted pointer-events-none rotate-90" />
-                  </div>
-                </FieldWrapper>
-                <FieldWrapper label="Preferred Country" required>
-                  <div className="relative">
-                    <select name="country" value={form.country} onChange={handleChange} className={selectClass('country')}>
-                      <option value="">Select country</option>
-                      {countries.map((c) => <option key={c} value={c}>{c}</option>)}
-                    </select>
-                    <ChevronRight size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-muted pointer-events-none rotate-90" />
-                  </div>
-                </FieldWrapper>
-              </div>
-            )}
-
-            {/* Step 3: Documents */}
-            {step === 2 && (
-              <div className="animate-fade-in">
-                <label className="block text-muted font-body text-xs uppercase tracking-wide mb-1.5">
-                  Upload CV / Resume
+              <div>
+                <label className="block text-muted font-body text-xs uppercase tracking-wide mb-2">
+                  Email Address *
                 </label>
-                <label className="flex items-center gap-3 sm:gap-4 border-2 border-dashed border-border rounded-2xl px-4 sm:px-5 py-5 sm:py-6 cursor-pointer hover:border-accent/60 transition-colors group mb-5 min-h-[88px]">
-                  <div className="w-12 h-12 rounded-xl bg-surface flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-colors">
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  className="w-full border border-border rounded-xl px-4 py-3.5 font-body text-base text-primary placeholder:text-muted/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
+                  required
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-muted font-body text-xs uppercase tracking-wide mb-2">
+                    Job Type *
+                  </label>
+                  <select
+                    className="w-full border border-border rounded-xl px-4 py-3.5 font-body text-base text-primary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
+                    required
+                  >
+                    <option value="">Select job type</option>
+                    {jobTypes.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-muted font-body text-xs uppercase tracking-wide mb-2">
+                    Experience *
+                  </label>
+                  <select
+                    className="w-full border border-border rounded-xl px-4 py-3.5 font-body text-base text-primary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
+                    required
+                  >
+                    <option value="">Select experience</option>
+                    {experienceLevels.map((level) => (
+                      <option key={level} value={level}>
+                        {level}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-muted font-body text-xs uppercase tracking-wide mb-2">
+                  Preferred Country *
+                </label>
+                <select
+                  className="w-full border border-border rounded-xl px-4 py-3.5 font-body text-base text-primary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
+                  required
+                >
+                  <option value="">Select country</option>
+                  {gulfCountries.map((country) => (
+                    <option key={country.name} value={country.name}>
+                      {country.flag} {country.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-muted font-body text-xs uppercase tracking-wide mb-2">
+                  Upload Resume (Optional)
+                </label>
+                <label className="flex items-center gap-4 border-2 border-dashed border-border rounded-xl px-4 py-4 cursor-pointer hover:border-accent/60 transition-colors group min-h-[56px]">
+                  <div className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-colors">
                     <Upload size={20} className="text-muted group-hover:text-accent" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-primary font-body text-base font-bold truncate">
-                      {fileName || 'Click to upload your CV'}
+                    <div className="text-primary font-body text-base font-bold">
+                      Click to upload your CV
                     </div>
-                    <div className="text-muted font-body text-sm">PDF, DOC, DOCX — up to 5 MB</div>
+                    <div className="text-muted font-body text-xs">PDF, DOC, DOCX — up to 5 MB</div>
                   </div>
-                  <input type="file" name="cv" accept=".pdf,.doc,.docx" onChange={handleChange} className="sr-only" />
+                  <input type="file" accept=".pdf,.doc,.docx" className="sr-only" />
                 </label>
-
-                {/* Summary */}
-                <div className="bg-surface rounded-2xl p-4 text-sm font-body mb-5 space-y-2">
-                  <div className="font-bold text-primary mb-2">Application Summary</div>
-                  {[
-                    { label: 'Name', val: form.name },
-                    { label: 'Phone', val: form.phone },
-                    { label: 'Category', val: form.category },
-                    { label: 'Country', val: form.country },
-                  ].map(({ label, val }) => (
-                    <div key={label} className="flex justify-between gap-2 min-w-0">
-                      <span className="text-muted flex-shrink-0">{label}</span>
-                      <span className="font-bold text-primary text-right break-words min-w-0 max-w-[60%]">{val}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
-            )}
 
-            {/* Navigation */}
-            <div className="flex flex-col-reverse min-[390px]:flex-row min-[390px]:items-center min-[390px]:justify-between mt-6 gap-3">
-              {step > 0 ? (
-                <button type="button" onClick={() => setStep((s) => s - 1)}
-                        className="flex items-center justify-center min-[390px]:justify-start gap-2 text-muted font-bold text-sm hover:text-primary transition-colors min-h-[44px] px-2">
-                  <ChevronLeft size={16} /> Back
-                </button>
-              ) : <div />}
+              <button
+                type="submit"
+                className="w-full bg-accent text-white font-heading font-bold px-6 py-4 rounded-xl transition-all duration-200 hover:bg-accent-dark hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] inline-flex items-center justify-center gap-2 text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-accent/50 min-h-[52px]"
+              >
+                <Send size={18} />
+                Submit Application
+              </button>
 
-              {step < 2 ? (
-                <button type="button" onClick={nextStep} className="btn-primary w-full min-[390px]:w-auto">
-                  Continue <ChevronRight size={16} />
-                </button>
-              ) : (
-                <button type="submit" disabled={submitting} className="btn-primary shadow-glow w-full min-[390px]:w-auto disabled:opacity-60 disabled:cursor-not-allowed">
-                  {submitting ? (
-                    <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Submitting…</>
-                  ) : (
-                    <><Send size={16} /> Submit Application</>
-                  )}
-                </button>
-              )}
-            </div>
-
-            {/* Error message */}
-            {submitError && (
-              <p className="mt-4 text-red-500 font-body text-sm text-center">{submitError}</p>
-            )}
-            {/* Security note */}
-            <div className="flex items-start justify-center gap-2 mt-5 text-muted text-xs font-body text-center leading-snug">
-              <Lock size={12} className="mt-0.5 flex-shrink-0" />
-              <span>Your data is 100% secure and never shared without your consent.</span>
+              <div className="flex items-start justify-center gap-2 text-muted text-xs font-body text-center leading-relaxed">
+                <Lock size={14} className="mt-0.5 flex-shrink-0" />
+                <span>Your data is 100% secure and never shared without your consent.</span>
+              </div>
             </div>
           </form>
         </div>

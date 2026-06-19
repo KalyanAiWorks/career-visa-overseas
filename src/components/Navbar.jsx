@@ -65,24 +65,44 @@ export default function Navbar() {
           </nav>
 
           {/* Right side */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Show phone icon only on mobile, full text on larger screens */}
             <a
               href="tel:+918978537368"
-              className="hidden md:flex items-center gap-1.5 text-accent font-body text-sm hover:text-accent-light transition-colors"
+              className="hidden sm:flex md:hidden lg:flex items-center gap-1.5 text-accent font-body text-sm hover:text-accent-light transition-colors min-h-[44px] px-2"
+              aria-label="Call +91 89785 37368"
             >
-              <Phone size={14} />
-              <span className="font-bold">+91 89785 37368</span>
+              <Phone size={16} />
+              <span className="font-bold hidden md:inline">+91 89785 37368</span>
             </a>
-            <a href="#register" className="btn-primary hidden sm:inline-flex !py-2 !px-4 text-xs">
+            {/* Mobile-friendly call button */}
+            <a
+              href="tel:+918978537368"
+              className="sm:hidden flex items-center justify-center w-11 h-11 min-h-[44px] min-w-[44px] rounded-lg bg-accent/10 text-accent hover:bg-accent/20 transition-colors"
+              aria-label="Call now"
+            >
+              <Phone size={20} />
+            </a>
+            {/* Mobile-friendly Register button */}
+            <a
+              href="#register"
+              className="hidden sm:inline-flex btn-primary !py-2 !px-3 sm:!px-4 text-xs min-h-[44px]"
+            >
               Register Free
             </a>
+            <a
+              href="#register"
+              className="sm:hidden flex items-center justify-center px-3 py-2 min-h-[44px] bg-accent text-white font-bold text-xs uppercase tracking-wide rounded-lg hover:bg-accent-dark transition-colors"
+            >
+              Register
+            </a>
             <button
-              className="lg:hidden text-white min-w-11 min-h-11 rounded-lg hover:bg-white/10 transition-colors flex items-center justify-center"
+              className="lg:hidden text-white w-11 h-11 min-w-[44px] min-h-[44px] rounded-lg hover:bg-white/10 transition-colors flex items-center justify-center"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
               aria-expanded={menuOpen}
             >
-              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
