@@ -55,7 +55,7 @@ export default function Footer() {
               <img
                 src="/images/logo.png"
                 alt="Career Visa"
-                style={{ height: 48, width: 'auto' }}
+                style={{ height: 48, width: 'auto', mixBlendMode: 'lighten' }}
                 className="hover:opacity-90 transition-opacity"
               />
             </a>

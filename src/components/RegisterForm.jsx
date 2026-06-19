@@ -16,6 +16,16 @@ const gulfCountries = [
   { name: 'Kuwait', flag: '🇰🇼' },
   { name: 'Oman', flag: '🇴🇲' },
   { name: 'Bahrain', flag: '🇧🇭' },
+  { name: 'USA', flag: '🇺🇸' },
+  { name: 'United Kingdom', flag: '🇬🇧' },
+  { name: 'Germany', flag: '🇩🇪' },
+  { name: 'Poland', flag: '🇵🇱' },
+  { name: 'Romania', flag: '🇷🇴' },
+  { name: 'Singapore', flag: '🇸🇬' },
+  { name: 'Malaysia', flag: '🇲🇾' },
+  { name: 'Australia', flag: '🇦🇺' },
+  { name: 'Canada', flag: '🇨🇦' },
+  { name: 'Other', flag: '🌍' },
 ]
 
 const experienceLevels = [
