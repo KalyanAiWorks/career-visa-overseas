@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 
-const WA_URL  = 'https://wa.me/91XXXXXXXXXX?text=Hi%20Career%20Visa%2C%20I%27m%20interested%20in%20overseas%20jobs'
-const TEL_URL = 'tel:+91XXXXXXXXXX'
+const WA_URL  = 'https://wa.me/918978537368?text=Hi%20Career%20Visa%20Overseas%2C%20I%27m%20interested%20in%20overseas%20jobs'
+const TEL_URL = 'tel:+918978537368'
 
 /* ── Icons ── */
 

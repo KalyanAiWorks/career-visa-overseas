@@ -86,7 +86,7 @@ function CategoryCard({ cat, delay }) {
       <div className="h-52 min-[390px]:h-48 sm:h-56 overflow-hidden">
         <img
           src={cat.image}
-          alt={cat.title}
+          alt={`${cat.title} overseas jobs from Hyderabad — Career Visa`}
           loading="lazy"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />

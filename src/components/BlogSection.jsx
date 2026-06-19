@@ -42,7 +42,7 @@ function BlogCard({ post, delay }) {
       <div className="overflow-hidden">
         <img
           src={post.image}
-          alt={post.title}
+          alt={`${post.title} — Career Visa Overseas Blog`}
           loading="lazy"
           className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
         />

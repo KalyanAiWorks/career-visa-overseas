@@ -24,10 +24,6 @@ const benefits = [
   },
 ]
 
-const employerLogos = [
-  'Emaar', 'SABIC', 'Qatar Airways', 'Aldar', 'ADNOC', 'Naffco',
-  'DP World', 'Marriott', 'Deyaar', 'KPMG Gulf',
-]
 
 const stats = [
   { value: '15 days', label: 'Avg. Hiring Time',  icon: <Clock size={18} /> },
@@ -120,20 +116,16 @@ export default function EmployerSection() {
               >
                 Request Manpower Quote <ArrowRight size={18} />
               </a>
-              <a href="mailto:info@careervisa.in" className="btn-outline justify-center">
+              <a href="mailto:info@careervisaoverseas.com" className="btn-outline justify-center">
                 Email Us
               </a>
             </div>
 
             {/* Client logos */}
             <div className="mt-10">
-              <p className="text-white/30 text-xs uppercase tracking-widest mb-4 font-bold">Trusted by</p>
-              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-                {employerLogos.map((logo) => (
-                  <span key={logo} className="bg-white/5 border border-white/10 text-white/50 font-bold text-xs px-3 py-1.5 rounded-lg">
-                    {logo}
-                  </span>
-                ))}
+              <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-5 py-3">
+                <span className="text-accent font-heading font-black text-2xl">200+</span>
+                <span className="text-white/50 font-body text-sm leading-snug">Gulf employers<br />trust our placements</span>
               </div>
             </div>
           </div>

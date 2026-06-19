@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Home / Landing Page -->
+  <url>
+    <loc>https://www.careervisaoverseas.com/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.careervisaoverseas.com/images/gulf-city.jpg</image:loc>
+      <image:title>Career Visa Overseas — Gulf Jobs Recruitment Agency Hyderabad</image:title>
+    </image:image>
+  </url>
+
+  <!-- About Section -->
+  <url>
+    <loc>https://www.careervisaoverseas.com/#about</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Jobs / Categories Section -->
+  <url>
+    <loc>https://www.careervisaoverseas.com/#jobs</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Countries Section -->
+  <url>
+    <loc>https://www.careervisaoverseas.com/#countries</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- How It Works Section -->
+  <url>
+    <loc>https://www.careervisaoverseas.com/#how-it-works</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- For Employers Section -->
+  <url>
+    <loc>https://www.careervisaoverseas.com/#employer</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Testimonials Section -->
+  <url>
+    <loc>https://www.careervisaoverseas.com/#testimonials</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- FAQ Section -->
+  <url>
+    <loc>https://www.careervisaoverseas.com/#faq</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Section -->
+  <url>
+    <loc>https://www.careervisaoverseas.com/#blog</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Register / Apply Section -->
+  <url>
+    <loc>https://www.careervisaoverseas.com/#register</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>

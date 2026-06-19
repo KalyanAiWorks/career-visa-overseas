@@ -94,7 +94,7 @@ export default function FAQ() {
         <div className="text-center mt-10">
           <p className="text-muted font-body text-base mb-4">Still have questions?</p>
           <a
-            href="https://wa.me/91XXXXXXXXXX?text=Hi%20Career%20Visa%2C%20I%20have%20a%20question%20about%20Gulf%20jobs."
+            href="https://wa.me/918978537368?text=Hi%20Career%20Visa%20Overseas%2C%20I%20have%20a%20question%20about%20Gulf%20jobs."
             className="btn-primary"
             target="_blank"
             rel="noopener noreferrer"

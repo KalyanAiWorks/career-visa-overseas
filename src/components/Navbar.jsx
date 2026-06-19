@@ -67,11 +67,11 @@ export default function Navbar() {
           {/* Right side */}
           <div className="flex items-center gap-3">
             <a
-              href="tel:+91XXXXXXXXXX"
+              href="tel:+918978537368"
               className="hidden md:flex items-center gap-1.5 text-accent font-body text-sm hover:text-accent-light transition-colors"
             >
               <Phone size={14} />
-              <span className="font-bold">+91 XXXXXXXXXX</span>
+              <span className="font-bold">+91 89785 37368</span>
             </a>
             <a href="#register" className="btn-primary hidden sm:inline-flex !py-2 !px-4 text-xs">
               Register Free

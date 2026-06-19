@@ -33,10 +33,10 @@ const quickLinks = [
 ]
 
 const socialLinks = [
-  { icon: <FacebookIcon />,  href: '#',                               label: 'Facebook'  },
-  { icon: <InstagramIcon />, href: '#',                               label: 'Instagram' },
-  { icon: <LinkedInIcon />,  href: '#',                               label: 'LinkedIn'  },
-  { icon: <MessageCircle size={17} />, href: 'https://wa.me/91XXXXXXXXXX', label: 'WhatsApp' },
+  { icon: <FacebookIcon />,  href: 'https://www.facebook.com/careervisaoverseas',          label: 'Facebook'  },
+  { icon: <InstagramIcon />, href: 'https://www.instagram.com/careervisaoverseas',         label: 'Instagram' },
+  { icon: <LinkedInIcon />,  href: 'https://www.linkedin.com/company/career-visa-overseas',label: 'LinkedIn'  },
+  { icon: <MessageCircle size={17} />, href: 'https://wa.me/918978537368',                 label: 'WhatsApp'  },
 ]
 
 const certBadges = [
@@ -157,9 +157,9 @@ export default function Footer() {
             <h4 className="text-white font-heading font-black text-xs uppercase tracking-widest mb-5">Contact Us</h4>
             <ul className="space-y-4">
               {[
-                { href: 'tel:+91XXXXXXXXXX', icon: <Phone size={15} />, label: 'Phone', value: '+91 XXXXXXXXXX' },
-                { href: 'mailto:info@careervisa.in', icon: <Mail size={15} />, label: 'Email', value: 'info@careervisa.in' },
-                { href: 'https://wa.me/91XXXXXXXXXX', icon: <MessageCircle size={15} />, label: 'WhatsApp', value: '+91 XXXXXXXXXX' },
+                { href: 'tel:+918978537368', icon: <Phone size={15} />, label: 'Phone', value: '+91 89785 37368' },
+                { href: 'mailto:info@careervisaoverseas.com', icon: <Mail size={15} />, label: 'Email', value: 'info@careervisaoverseas.com' },
+                { href: 'https://wa.me/918978537368', icon: <MessageCircle size={15} />, label: 'WhatsApp', value: '+91 89785 37368' },
               ].map((item) => (
                 <li key={item.label}>
                   <a href={item.href}
@@ -189,8 +189,8 @@ export default function Footer() {
             <h4 className="text-white font-heading font-black text-xs uppercase tracking-widest mb-5">Our Location</h4>
             <div className="rounded-2xl overflow-hidden border border-white/10 shadow-card">
               <iframe
-                title="Career Visa Office Location — Chanda Nagar, Hyderabad"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.0!2d78.3456!3d17.4875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sAnnapurna%20Enclave%2C%20Chanda%20Nagar%2C%20Serilingampalle%2C%20Hyderabad%2C%20Telangana%20500050!5e0!3m2!1sen!2sin!4v1718000000000"
+                title="Career Visa Overseas Office — Chanda Nagar, Hyderabad"
+                src="https://maps.google.com/maps?q=17.495333,78.327698&z=17&output=embed"
                 width="100%"
                 height="180"
                 style={{ border: 0, display: 'block' }}
@@ -200,7 +200,7 @@ export default function Footer() {
               />
             </div>
             <a
-              href="https://maps.google.com/?q=H.No+2-94,+3rd+Floor,+Gangaram,+Annapurna+Enclave,+Chanda+Nagar,+Serilingampalle,+Hyderabad,+Telangana+500050"
+              href="https://maps.google.com/?q=17.495333,78.327698"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 text-accent font-body text-xs mt-2 hover:underline"
@@ -215,7 +215,7 @@ export default function Footer() {
       <div className="border-t border-white/8">
         <div className="container-main py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <p className="text-white/30 font-body text-[11px] sm:text-xs">
-            © 2026 Career Visa. All rights reserved.<br className="sm:hidden" /> Licensed Overseas Recruitment Agency | MEA Reg. No: XXXXXXXXX
+            © 2026 Career Visa Overseas. All rights reserved.<br className="sm:hidden" /> Licensed Overseas Recruitment Agency | MEA Reg. No: Applied
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 flex-shrink-0">
             <a href="#" className="text-white/30 hover:text-accent font-body text-xs transition-colors min-h-[44px] flex items-center">Privacy Policy</a>

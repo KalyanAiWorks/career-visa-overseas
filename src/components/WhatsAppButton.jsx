@@ -6,7 +6,7 @@ export default function WhatsAppButton() {
 
   return (
     <a
-      href="https://wa.me/91XXXXXXXXXX?text=Hello%20Career%20Visa%2C%20I%20am%20interested%20in%20Gulf%20job%20opportunities."
+      href="https://wa.me/918978537368?text=Hello%20Career%20Visa%20Overseas%2C%20I%20am%20interested%20in%20Gulf%20job%20opportunities."
       target="_blank"
       rel="noopener noreferrer"
       onMouseEnter={() => setHovered(true)}

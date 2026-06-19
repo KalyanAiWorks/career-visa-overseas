@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Send, Upload, CheckCircle, Lock, ChevronRight, ChevronLeft, Phone, User, Briefcase } from 'lucide-react'
 
 const jobCategories = [
@@ -36,12 +36,15 @@ function FieldWrapper({ label, required, children }) {
 export default function RegisterForm() {
   const [step, setStep] = useState(0)
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const [fileName, setFileName] = useState('')
   const [touched, setTouched] = useState({})
   const [form, setForm] = useState({
     name: '', phone: '', email: '', whatsapp: '',
     category: '', experience: '', country: '', cv: null,
   })
+  const fileInputRef = useRef(null)
 
   function handleChange(e) {
     const { name, value, files } = e.target
@@ -84,9 +87,39 @@ export default function RegisterForm() {
     setStep((s) => Math.min(s + 1, 2))
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
-    setSubmitted(true)
+    setSubmitting(true)
+    setSubmitError('')
+    try {
+      const data = new FormData()
+      data.append('name', form.name)
+      data.append('phone', form.phone)
+      data.append('whatsapp', form.whatsapp || form.phone)
+      data.append('email', form.email)
+      data.append('jobCategory', form.category)
+      data.append('experience', form.experience)
+      data.append('preferredCountry', form.country)
+      data.append('_subject', `New Job Application — ${form.name} (${form.category})`)
+      data.append('_captcha', 'false')
+      data.append('_template', 'table')
+      if (form.cv) data.append('cv', form.cv)
+
+      const res = await fetch('https://formsubmit.co/ajax/info@careervisaoverseas.com', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: data,
+      })
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        setSubmitError('Submission failed — please WhatsApp us directly at +91 89785 37368.')
+      }
+    } catch {
+      setSubmitError('Network error — please WhatsApp us directly at +91 89785 37368.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   if (submitted) {
@@ -107,10 +140,14 @@ export default function RegisterForm() {
                 We will call you within 24 hours!
               </span>
             </div>
-            <p className="text-muted font-body text-sm">
-              Meanwhile, join our WhatsApp channel for latest job updates.
-            </p>
-            <button className="btn-primary mt-6 mx-auto" onClick={() => { setSubmitted(false); setStep(0) }}>
+            <a
+              href="https://wa.me/918978537368?text=Hi%21%20I%20just%20registered%20on%20Career%20Visa%20Overseas."
+              target="_blank" rel="noopener noreferrer"
+              className="btn-primary mt-4 mx-auto inline-flex"
+            >
+              Join our WhatsApp for Job Updates
+            </a>
+            <button className="btn-secondary mt-3 mx-auto" onClick={() => { setSubmitted(false); setStep(0) }}>
               Submit Another Application
             </button>
           </div>
@@ -182,11 +219,11 @@ export default function RegisterForm() {
                 </div>
                 <FieldWrapper label="Phone Number" required>
                   <input type="tel" name="phone" value={form.phone} onChange={handleChange}
-                         placeholder="+91 XXXXXXXXXX" className={fieldClass('phone')} />
+                         placeholder="+91 89785 37368" className={fieldClass('phone')} />
                 </FieldWrapper>
                 <FieldWrapper label="WhatsApp Number">
                   <input type="tel" name="whatsapp" value={form.whatsapp} onChange={handleChange}
-                         placeholder="+91 XXXXXXXXXX" className={fieldClass('whatsapp')} />
+                         placeholder="+91 89785 37368" className={fieldClass('whatsapp')} />
                 </FieldWrapper>
                 <div className="sm:col-span-2">
                   <FieldWrapper label="Email Address" required>
@@ -281,12 +318,20 @@ export default function RegisterForm() {
                   Continue <ChevronRight size={16} />
                 </button>
               ) : (
-                <button type="submit" className="btn-primary shadow-glow w-full min-[390px]:w-auto">
-                  <Send size={16} /> Submit Application
+                <button type="submit" disabled={submitting} className="btn-primary shadow-glow w-full min-[390px]:w-auto disabled:opacity-60 disabled:cursor-not-allowed">
+                  {submitting ? (
+                    <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Submitting…</>
+                  ) : (
+                    <><Send size={16} /> Submit Application</>
+                  )}
                 </button>
               )}
             </div>
 
+            {/* Error message */}
+            {submitError && (
+              <p className="mt-4 text-red-500 font-body text-sm text-center">{submitError}</p>
+            )}
             {/* Security note */}
             <div className="flex items-start justify-center gap-2 mt-5 text-muted text-xs font-body text-center leading-snug">
               <Lock size={12} className="mt-0.5 flex-shrink-0" />

@@ -100,7 +100,7 @@ function TestimonialCard({ t }) {
       <div className="flex items-center gap-3 border-t border-border pt-4">
         <img
           src={t.avatar}
-          alt={t.name}
+          alt={`${t.name} — ${t.role} placed by Career Visa Overseas in ${t.location}`}
           loading="lazy"
           className="w-12 h-12 rounded-full object-cover ring-2 ring-accent/20"
         />
