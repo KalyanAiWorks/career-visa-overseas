@@ -44,21 +44,21 @@ function BlogCard({ post, delay }) {
           src={post.image}
           alt={`${post.title} — Career Visa Overseas Blog`}
           loading="lazy"
-          className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-40 sm:h-48 object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-      <div className="p-5 sm:p-6">
-        <div className="flex items-center gap-2 mb-3">
-          <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${post.tagColor}`}>{post.tag}</span>
+      <div className="p-4 sm:p-6">
+        <div className="flex items-center gap-2 mb-2 sm:mb-3">
+          <span className={`text-[10px] sm:text-xs font-bold px-2 py-1 rounded-full ${post.tagColor}`}>{post.tag}</span>
         </div>
-        <h3 className="text-primary font-heading font-bold text-lg leading-snug mb-3 group-hover:text-accent transition-colors">
+        <h3 className="text-primary font-heading font-bold text-base sm:text-lg leading-snug mb-2 sm:mb-3 group-hover:text-accent transition-colors">
           {post.title}
         </h3>
-        <p className="text-muted font-body text-base leading-relaxed mb-4 line-clamp-2">{post.excerpt}</p>
-        <div className="flex flex-col min-[390px]:flex-row min-[390px]:items-center min-[390px]:justify-between gap-3 pt-4 border-t border-border">
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-muted text-sm">
-            <span className="flex items-center gap-1"><Calendar size={13} />{post.date}</span>
-            <span className="flex items-center gap-1"><Clock size={13} />{post.readTime}</span>
+        <p className="text-muted font-body text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-2">{post.excerpt}</p>
+        <div className="flex flex-col min-[390px]:flex-row min-[390px]:items-center min-[390px]:justify-between gap-3 pt-3 border-t border-border">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-muted text-xs sm:text-sm">
+            <span className="flex items-center gap-1"><Calendar size={12} />{post.date}</span>
+            <span className="flex items-center gap-1"><Clock size={12} />{post.readTime}</span>
           </div>
           <a href="#" className="text-accent font-bold text-sm inline-flex items-center gap-1 hover:gap-2 transition-all min-h-11">
             Read <ArrowRight size={14} />
@@ -71,21 +71,21 @@ function BlogCard({ post, delay }) {
 
 export default function BlogSection() {
   return (
-    <section id="blog" className="py-14 sm:py-20" style={{ background: '#f4f6f9' }}>
+    <section id="blog" className="py-8 sm:py-20" style={{ background: '#f4f6f9' }}>
       <div className="container-main">
-        <div className="text-center mb-14">
-          <div className="section-badge">Insights & Guides</div>
-          <h2 className="section-title">Latest News & Resources</h2>
-          <p className="section-subtitle">
+        <div className="text-center mb-6 sm:mb-14">
+          <div className="inline-block bg-accent/10 text-accent font-body text-[10px] font-bold px-2 py-0.5 rounded-full mb-2 uppercase tracking-wide">Insights & Guides</div>
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-heading font-black text-primary mb-2 sm:mb-3">Latest News & Resources</h2>
+          <p className="hidden sm:block text-muted font-body text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
             Expert guides, visa tips, and salary information to help you prepare for your Gulf career.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {posts.map((post, i) => (
             <BlogCard key={post.title} post={post} delay={i * 100} />
           ))}
         </div>
-        <div className="text-center mt-10">
+        <div className="text-center mt-8 sm:mt-10">
           <a href="#" className="btn-secondary">View All Articles</a>
         </div>
       </div>

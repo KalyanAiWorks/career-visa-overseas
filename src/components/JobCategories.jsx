@@ -99,7 +99,7 @@ function CategoryCard({ cat, delay }) {
       onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)';    e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,.08)' }}
     >
       {/* Background image */}
-      <div className="h-28 sm:h-52 overflow-hidden">
+      <div className="h-32 sm:h-52 overflow-hidden">
         <img
           src={cat.image}
           alt={`${cat.title} overseas jobs from Hyderabad — Career Visa`}
@@ -122,7 +122,7 @@ function CategoryCard({ cat, delay }) {
 
       {/* Content */}
       <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4">
-        <h3 className="text-white font-heading font-bold text-xs sm:text-[15px] leading-tight sm:leading-snug mb-1">
+        <h3 className="text-white font-heading font-bold text-xs sm:text-[15px] leading-tight sm:leading-snug mb-1 sm:mb-2">
           {cat.title}
         </h3>
         {/* Role list - hidden completely on mobile */}
@@ -159,7 +159,7 @@ export default function JobCategories() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 sm:gap-4 md:gap-5 gap-2">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4 sm:gap-4 md:gap-5">
           {visibleCategories.map((cat, i) => (
             <CategoryCard key={cat.title} cat={cat} delay={Math.min(i * 60, 400)} />
           ))}

@@ -29,15 +29,15 @@ function FAQItem({ faq, index, isOpen, onToggle }) {
   return (
     <div className={`border rounded-xl overflow-hidden transition-all duration-300 ${isOpen ? 'border-accent shadow-card' : 'border-border'}`}>
       <button
-        className="w-full flex items-center justify-between gap-3 sm:gap-4 p-3 sm:p-5 text-left hover:bg-surface transition-colors min-h-[44px]"
+        className="w-full flex items-center justify-between gap-2 sm:gap-4 p-3 sm:p-5 text-left hover:bg-surface transition-colors min-h-[44px]"
         onClick={() => onToggle(index)}
         aria-expanded={isOpen}
       >
         <span className={`font-heading font-bold text-sm sm:text-base pr-2 sm:pr-4 ${isOpen ? 'text-accent' : 'text-primary'}`}>
           {faq.q}
         </span>
-        <div className={`flex-shrink-0 w-9 h-9 sm:w-11 sm:h-11 min-w-[36px] rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-accent text-white rotate-0' : 'bg-surface text-muted'}`}>
-          {isOpen ? <Minus size={18} className="sm:w-5 sm:h-5" /> : <Plus size={18} className="sm:w-5 sm:h-5" />}
+        <div className={`flex-shrink-0 w-8 h-8 sm:w-11 sm:h-11 min-w-[32px] rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-accent text-white rotate-0' : 'bg-surface text-muted'}`}>
+          {isOpen ? <Minus size={16} className="sm:w-5 sm:h-5" /> : <Plus size={16} className="sm:w-5 sm:h-5" />}
         </div>
       </button>
       <div
@@ -59,12 +59,12 @@ export default function FAQ() {
   const toggle = (i) => setOpenIndex(openIndex === i ? null : i)
 
   return (
-    <section id="faq" className="py-14 sm:py-20 bg-white">
+    <section id="faq" className="py-8 sm:py-20 bg-white">
       <div className="container-main">
-        <div className="text-center mb-14" ref={ref}>
-          <div className="section-badge">Frequently Asked Questions</div>
-          <h2 className="section-title">Everything You Need to Know</h2>
-          <p className="section-subtitle">
+        <div className="text-center mb-6 sm:mb-14" ref={ref}>
+          <div className="inline-block bg-accent/10 text-accent font-body text-[10px] font-bold px-2 py-0.5 rounded-full mb-2 uppercase tracking-wide">Frequently Asked Questions</div>
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-heading font-black text-primary mb-2 sm:mb-3">Everything You Need to Know</h2>
+          <p className="hidden sm:block text-muted font-body text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
             Got questions about working in the Gulf? We've answered the most common ones below.
           </p>
         </div>
@@ -79,8 +79,8 @@ export default function FAQ() {
             />
           ))}
         </div>
-        <div className="text-center mt-10">
-          <p className="text-muted font-body text-base mb-4">Still have questions?</p>
+        <div className="text-center mt-8 sm:mt-10">
+          <p className="text-muted font-body text-sm sm:text-base mb-4">Still have questions?</p>
           <a
             href="https://wa.me/918978537368?text=Hi%20Career%20Visa%20Overseas%2C%20I%20have%20a%20question%20about%20Gulf%20jobs."
             className="btn-primary"

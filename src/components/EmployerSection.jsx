@@ -66,14 +66,14 @@ function BenefitCard({ benefit, delay }) {
   return (
     <div
       ref={ref}
-      className="animate-on-scroll glass-card rounded-2xl p-3 sm:p-5 hover:bg-white/10 transition-colors duration-300"
+      className="animate-on-scroll glass-card rounded-xl sm:rounded-2xl p-2 sm:p-5 hover:bg-white/10 transition-colors duration-300"
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-3 sm:mb-4">
-        <span className="scale-75 sm:scale-100">{benefit.icon}</span>
+      <div className="w-6 h-6 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-2 sm:mb-4">
+        <span className="scale-50 sm:scale-100">{benefit.icon}</span>
       </div>
-      <h3 className="text-white font-heading font-bold text-sm sm:text-base mb-1 sm:mb-2">{benefit.title}</h3>
-      <p className="text-white/60 font-body text-sm leading-relaxed line-clamp-2 sm:line-clamp-none">{benefit.desc}</p>
+      <h3 className="text-white font-heading font-bold text-xs sm:text-base mb-0 sm:mb-2">{benefit.title}</h3>
+      <p className="hidden sm:block text-white/60 font-body text-sm leading-relaxed sm:line-clamp-none line-clamp-2">{benefit.desc}</p>
     </div>
   )
 }
@@ -83,7 +83,7 @@ export default function EmployerSection() {
   return (
     <section
       id="employer"
-      className="py-14 sm:py-20 relative overflow-hidden"
+      className="py-8 sm:py-20 relative overflow-hidden"
       style={{ background: 'linear-gradient(135deg, #0a1628 0%, #0d1e36 50%, #061020 100%)' }}
     >
       {/* BG texture */}
@@ -100,25 +100,25 @@ export default function EmployerSection() {
       />
       <div className="container-main relative z-10">
         {/* Top: heading + key stats */}
-        <div className="text-center mb-14" ref={ref}>
-          <div className="section-badge !bg-accent/10 !text-accent !border !border-accent/20">For Employers</div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-black text-white mb-4">
+        <div className="text-center mb-6 sm:mb-14" ref={ref}>
+          <div className="inline-block bg-accent/10 text-accent font-body text-[10px] font-bold px-2 py-0.5 rounded-full mb-2 uppercase tracking-wide sm:!bg-accent/10 sm:!text-accent sm:!border sm:!border-accent/20">For Employers</div>
+          <h2 className="text-lg sm:text-3xl md:text-4xl font-heading font-black text-white mb-2 sm:mb-4">
             Partner With Career Visa —{' '}
             <span className="text-gradient">Reliable Indian Manpower</span> On Demand
           </h2>
-          <p className="text-white/60 font-body text-base max-w-xl mx-auto leading-relaxed">
+          <p className="hidden sm:block text-white/60 font-body text-base max-w-xl mx-auto leading-relaxed">
             We supply verified, skilled Indian workers across all major trades and professions.
             Fast mobilization. Full compliance. Trusted by 200+ Gulf employers.
           </p>
 
-          {/* Key stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-8 max-w-3xl mx-auto">
+          {/* Key stats - 3 columns on mobile */}
+          <div className="grid grid-cols-3 gap-2 mt-6 max-w-3xl mx-auto">
             {stats.map((s) => (
-              <div key={s.label} className="flex flex-col sm:flex-row items-center sm:justify-center gap-2 sm:gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 sm:px-5 py-3 sm:py-4 min-w-0 text-center sm:text-left">
-                <span className="text-accent flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-accent/10 flex items-center justify-center">{s.icon}</span>
+              <div key={s.label} className="flex flex-col sm:flex-row items-center sm:justify-center gap-1 sm:gap-3 bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl px-2 sm:px-5 py-2 sm:py-4 min-w-0 text-center sm:text-left">
+                <span className="text-accent flex-shrink-0 w-6 h-6 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-accent/10 flex items-center justify-center scale-75 sm:scale-100">{s.icon}</span>
                 <div className="min-w-0">
-                  <div className="text-accent font-heading font-black text-xl sm:text-2xl md:text-3xl">{s.value}</div>
-                  <div className="text-white/50 text-[10px] sm:text-xs font-body uppercase tracking-wide leading-tight">{s.label}</div>
+                  <div className="text-accent font-heading font-black text-base sm:text-2xl md:text-3xl">{s.value}</div>
+                  <div className="text-white/50 text-[8px] sm:text-xs font-body uppercase tracking-wide leading-tight">{s.label}</div>
                 </div>
               </div>
             ))}
@@ -126,8 +126,8 @@ export default function EmployerSection() {
         </div>
 
         {/* Grid: benefits + Employer Form */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-start">
+          <div className="grid grid-cols-2 gap-2 sm:gap-4">
             {benefits.map((b, i) => (
               <BenefitCard key={b.title} benefit={b} delay={i * 100} />
             ))}
@@ -266,10 +266,10 @@ export default function EmployerSection() {
         </div>
 
         {/* Client logos */}
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-6 py-4">
-            <span className="text-accent font-heading font-black text-3xl">200+</span>
-            <span className="text-white/50 font-body text-base leading-snug">Gulf employers<br />trust our placements</span>
+        <div className="mt-8 sm:mt-12 text-center">
+          <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 sm:px-6 py-3 sm:py-4">
+            <span className="text-accent font-heading font-black text-2xl sm:text-3xl">200+</span>
+            <span className="text-white/50 font-body text-sm sm:text-base leading-snug">Gulf employers<br />trust our placements</span>
           </div>
         </div>
       </div>

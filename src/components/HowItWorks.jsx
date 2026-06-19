@@ -41,20 +41,20 @@ function StepCard({ step, index }) {
       style={{ transitionDelay: `${index * 150}ms` }}
     >
       {/* Step number + icon */}
-      <div className="relative mb-4 sm:mb-6 z-10">
+      <div className="relative mb-3 sm:mb-6 z-10">
         {/* Outer glow ring */}
         <div className="absolute inset-0 rounded-full bg-accent/10 scale-125" />
-        <div className="relative w-14 h-14 sm:w-24 sm:h-24 rounded-full bg-primary flex items-center justify-center shadow-overlay border-4 border-white">
-          <span className="text-accent scale-75 sm:scale-100">{step.icon}</span>
+        <div className="relative w-12 h-12 sm:w-24 sm:h-24 rounded-full bg-primary flex items-center justify-center shadow-overlay border-4 border-white">
+          <span className="text-accent scale-50 sm:scale-100">{step.icon}</span>
         </div>
         {/* Step number badge */}
-        <div className="absolute -top-1 -right-1 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-accent flex items-center justify-center shadow-card border-2 border-white">
-          <span className="text-white font-heading font-black text-[9px] sm:text-xs">{step.num}</span>
+        <div className="absolute -top-1 -right-1 w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-accent flex items-center justify-center shadow-card border-2 border-white">
+          <span className="text-white font-heading font-black text-[8px] sm:text-xs">{step.num}</span>
         </div>
       </div>
 
-      <h3 className="text-primary font-heading font-bold text-base sm:text-lg mb-2">{step.title}</h3>
-      <p className="text-muted font-body text-sm sm:text-base leading-relaxed mb-3 max-w-xs line-clamp-2">{step.desc}</p>
+      <h3 className="text-primary font-heading font-bold text-sm sm:text-lg mb-1 sm:mb-2">{step.title}</h3>
+      <p className="text-muted font-body text-xs sm:text-base leading-relaxed mb-2 sm:mb-3 max-w-xs line-clamp-2">{step.desc}</p>
 
       {/* Time pill - hidden on mobile */}
       <div className="hidden sm:flex items-center gap-1.5 bg-accent/10 border border-accent/20 rounded-full px-3 py-1">
@@ -69,7 +69,7 @@ export default function HowItWorks() {
   const titleRef = useScrollAnimation()
 
   return (
-    <section id="how-it-works" className="py-10 sm:py-20" style={{ background: '#f4f6f9' }}>
+    <section id="how-it-works" className="py-8 sm:py-20" style={{ background: '#f4f6f9' }}>
       <div className="container-main">
         <div className="text-center mb-6 sm:mb-16" ref={titleRef}>
           <div className="inline-block bg-accent/10 text-accent font-body text-[10px] font-bold px-2 py-0.5 rounded-full mb-2 uppercase tracking-wide">Process</div>

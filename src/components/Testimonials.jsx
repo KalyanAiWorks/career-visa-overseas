@@ -67,40 +67,40 @@ const testimonials = [
 
 function TestimonialCard({ t }) {
   return (
-    <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-card border border-border h-full flex flex-col gap-3 sm:gap-4">
+    <div className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-6 shadow-card border border-border h-full flex flex-col gap-3 sm:gap-4">
       <div className="flex items-start justify-between gap-2 flex-wrap">
         <div className="flex gap-0.5">
           {[...Array(5)].map((_, i) => (
-            <Star key={i} size={12} className="fill-accent text-accent sm:w-[14px] sm:h-[14px]" />
+            <Star key={i} size={10} className="fill-accent text-accent sm:w-[14px] sm:h-[14px]" />
           ))}
         </div>
-        <div className="flex items-center gap-1 bg-green-50 border border-green-200 rounded-full px-2 py-1 flex-shrink-0">
-          <CheckCircle size={10} className="text-green-500" />
-          <span className="text-green-600 font-bold text-[10px] uppercase tracking-wide whitespace-nowrap">Verified</span>
+        <div className="flex items-center gap-1 bg-green-50 border border-green-200 rounded-full px-1.5 sm:px-2 py-0.5 sm:py-1 flex-shrink-0">
+          <CheckCircle size={8} className="text-green-500 sm:w-3.5 sm:h-3.5" />
+          <span className="text-green-600 font-bold text-[9px] sm:text-[10px] uppercase tracking-wide whitespace-nowrap">Verified</span>
         </div>
       </div>
 
       <div className="relative flex-1">
-        <Quote size={16} className="text-accent/20 absolute -top-1 -left-1 sm:w-5 sm:h-5" />
-        <p className="text-muted font-body text-sm sm:text-base leading-relaxed pl-4 line-clamp-4 sm:line-clamp-none">"{t.text}"</p>
+        <Quote size={14} className="text-accent/20 absolute -top-1 -left-1 sm:w-5 sm:h-5" />
+        <p className="text-muted font-body text-xs sm:text-base leading-relaxed pl-3 sm:pl-4 line-clamp-4 sm:line-clamp-none">"{t.text}"</p>
       </div>
 
-      {/* Salary + date */}
-      <div className="flex flex-wrap gap-2">
+      {/* Salary + date - hidden on mobile */}
+      <div className="hidden sm:flex flex-wrap gap-2">
         <span className="bg-accent/10 text-accent font-bold text-[10px] sm:text-xs px-2 py-1 rounded-full">{t.salary}</span>
         <span className="bg-surface text-muted font-bold text-[10px] sm:text-xs px-2 py-1 rounded-full">Placed {t.placed}</span>
       </div>
 
-      <div className="flex items-center gap-3 border-t border-border pt-3 sm:pt-4">
+      <div className="flex items-center gap-2 sm:gap-3 border-t border-border pt-3 sm:pt-4">
         <img
           src={t.avatar}
           alt={`${t.name} — ${t.role} placed by Career Visa Overseas in ${t.location}`}
           loading="lazy"
-          className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-accent/20"
+          className="w-8 h-8 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-accent/20"
         />
         <div className="flex-1 min-w-0">
-          <div className="text-primary font-heading font-bold text-sm">{t.name}</div>
-          <div className="text-muted font-body text-xs sm:text-xs leading-snug">{t.role} · {t.location} {t.flag}</div>
+          <div className="text-primary font-heading font-bold text-xs sm:text-sm">{t.name}</div>
+          <div className="text-muted font-body text-[10px] sm:text-xs leading-snug">{t.role} · {t.location} {t.flag}</div>
         </div>
         {/* Video placeholder - hidden on mobile */}
         <button
@@ -148,12 +148,12 @@ export default function Testimonials() {
   const visible = Array.from({ length: VISIBLE }, (_, i) => (current + i) % total)
 
   return (
-    <section id="testimonials" className="py-14 sm:py-20 bg-white">
+    <section id="testimonials" className="py-8 sm:py-20 bg-white">
       <div className="container-main">
-        <div className="text-center mb-14" ref={titleRef}>
-          <div className="section-badge">Success Stories</div>
-          <h2 className="section-title">What Our Placed Candidates Say</h2>
-          <p className="section-subtitle">
+        <div className="text-center mb-6 sm:mb-14" ref={titleRef}>
+          <div className="inline-block bg-accent/10 text-accent font-body text-[10px] font-bold px-2 py-0.5 rounded-full mb-2 uppercase tracking-wide">Success Stories</div>
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-heading font-black text-primary mb-2 sm:mb-3">What Our Placed Candidates Say</h2>
+          <p className="hidden sm:block text-muted font-body text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
             Real stories from real people whose lives changed through Career Visa.
           </p>
         </div>
