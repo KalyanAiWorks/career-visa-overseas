@@ -64,6 +64,9 @@ export default function EmployerSection() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
+        aria-hidden="true"
+        role="img"
+        aria-label="Professional team collaboration — Career Visa Overseas employer partnerships"
       />
       <div className="container-main relative z-10">
         {/* Top: heading + key stats */}
