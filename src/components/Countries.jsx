@@ -20,17 +20,17 @@ const countries = [
   {
     name: 'Kuwait', flag: '🇰🇼',
     cities: ['Kuwait City'],
-    image: 'https://images.unsplash.com/photo-1625723187892-cc50fdbf5811?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1513415756790-2ac1db1297d0?w=600&q=80',
   },
   {
     name: 'Oman', flag: '🇴🇲',
     cities: ['Muscat'],
-    image: 'https://images.unsplash.com/photo-1597020642626-3c9b687eba70?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1560179304-6fc1d8749b23?w=600&q=80',
   },
   {
     name: 'Bahrain', flag: '🇧🇭',
     cities: ['Manama'],
-    image: 'https://images.unsplash.com/photo-1621956838481-0bea94a3861d?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80',
   },
   {
     name: 'USA', flag: '🇺🇸',
