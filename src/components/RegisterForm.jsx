@@ -49,7 +49,7 @@ export default function RegisterForm() {
           <div className="text-center mb-10">
             <span className="section-badge">Register Now</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-black text-primary mb-4">
-              Start Your Gulf Career Journey
+              Start Your Career Journey
             </h2>
             <p className="text-muted font-body text-base sm:text-lg">
               Fill in your details below and our experts will contact you within 24 hours.

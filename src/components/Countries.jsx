@@ -25,12 +25,17 @@ const countries = [
   {
     name: 'Oman', flag: '🇴🇲',
     cities: ['Muscat'],
-    image: 'https://images.unsplash.com/photo-1567606404787-92b2cb8d1057?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1579606038880-42c9021de4dd?w=600&q=80',
   },
   {
     name: 'Bahrain', flag: '🇧🇭',
     cities: ['Manama'],
-    image: 'https://images.unsplash.com/photo-1597659840241-37e2b7bdd0a7?w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1565181322111-2e2a5a6e25f0?w=600&q=80',
+  },
+  {
+    name: 'USA', flag: '🇺🇸',
+    cities: ['New York', 'Houston', 'Chicago'],
+    image: 'https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=600&q=80',
   },
   {
     name: 'United Kingdom', flag: '🇬🇧',

@@ -1,5 +1,4 @@
 import Navbar            from './components/Navbar'
-import AnnouncementBar   from './components/AnnouncementBar'
 import Hero              from './components/Hero'
 import JobsTicker        from './components/JobsTicker'
 import About             from './components/About'
@@ -10,7 +9,6 @@ import Testimonials      from './components/Testimonials'
 import EmployerSection   from './components/EmployerSection'
 import RegisterForm      from './components/RegisterForm'
 import FAQ               from './components/FAQ'
-import BlogSection       from './components/BlogSection'
 import Footer            from './components/Footer'
 import FloatingButtons   from './components/FloatingButtons'
 import ChatBot           from './components/ChatBot'
@@ -21,7 +19,6 @@ export default function App() {
   return (
     <>
       <LoadingScreen />
-      <AnnouncementBar />
       <Navbar />
       <main>
         <Hero />
@@ -36,7 +33,6 @@ export default function App() {
         <EmployerSection />
         <RegisterForm />
         <FAQ />
-        <BlogSection />
       </main>
       <Footer />
       <FloatingButtons />

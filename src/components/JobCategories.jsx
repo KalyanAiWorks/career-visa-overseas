@@ -65,6 +65,20 @@ const categories = [
     image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80',
     badge: null,
   },
+  {
+    title: 'Work Visa Services',
+    roles: ['Work Permit Processing', 'Document Attestation', 'GAMCA Medical', 'Emigration Clearance'],
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80',
+    badge: 'New',
+    badgeColor: 'bg-green-500',
+  },
+  {
+    title: 'Student Visa Services',
+    roles: ['University Admissions', 'Student Permits', 'Education Counseling', 'Course Selection'],
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80',
+    badge: 'New',
+    badgeColor: 'bg-blue-500',
+  },
 ]
 
 function CategoryCard({ cat, delay }) {

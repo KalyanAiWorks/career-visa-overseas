@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { Phone, Mail, MapPin, MessageCircle, Award, Shield, Send, ExternalLink } from 'lucide-react'
+import { Phone, Mail, MapPin, MessageCircle, Award, Shield, ExternalLink } from 'lucide-react'
 
 const FacebookIcon = () => (
   <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
@@ -28,7 +27,6 @@ const quickLinks = [
   { label: 'How It Works',      href: '#how-it-works' },
   { label: 'For Employers',     href: '#employer' },
   { label: 'FAQ',               href: '#faq' },
-  { label: 'Blog & Guides',     href: '#blog' },
   { label: 'Register / Apply',  href: '#register' },
 ]
 
@@ -46,48 +44,8 @@ const certBadges = [
 ]
 
 export default function Footer() {
-  const [email, setEmail] = useState('')
-  const [subDone, setSubDone] = useState(false)
-
-  function handleSubscribe(e) {
-    e.preventDefault()
-    if (email) setSubDone(true)
-  }
-
   return (
     <footer className="bg-primary text-white">
-      {/* Newsletter strip */}
-      <div className="border-b border-white/10" style={{ background: 'rgba(245,166,35,0.08)' }}>
-        <div className="container-main py-7 sm:py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-5">
-            <div className="text-center md:text-left">
-              <h3 className="font-heading font-black text-lg text-white mb-1">Get Latest Gulf Job Alerts</h3>
-              <p className="text-white/50 font-body text-sm">New openings delivered to your inbox every week — free.</p>
-            </div>
-            {subDone ? (
-              <div className="flex items-center justify-center gap-2 bg-green-500/10 border border-green-500/30 rounded-xl px-4 sm:px-5 py-3 text-green-400 font-bold text-sm sm:text-base text-center">
-                ✓ Subscribed! Watch your inbox.
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="flex flex-col min-[390px]:flex-row gap-2 w-full md:w-auto">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  required
-                  className="flex-1 min-w-0 md:w-64 bg-white/10 border border-white/20 rounded-xl px-3 sm:px-4 py-3 text-white placeholder:text-white/30 font-body text-sm focus:outline-none focus:border-accent transition-colors min-h-11"
-                />
-                <button type="submit" className="btn-primary flex-shrink-0 w-full min-[390px]:w-auto">
-                  <Send size={15} />
-                  <span>Subscribe</span>
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      </div>
-
       {/* Main footer grid */}
       <div className="container-main py-10 sm:py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
