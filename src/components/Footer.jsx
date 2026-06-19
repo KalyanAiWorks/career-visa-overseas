@@ -47,16 +47,16 @@ export default function Footer() {
   return (
     <footer className="bg-primary text-white">
       {/* Main footer grid */}
-      <div className="container-main py-10 sm:py-14">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
+      <div className="container-main py-8 sm:py-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10">
           {/* Brand column - full width on mobile */}
           <div className="lg:col-span-1">
-            <a href="#home" className="inline-flex mb-5">
+            <a href="#home" className="inline-flex mb-4 sm:mb-5">
               <img
                 src="/images/logo.png"
                 alt="Career Visa"
-                style={{ height: 48, width: 'auto', mixBlendMode: 'lighten' }}
-                className="hover:opacity-90 transition-opacity"
+                style={{ height: 36, width: 'auto', mixBlendMode: 'lighten' }}
+                className="sm:h-[48px] hover:opacity-90 transition-opacity"
               />
             </a>
             <p className="text-white/50 font-body text-sm leading-relaxed mb-5">
@@ -86,9 +86,9 @@ export default function Footer() {
                   aria-label={s.label}
                   target={s.href.startsWith('http') ? '_blank' : undefined}
                   rel="noopener noreferrer"
-                  className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:bg-accent hover:text-white hover:border-accent transition-all duration-200"
+                  className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:bg-accent hover:text-white hover:border-accent transition-all duration-200"
                 >
-                  {s.icon}
+                  <span className="scale-90 sm:scale-100">{s.icon}</span>
                 </a>
               ))}
             </div>
@@ -96,12 +96,12 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h4 className="text-white font-heading font-black text-xs uppercase tracking-widest mb-5">Quick Links</h4>
-            <ul className="space-y-2.5">
+            <h4 className="text-white font-heading font-black text-xs uppercase tracking-widest mb-3 sm:mb-5">Quick Links</h4>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 sm:block sm:space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.label}>
                   <a href={link.href}
-                     className="text-white/50 hover:text-accent font-body text-sm transition-colors flex items-center gap-2 min-h-11">
+                     className="text-white/50 hover:text-accent font-body text-xs sm:text-sm transition-colors flex items-center gap-2 min-h-11 sm:min-h-11">
                     <span className="w-1 h-1 rounded-full bg-accent/40 flex-shrink-0" />
                     {link.label}
                   </a>
@@ -144,8 +144,9 @@ export default function Footer() {
 
           {/* Map */}
           <div>
-            <h4 className="text-white font-heading font-black text-xs uppercase tracking-widest mb-5">Our Location</h4>
-            <div className="rounded-2xl overflow-hidden border border-white/10 shadow-card">
+            <h4 className="text-white font-heading font-black text-xs uppercase tracking-widest mb-3 sm:mb-5">Our Location</h4>
+            {/* Hidden on mobile */}
+            <div className="hidden sm:block rounded-2xl overflow-hidden border border-white/10 shadow-card">
               <iframe
                 title="Career Visa Overseas Office — Chanda Nagar, Hyderabad"
                 src="https://maps.google.com/maps?q=17.495333,78.327698&z=17&output=embed"
@@ -161,9 +162,10 @@ export default function Footer() {
               href="https://maps.google.com/?q=17.495333,78.327698"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 text-accent font-body text-xs mt-2 hover:underline"
+              className="inline-flex items-center gap-1 text-accent font-body text-xs mt-1 sm:mt-2 hover:underline bg-white/5 border border-white/10 rounded-xl px-3 py-2 sm:bg-transparent sm:border-0 sm:px-0 sm:py-0"
             >
-              <ExternalLink size={11} /> Open in Google Maps
+              <MapPin size={11} className="sm:hidden" />
+              <ExternalLink size={11} className="hidden sm:block" /> Open in Google Maps
             </a>
           </div>
         </div>
@@ -171,14 +173,14 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/8">
-        <div className="container-main py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-          <p className="text-white/30 font-body text-[11px] sm:text-xs px-4 sm:px-0">
-            © 2026 Career Visa Overseas. All rights reserved. <span className="sm:hidden"><br /></span>Licensed Overseas Recruitment Agency | MEA Registered
+        <div className="container-main py-3 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-center sm:text-left">
+          <p className="text-white/30 font-body text-[10px] sm:text-xs px-4 sm:px-0">
+            © 2026 Career Visa Overseas. <span className="sm:hidden"><br /></span>All rights reserved. Licensed Overseas Recruitment Agency
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 flex-shrink-0">
-            <a href="#" className="text-white/30 hover:text-accent font-body text-xs transition-colors min-h-[44px] flex items-center">Privacy Policy</a>
-            <a href="#" className="text-white/30 hover:text-accent font-body text-xs transition-colors min-h-[44px] flex items-center">Terms</a>
-            <a href="#" className="text-white/30 hover:text-accent font-body text-xs transition-colors min-h-[44px] flex items-center">Sitemap</a>
+          <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-4 gap-y-1 flex-shrink-0">
+            <a href="#" className="text-white/30 hover:text-accent font-body text-[10px] sm:text-xs transition-colors min-h-[36px] sm:min-h-[44px] flex items-center">Privacy Policy</a>
+            <a href="#" className="text-white/30 hover:text-accent font-body text-[10px] sm:text-xs transition-colors min-h-[36px] sm:min-h-[44px] flex items-center">Terms</a>
+            <a href="#" className="text-white/30 hover:text-accent font-body text-[10px] sm:text-xs transition-colors min-h-[36px] sm:min-h-[44px] flex items-center">Sitemap</a>
           </div>
         </div>
       </div>

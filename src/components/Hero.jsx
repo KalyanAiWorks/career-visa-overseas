@@ -144,10 +144,10 @@ function StatCounter({ end, suffix = '', label }) {
   const [count, ref] = useCountUp(end, 2200)
   return (
     <div ref={ref} className="text-center px-2 min-[390px]:px-3 sm:px-4 py-3">
-      <div className="text-3xl sm:text-4xl font-heading font-black text-accent leading-none">
+      <div className="text-2xl sm:text-4xl font-heading font-black text-accent leading-none">
         {count.toLocaleString()}{suffix}
       </div>
-      <div className="text-white/50 font-body text-xs uppercase tracking-widest mt-1">{label}</div>
+      <div className="text-white/50 font-body text-[10px] sm:text-xs uppercase tracking-widest mt-1">{label}</div>
     </div>
   )
 }
@@ -170,7 +170,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[100svh] flex items-center overflow-hidden"
+      className="relative min-h-[85svh] sm:min-h-[100svh] flex items-center overflow-hidden"
       style={{ background: '#0a1628' }}
     >
       {/* ── Fallback image (behind video, shows if video fails) ── */}
@@ -206,18 +206,18 @@ export default function Hero() {
       />
 
       {/* ── All hero content ── */}
-      <div className="container-main relative py-28 sm:py-32 md:py-40 lg:py-44" style={{ zIndex: 3 }}>
+      <div className="container-main relative py-20 sm:py-32 md:py-40 lg:py-44" style={{ zIndex: 3 }}>
 
-        {/* Rotating jobs ticker */}
+        {/* Rotating jobs ticker - hidden on mobile */}
         <div
-          className="inline-flex items-center gap-2 bg-white/5 border border-accent/20 rounded-full px-3 sm:px-4 py-2 mb-6 max-w-full overflow-hidden"
+          className="hidden sm:inline-flex items-center gap-2 bg-white/5 border border-accent/20 rounded-full px-3 sm:px-4 py-2 mb-6 max-w-full overflow-hidden"
           style={{ transition: 'opacity 0.35s ease', opacity: fade ? 1 : 0 }}
         >
           <span className="w-2 h-2 rounded-full bg-accent animate-pulse flex-shrink-0" />
           <span className="text-accent font-body text-xs sm:text-sm font-bold truncate">{rotatingJobs[jobIndex]}</span>
         </div>
 
-        <h1 className="text-[1.75rem] min-[375px]:text-[2rem] min-[390px]:text-[2.25rem] sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black text-white leading-[1.1] mb-4 max-w-4xl">
+        <h1 className="text-[1.5rem] min-[375px]:text-[2rem] min-[390px]:text-[2.25rem] sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black text-white leading-[1.1] mb-4 max-w-4xl">
           Your Gateway to
           <span className="block text-gradient">Global Careers</span>
           <span className="block text-white text-xl min-[375px]:text-2xl min-[390px]:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black opacity-90">Worldwide</span>
@@ -268,8 +268,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Trust badges */}
-        <div className="flex flex-wrap gap-2 sm:gap-3">
+        {/* Trust badges - hidden on mobile */}
+        <div className="hidden sm:flex flex-wrap gap-2 sm:gap-3">
           {trustBadges.map((b) => (
             <div
               key={b.label}

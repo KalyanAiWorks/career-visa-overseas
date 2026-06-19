@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { ChevronDown } from 'lucide-react'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const categories = [
@@ -97,7 +99,7 @@ function CategoryCard({ cat, delay }) {
       onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)';    e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,.08)' }}
     >
       {/* Background image */}
-      <div className="h-52 min-[390px]:h-48 sm:h-56 overflow-hidden">
+      <div className="h-36 sm:h-56 overflow-hidden">
         <img
           src={cat.image}
           alt={`${cat.title} overseas jobs from Hyderabad — Career Visa`}
@@ -120,20 +122,13 @@ function CategoryCard({ cat, delay }) {
 
       {/* Content */}
       <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-        <h3 className="text-white font-heading font-black text-base min-[390px]:text-sm sm:text-[15px] leading-snug mb-1.5">
+        <h3 className="text-white font-heading font-black text-sm sm:text-[15px] leading-snug mb-1.5">
           {cat.title}
         </h3>
+        {/* Role list - hidden on mobile */}
         <ul className="space-y-0.5 mb-2 hidden sm:block">
           {cat.roles.map(role => (
             <li key={role} className="flex items-center gap-1.5 text-white/70 font-body text-xs">
-              <span className="w-1 h-1 rounded-full bg-accent flex-shrink-0" />
-              {role}
-            </li>
-          ))}
-        </ul>
-        <ul className="space-y-0.5 mb-2 sm:hidden">
-          {cat.roles.slice(0, 2).map(role => (
-            <li key={role} className="flex items-center gap-1.5 text-white/75 font-body text-sm">
               <span className="w-1 h-1 rounded-full bg-accent flex-shrink-0" />
               {role}
             </li>
@@ -148,6 +143,10 @@ function CategoryCard({ cat, delay }) {
 }
 
 export default function JobCategories() {
+  const [showAll, setShowAll] = useState(false)
+  const INITIAL_COUNT = 6
+  const visibleCategories = showAll ? categories : categories.slice(0, INITIAL_COUNT)
+
   return (
     <section id="jobs" className="py-14 sm:py-20" style={{ background: '#f4f6f9' }}>
       <div className="container-main">
@@ -160,13 +159,27 @@ export default function JobCategories() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 min-[390px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
-          {categories.map((cat, i) => (
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
+          {visibleCategories.map((cat, i) => (
             <CategoryCard key={cat.title} cat={cat} delay={Math.min(i * 60, 400)} />
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        {/* View All button - only on mobile when not showing all */}
+        {!showAll && categories.length > INITIAL_COUNT && (
+          <div className="text-center mt-8 sm:hidden">
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-2 bg-primary text-white font-heading font-bold px-5 py-3 rounded-xl transition-all active:scale-95"
+            >
+              View All Categories
+              <ChevronDown size={18} />
+            </button>
+          </div>
+        )}
+
+        {/* CTA - hidden on mobile */}
+        <div className="hidden sm:block text-center mt-12">
           <a href="#register" className="btn-primary shadow-glow">
             Apply for a Job — It's Free
           </a>

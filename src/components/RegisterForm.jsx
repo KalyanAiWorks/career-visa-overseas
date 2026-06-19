@@ -67,57 +67,57 @@ export default function RegisterForm() {
           </div>
 
           <form
-            className="bg-white rounded-2xl sm:rounded-3xl shadow-card border border-border p-6 sm:p-8 md:p-10"
+            className="bg-white rounded-2xl sm:rounded-3xl shadow-card border border-border p-4 sm:p-8 md:p-10"
             onSubmit={(e) => {
               e.preventDefault()
               alert('Thank you for registering! We will contact you soon.')
             }}
           >
-            <div className="space-y-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="space-y-3 sm:space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5">
                 <div>
-                  <label className="block text-muted font-body text-xs uppercase tracking-wide mb-2">
+                  <label className="block text-muted font-body text-[10px] sm:text-xs uppercase tracking-wide mb-1 sm:mb-2">
                     Full Name *
                   </label>
                   <input
                     type="text"
                     placeholder="Enter your full name"
-                    className="w-full border border-border rounded-xl px-4 py-3.5 font-body text-base text-primary placeholder:text-muted/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
+                    className="w-full border border-border rounded-xl px-3 sm:px-4 py-3 font-body text-sm text-primary placeholder:text-muted/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-muted font-body text-xs uppercase tracking-wide mb-2">
+                  <label className="block text-muted font-body text-[10px] sm:text-xs uppercase tracking-wide mb-1 sm:mb-2">
                     Phone Number *
                   </label>
                   <input
                     type="tel"
                     placeholder="+91 89785 37368"
-                    className="w-full border border-border rounded-xl px-4 py-3.5 font-body text-base text-primary placeholder:text-muted/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
+                    className="w-full border border-border rounded-xl px-3 sm:px-4 py-3 font-body text-sm text-primary placeholder:text-muted/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-muted font-body text-xs uppercase tracking-wide mb-2">
+                <label className="block text-muted font-body text-[10px] sm:text-xs uppercase tracking-wide mb-1 sm:mb-2">
                   Email Address *
                 </label>
                 <input
                   type="email"
                   placeholder="your@email.com"
-                  className="w-full border border-border rounded-xl px-4 py-3.5 font-body text-base text-primary placeholder:text-muted/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
+                  className="w-full border border-border rounded-xl px-3 sm:px-4 py-3 font-body text-sm text-primary placeholder:text-muted/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
                   required
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-5">
                 <div>
-                  <label className="block text-muted font-body text-xs uppercase tracking-wide mb-2">
+                  <label className="block text-muted font-body text-[10px] sm:text-xs uppercase tracking-wide mb-1 sm:mb-2">
                     Job Type *
                   </label>
                   <select
-                    className="w-full border border-border rounded-xl px-4 py-3.5 font-body text-base text-primary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
+                    className="w-full border border-border rounded-xl px-3 sm:px-4 py-3 font-body text-sm text-primary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
                     required
                   >
                     <option value="">Select job type</option>
@@ -129,11 +129,11 @@ export default function RegisterForm() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-muted font-body text-xs uppercase tracking-wide mb-2">
+                  <label className="block text-muted font-body text-[10px] sm:text-xs uppercase tracking-wide mb-1 sm:mb-2">
                     Experience *
                   </label>
                   <select
-                    className="w-full border border-border rounded-xl px-4 py-3.5 font-body text-base text-primary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
+                    className="w-full border border-border rounded-xl px-3 sm:px-4 py-3 font-body text-sm text-primary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
                     required
                   >
                     <option value="">Select experience</option>
@@ -147,11 +147,11 @@ export default function RegisterForm() {
               </div>
 
               <div>
-                <label className="block text-muted font-body text-xs uppercase tracking-wide mb-2">
+                <label className="block text-muted font-body text-[10px] sm:text-xs uppercase tracking-wide mb-1 sm:mb-2">
                   Preferred Country *
                 </label>
                 <select
-                  className="w-full border border-border rounded-xl px-4 py-3.5 font-body text-base text-primary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
+                  className="w-full border border-border rounded-xl px-3 sm:px-4 py-3 font-body text-sm text-primary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
                   required
                 >
                   <option value="">Select country</option>
@@ -164,18 +164,18 @@ export default function RegisterForm() {
               </div>
 
               <div>
-                <label className="block text-muted font-body text-xs uppercase tracking-wide mb-2">
+                <label className="block text-muted font-body text-[10px] sm:text-xs uppercase tracking-wide mb-1 sm:mb-2">
                   Upload Resume (Optional)
                 </label>
-                <label className="flex items-center gap-4 border-2 border-dashed border-border rounded-xl px-4 py-4 cursor-pointer hover:border-accent/60 transition-colors group min-h-[56px]">
-                  <div className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-colors">
-                    <Upload size={20} className="text-muted group-hover:text-accent" />
+                <label className="flex items-center gap-3 sm:gap-4 border-2 border-dashed border-border rounded-xl px-3 sm:px-4 py-3 sm:py-4 cursor-pointer hover:border-accent/60 transition-colors group min-h-[56px]">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-surface flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-colors">
+                    <Upload size={18} className="text-muted group-hover:text-accent sm:w-5 sm:h-5" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-primary font-body text-base font-bold">
+                    <div className="text-primary font-body text-sm sm:text-base font-bold">
                       Click to upload your CV
                     </div>
-                    <div className="text-muted font-body text-xs">PDF, DOC, DOCX — up to 5 MB</div>
+                    <div className="text-muted font-body text-[10px] sm:text-xs">PDF, DOC, DOCX — up to 5 MB</div>
                   </div>
                   <input type="file" accept=".pdf,.doc,.docx" className="sr-only" />
                 </label>
@@ -183,9 +183,9 @@ export default function RegisterForm() {
 
               <button
                 type="submit"
-                className="w-full bg-accent text-white font-heading font-bold px-6 py-4 rounded-xl transition-all duration-200 hover:bg-accent-dark hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] inline-flex items-center justify-center gap-2 text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-accent/50 min-h-[52px]"
+                className="w-full bg-accent text-white font-heading font-bold px-6 py-3 sm:py-4 rounded-xl transition-all duration-200 hover:bg-accent-dark hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] inline-flex items-center justify-center gap-2 text-xs sm:text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-accent/50 min-h-[52px]"
               >
-                <Send size={18} />
+                <Send size={16} className="sm:w-[18px] sm:h-[18px]" />
                 Submit Application
               </button>
 

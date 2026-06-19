@@ -66,14 +66,14 @@ function BenefitCard({ benefit, delay }) {
   return (
     <div
       ref={ref}
-      className="animate-on-scroll glass-card rounded-2xl p-5 hover:bg-white/10 transition-colors duration-300"
+      className="animate-on-scroll glass-card rounded-2xl p-3 sm:p-5 hover:bg-white/10 transition-colors duration-300"
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-4">
-        {benefit.icon}
+      <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-3 sm:mb-4">
+        <span className="scale-75 sm:scale-100">{benefit.icon}</span>
       </div>
-      <h3 className="text-white font-heading font-bold text-base mb-2">{benefit.title}</h3>
-      <p className="text-white/60 font-body text-base leading-relaxed">{benefit.desc}</p>
+      <h3 className="text-white font-heading font-bold text-sm sm:text-base mb-1 sm:mb-2">{benefit.title}</h3>
+      <p className="text-white/60 font-body text-sm leading-relaxed line-clamp-2 sm:line-clamp-none">{benefit.desc}</p>
     </div>
   )
 }
@@ -114,11 +114,11 @@ export default function EmployerSection() {
           {/* Key stats */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-8 max-w-3xl mx-auto">
             {stats.map((s) => (
-              <div key={s.label} className="flex items-center justify-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 sm:px-5 py-4 min-w-0">
-                <span className="text-accent flex-shrink-0 w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">{s.icon}</span>
-                <div className="text-left min-w-0">
+              <div key={s.label} className="flex flex-col sm:flex-row items-center sm:justify-center gap-2 sm:gap-3 bg-white/5 border border-white/10 rounded-2xl px-4 sm:px-5 py-3 sm:py-4 min-w-0 text-center sm:text-left">
+                <span className="text-accent flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-accent/10 flex items-center justify-center">{s.icon}</span>
+                <div className="min-w-0">
                   <div className="text-accent font-heading font-black text-xl sm:text-2xl md:text-3xl">{s.value}</div>
-                  <div className="text-white/50 text-xs font-body uppercase tracking-wide leading-tight">{s.label}</div>
+                  <div className="text-white/50 text-[10px] sm:text-xs font-body uppercase tracking-wide leading-tight">{s.label}</div>
                 </div>
               </div>
             ))}
@@ -134,78 +134,78 @@ export default function EmployerSection() {
           </div>
 
           {/* Employer Enquiry Form */}
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 sm:p-8">
-            <h3 className="text-xl sm:text-2xl font-heading font-black text-white mb-2">
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-8">
+            <h3 className="text-lg sm:text-2xl font-heading font-black text-white mb-2">
               Request Manpower Quote
             </h3>
-            <p className="text-white/60 font-body text-sm mb-6">
+            <p className="text-white/60 font-body text-xs sm:text-sm mb-4 sm:mb-6">
               Fill in your details and our team will get back to you within 2 hours.
             </p>
 
             <form
-              className="space-y-4"
+              className="space-y-3 sm:space-y-4"
               onSubmit={(e) => {
                 e.preventDefault()
                 alert('Thank you for your enquiry! We will contact you within 2 hours.')
               }}
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label className="block text-white/70 font-body text-xs uppercase tracking-wide mb-2">
+                  <label className="block text-white/70 font-body text-[10px] sm:text-xs uppercase tracking-wide mb-1 sm:mb-2">
                     Company Name *
                   </label>
                   <input
                     type="text"
                     placeholder="Your Company"
-                    className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 font-body text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all min-h-[44px]"
+                    className="w-full bg-white/10 border border-white/20 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 font-body text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all min-h-[44px]"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-white/70 font-body text-xs uppercase tracking-wide mb-2">
+                  <label className="block text-white/70 font-body text-[10px] sm:text-xs uppercase tracking-wide mb-1 sm:mb-2">
                     Contact Person *
                   </label>
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 font-body text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all min-h-[44px]"
+                    className="w-full bg-white/10 border border-white/20 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 font-body text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all min-h-[44px]"
                     required
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label className="block text-white/70 font-body text-xs uppercase tracking-wide mb-2">
+                  <label className="block text-white/70 font-body text-[10px] sm:text-xs uppercase tracking-wide mb-1 sm:mb-2">
                     Email Address *
                   </label>
                   <input
                     type="email"
                     placeholder="company@email.com"
-                    className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 font-body text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all min-h-[44px]"
+                    className="w-full bg-white/10 border border-white/20 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 font-body text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all min-h-[44px]"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-white/70 font-body text-xs uppercase tracking-wide mb-2">
+                  <label className="block text-white/70 font-body text-[10px] sm:text-xs uppercase tracking-wide mb-1 sm:mb-2">
                     Phone Number *
                   </label>
                   <input
                     type="tel"
                     placeholder="+91 89785 37368"
-                    className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 font-body text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all min-h-[44px]"
+                    className="w-full bg-white/10 border border-white/20 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 font-body text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all min-h-[44px]"
                     required
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label className="block text-white/70 font-body text-xs uppercase tracking-wide mb-2">
+                  <label className="block text-white/70 font-body text-[10px] sm:text-xs uppercase tracking-wide mb-1 sm:mb-2">
                     Country *
                   </label>
                   <select
-                    className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 font-body text-sm text-white focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all min-h-[44px] appearance-none"
+                    className="w-full bg-white/10 border border-white/20 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 font-body text-sm text-white focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all min-h-[44px] appearance-none"
                     required
                   >
                     <option value="" className="bg-primary text-white/70">Select country</option>
@@ -217,11 +217,11 @@ export default function EmployerSection() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-white/70 font-body text-xs uppercase tracking-wide mb-2">
+                  <label className="block text-white/70 font-body text-[10px] sm:text-xs uppercase tracking-wide mb-1 sm:mb-2">
                     Workers Needed *
                   </label>
                   <select
-                    className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 font-body text-sm text-white focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all min-h-[44px] appearance-none"
+                    className="w-full bg-white/10 border border-white/20 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 font-body text-sm text-white focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all min-h-[44px] appearance-none"
                     required
                   >
                     <option value="" className="bg-primary text-white/70">Select</option>
@@ -234,11 +234,11 @@ export default function EmployerSection() {
               </div>
 
               <div>
-                <label className="block text-white/70 font-body text-xs uppercase tracking-wide mb-2">
+                <label className="block text-white/70 font-body text-[10px] sm:text-xs uppercase tracking-wide mb-1 sm:mb-2">
                   Job Category *
                 </label>
                 <select
-                  className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 font-body text-sm text-white focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all min-h-[44px] appearance-none"
+                  className="w-full bg-white/10 border border-white/20 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 font-body text-sm text-white focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all min-h-[44px] appearance-none"
                   required
                 >
                   <option value="" className="bg-primary text-white/70">Select job category</option>
@@ -252,9 +252,9 @@ export default function EmployerSection() {
 
               <button
                 type="submit"
-                className="w-full bg-accent text-white font-heading font-bold px-6 py-4 rounded-xl hover:bg-accent-dark hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] transition-all inline-flex items-center justify-center gap-2 text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-accent/50 min-h-[48px] mt-2"
+                className="w-full bg-accent text-white font-heading font-bold px-6 py-3 sm:py-4 rounded-xl hover:bg-accent-dark hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] transition-all inline-flex items-center justify-center gap-2 text-xs sm:text-sm uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-accent/50 min-h-[48px] mt-2"
               >
-                <Send size={18} />
+                <Send size={16} className="sm:w-[18px] sm:h-[18px]" />
                 Submit Enquiry
               </button>
 

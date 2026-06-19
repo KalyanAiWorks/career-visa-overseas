@@ -41,23 +41,23 @@ function StepCard({ step, index }) {
       style={{ transitionDelay: `${index * 150}ms` }}
     >
       {/* Step number + icon */}
-      <div className="relative mb-6 z-10">
+      <div className="relative mb-4 sm:mb-6 z-10">
         {/* Outer glow ring */}
         <div className="absolute inset-0 rounded-full bg-accent/10 scale-125" />
-        <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-primary flex items-center justify-center shadow-overlay border-4 border-white">
-          <span className="text-accent scale-90 sm:scale-100">{step.icon}</span>
+        <div className="relative w-14 h-14 sm:w-24 sm:h-24 rounded-full bg-primary flex items-center justify-center shadow-overlay border-4 border-white">
+          <span className="text-accent scale-75 sm:scale-100">{step.icon}</span>
         </div>
         {/* Step number badge */}
-        <div className="absolute -top-1 -right-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-accent flex items-center justify-center shadow-card border-2 border-white">
-          <span className="text-white font-heading font-black text-[10px] sm:text-xs">{step.num}</span>
+        <div className="absolute -top-1 -right-1 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-accent flex items-center justify-center shadow-card border-2 border-white">
+          <span className="text-white font-heading font-black text-[9px] sm:text-xs">{step.num}</span>
         </div>
       </div>
 
-      <h3 className="text-primary font-heading font-bold text-lg mb-2">{step.title}</h3>
-      <p className="text-muted font-body text-base leading-relaxed mb-3 max-w-xs">{step.desc}</p>
+      <h3 className="text-primary font-heading font-bold text-base sm:text-lg mb-2">{step.title}</h3>
+      <p className="text-muted font-body text-sm sm:text-base leading-relaxed mb-3 max-w-xs line-clamp-2">{step.desc}</p>
 
-      {/* Time pill */}
-      <div className="flex items-center gap-1.5 bg-accent/10 border border-accent/20 rounded-full px-3 py-1">
+      {/* Time pill - hidden on mobile */}
+      <div className="hidden sm:flex items-center gap-1.5 bg-accent/10 border border-accent/20 rounded-full px-3 py-1">
         <Clock size={12} className="text-accent" />
         <span className="text-accent font-bold text-xs">{step.time}</span>
       </div>
@@ -69,16 +69,16 @@ export default function HowItWorks() {
   const titleRef = useScrollAnimation()
 
   return (
-    <section id="how-it-works" className="py-14 sm:py-20" style={{ background: '#f4f6f9' }}>
+    <section id="how-it-works" className="py-10 sm:py-20" style={{ background: '#f4f6f9' }}>
       <div className="container-main">
-        <div className="text-center mb-16" ref={titleRef}>
+        <div className="text-center mb-12 sm:mb-16" ref={titleRef}>
           <div className="section-badge">Process</div>
           <h2 className="section-title">How It Works</h2>
           <p className="section-subtitle">
             Our proven 4-step process gets you from application to deployment.
           </p>
-          {/* Average time badge */}
-          <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-2 bg-primary text-white rounded-full px-4 sm:px-5 py-2 mt-4 shadow-card">
+          {/* Average time badge - hidden on mobile */}
+          <div className="hidden sm:inline-flex max-w-full flex-wrap items-center justify-center gap-2 bg-primary text-white rounded-full px-4 sm:px-5 py-2 mt-4 shadow-card">
             <Clock size={15} className="text-accent" />
             <span className="font-body text-sm font-bold text-center leading-snug">Average deployment time: <span className="text-accent">30–45 days</span></span>
           </div>
@@ -100,14 +100,14 @@ export default function HowItWorks() {
           </div>
 
           {/* Steps grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 relative z-10">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-10 relative z-10">
             {steps.map((step, i) => (
               <StepCard key={step.num} step={step} index={i} />
             ))}
           </div>
         </div>
 
-        <div className="text-center mt-14">
+        <div className="text-center mt-10 sm:mt-14">
           <a href="#register" className="btn-primary shadow-glow">
             Start My Application
           </a>

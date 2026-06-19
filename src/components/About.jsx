@@ -26,7 +26,7 @@ export default function About() {
   const titleRef = useScrollAnimation()
 
   return (
-    <section id="about" className="py-14 sm:py-20 bg-white">
+    <section id="about" className="py-10 sm:py-20 bg-white">
       <div className="container-main">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left — image + stats */}
@@ -36,7 +36,7 @@ export default function About() {
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80"
                 alt="Career Visa office team"
                 loading="lazy"
-                className="w-full h-64 sm:h-72 object-cover opacity-80"
+                className="w-full h-48 sm:h-72 object-cover opacity-80"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5 bg-white/10 border border-white/20 rounded-2xl p-4 text-white">
@@ -68,20 +68,20 @@ export default function About() {
             <h2 className="section-title text-left mb-5">
               Hyderabad's Most Trusted Overseas Recruitment Consultancy
             </h2>
-            <p className="text-muted font-body text-base leading-relaxed mb-5">
+            <p className="text-muted font-body text-sm sm:text-base leading-relaxed mb-5">
               Established over a decade ago, Career Visa is a Ministry-of-External-Affairs–approved
               overseas manpower recruitment firm. We specialize in sourcing, screening, and deploying
               skilled Indian workers to reputable employers across the GCC region.
             </p>
-            <p className="text-muted font-body text-base leading-relaxed mb-7">
+            <p className="text-muted font-body text-sm sm:text-base leading-relaxed mb-7">
               Whether you are a blue-collar technician, a hospitality professional, or a healthcare
               worker, our dedicated team walks with you from registration to your first day on the job.
             </p>
 
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-2 sm:space-y-3 mb-8">
               {highlights.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <CheckCircle size={18} className="text-accent flex-shrink-0 mt-0.5" />
+                  <CheckCircle size={15} className="text-accent flex-shrink-0 mt-0.5 sm:w-[18px] sm:h-[18px]" />
                   <span className="text-primary font-body text-base">{item}</span>
                 </li>
               ))}

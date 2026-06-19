@@ -79,12 +79,12 @@ const countries = [
   },
 ]
 
-function CountryCard({ country, delay }) {
+function CountryCard({ country, delay, isMobileScroll = false }) {
   const ref = useScrollAnimation()
   return (
     <div
       ref={ref}
-      className="animate-on-scroll group relative overflow-hidden rounded-2xl shadow-card cursor-default"
+      className={`animate-on-scroll group relative overflow-hidden rounded-2xl shadow-card cursor-default ${isMobileScroll ? 'min-w-[180px] flex-shrink-0 snap-center' : ''}`}
       style={{
         transitionDelay: `${delay}ms`,
         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
@@ -93,7 +93,7 @@ function CountryCard({ country, delay }) {
       onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)';    e.currentTarget.style.boxShadow = '' }}
     >
       {/* Image */}
-      <div className="h-44 min-[390px]:h-40 sm:h-44 lg:h-48 overflow-hidden">
+      <div className="h-32 sm:h-44 lg:h-48 overflow-hidden">
         <img
           src={country.image}
           alt={`${country.name} skyline`}
@@ -107,11 +107,11 @@ function CountryCard({ country, delay }) {
 
       {/* Info */}
       <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-        <span className="text-2xl sm:text-3xl leading-none block mb-0.5 sm:mb-1">{country.flag}</span>
-        <h3 className="text-white font-heading font-black text-base min-[390px]:text-sm sm:text-base leading-tight">{country.name}</h3>
+        <span className="text-xl sm:text-3xl leading-none block mb-0.5 sm:mb-1">{country.flag}</span>
+        <h3 className="text-white font-heading font-black text-sm sm:text-base leading-tight">{country.name}</h3>
         <div className="flex items-center gap-1 mt-0.5 sm:mt-1">
           <MapPin size={10} className="text-accent flex-shrink-0" />
-          <span className="text-white/70 font-body text-sm truncate">{country.cities.join(' · ')}</span>
+          <span className="text-white/70 font-body text-xs sm:text-sm truncate">{country.cities.join(' · ')}</span>
         </div>
       </div>
     </div>
@@ -131,7 +131,19 @@ export default function Countries() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 min-[390px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+        {/* Mobile: horizontal scroll */}
+        <div className="sm:hidden relative -mx-4">
+          {/* Gradient fade on right */}
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-3 px-4 pb-2">
+            {countries.map((country, i) => (
+              <CountryCard key={country.name} country={country} delay={Math.min(i * 50, 350)} isMobileScroll={true} />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: grid */}
+        <div className="hidden sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
           {countries.map((country, i) => (
             <CountryCard key={country.name} country={country} delay={Math.min(i * 50, 350)} />
           ))}

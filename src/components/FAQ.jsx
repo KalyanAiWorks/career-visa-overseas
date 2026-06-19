@@ -29,15 +29,15 @@ function FAQItem({ faq, index, isOpen, onToggle }) {
   return (
     <div className={`border rounded-xl overflow-hidden transition-all duration-300 ${isOpen ? 'border-accent shadow-card' : 'border-border'}`}>
       <button
-        className="w-full flex items-center justify-between gap-4 p-4 sm:p-5 text-left hover:bg-surface transition-colors min-h-[44px]"
+        className="w-full flex items-center justify-between gap-3 sm:gap-4 p-3 sm:p-5 text-left hover:bg-surface transition-colors min-h-[44px]"
         onClick={() => onToggle(index)}
         aria-expanded={isOpen}
       >
-        <span className={`font-heading font-bold text-sm sm:text-base pr-4 ${isOpen ? 'text-accent' : 'text-primary'}`}>
+        <span className={`font-heading font-bold text-sm sm:text-base pr-2 sm:pr-4 ${isOpen ? 'text-accent' : 'text-primary'}`}>
           {faq.q}
         </span>
-        <div className={`flex-shrink-0 w-11 h-11 min-w-[44px] rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-accent text-white rotate-0' : 'bg-surface text-muted'}`}>
-          {isOpen ? <Minus size={20} /> : <Plus size={20} />}
+        <div className={`flex-shrink-0 w-9 h-9 sm:w-11 sm:h-11 min-w-[36px] rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-accent text-white rotate-0' : 'bg-surface text-muted'}`}>
+          {isOpen ? <Minus size={18} className="sm:w-5 sm:h-5" /> : <Plus size={18} className="sm:w-5 sm:h-5" />}
         </div>
       </button>
       <div
@@ -47,7 +47,7 @@ function FAQItem({ faq, index, isOpen, onToggle }) {
           opacity: isOpen ? 1 : 0,
         }}
       >
-        <p className="px-4 sm:px-5 pb-4 sm:pb-5 text-muted font-body text-sm sm:text-base leading-relaxed">{faq.a}</p>
+        <p className="px-3 sm:px-5 pb-3 sm:pb-5 text-muted font-body text-sm leading-relaxed">{faq.a}</p>
       </div>
     </div>
   )
