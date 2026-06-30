@@ -4,6 +4,7 @@ const services = [
   'Overseas Job Placement',
   'Document Attestation',
   'Visa Processing',
+  'Immigration',
   'Ticketing & Travel',
   'Emigration Support',
   'Medical Assistance',
@@ -105,7 +106,7 @@ export default function RegisterForm() {
                 </label>
                 <input
                   type="email"
-                  placeholder="your@email.com"
+                  placeholder="hr@careervisaoverseas.com"
                   className="w-full border border-border rounded-xl px-3 sm:px-4 py-3 font-body text-sm text-primary placeholder:text-muted/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white min-h-[48px]"
                   required
                 />

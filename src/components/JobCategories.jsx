@@ -81,6 +81,13 @@ const categories = [
     badge: 'New',
     badgeColor: 'bg-blue-500',
   },
+  {
+    title: 'Immigration',
+    roles: ['Immigration Consulting', 'PR & Residency', 'Dependent Visas', 'Visa Extensions'],
+    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80',
+    badge: 'New',
+    badgeColor: 'bg-green-500',
+  },
 ]
 
 function CategoryCard({ cat, delay }) {

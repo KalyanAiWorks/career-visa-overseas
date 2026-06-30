@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: 'Do candidates have to pay any fees to Career Visa Overseas?',
-    a: 'Registration and profile screening are completely FREE for candidates. Service charges, if any (for specific categories), are disclosed upfront before you sign any agreement. We comply fully with MEA fee regulations and never charge hidden amounts.',
+    a: 'Registration and profile screening are completely FREE for candidates. Service charges, if any (for specific categories), are disclosed upfront before you sign any agreement. We comply fully with government fee regulations and never charge hidden amounts.',
   },
   {
     q: 'How long does the Gulf visa process typically take from India?',

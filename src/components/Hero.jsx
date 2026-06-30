@@ -134,10 +134,8 @@ const rotatingJobs = [
 ]
 
 const trustBadges = [
-  { icon: <Shield size={14} />, label: 'Govt. Licensed'      },
-  { icon: <Award size={14} />,  label: 'ISO Certified'       },
-  { icon: <Star size={14} />,   label: '10+ Years Experience'},
-  { icon: <Shield size={14} />, label: 'MEA Approved'        },
+  { icon: <Shield size={14} />, label: 'Government Approved Licensed' },
+  { icon: <Star size={14} />,   label: '10+ Years Experience'         },
 ]
 
 function StatCounter({ end, suffix = '', label }) {
@@ -258,7 +256,7 @@ export default function Hero() {
             <StatCounter end={10}   suffix="+" label="Years Experience"  />
           </div>
           <div className="border-b sm:border-b-0 sm:border-r border-white/10">
-            <StatCounter end={5000} suffix="+" label="Candidates Placed" />
+            <StatCounter end={15000} suffix="+" label="Workers Deployed" />
           </div>
           <div className="border-r sm:border-r border-white/10">
             <StatCounter end={200}  suffix="+" label="Employer Partners" />

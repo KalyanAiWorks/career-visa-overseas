@@ -57,7 +57,7 @@ export default function SocialProofPopup() {
             <span className="font-bold">{n.name}</span> from {n.city} got placed as{' '}
             <span className="font-bold">{n.job}</span> in <span className="font-bold">{n.dest}</span>
           </p>
-          <p className="text-muted text-sm mt-1 leading-snug">{n.time} · Join 5,000+ placed candidates</p>
+          <p className="text-muted text-sm mt-1 leading-snug">{n.time} · Join 15,000+ workers deployed</p>
           <a
             href="#register"
             onClick={dismiss}
