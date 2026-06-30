@@ -31,8 +31,8 @@ const quickLinks = [
 ]
 
 const socialLinks = [
-  { icon: <FacebookIcon />,  href: 'https://www.facebook.com/careervisaoverseas',          label: 'Facebook'  },
-  { icon: <InstagramIcon />, href: 'https://www.instagram.com/careervisaoverseas',         label: 'Instagram' },
+  { icon: <FacebookIcon />,  href: 'https://www.facebook.com/profile.php?id=1133574653181129',          label: 'Facebook'  },
+  { icon: <InstagramIcon />, href: 'https://www.instagram.com/careervisaoverseas/',         label: 'Instagram' },
   { icon: <LinkedInIcon />,  href: 'https://www.linkedin.com/company/career-visa-overseas',label: 'LinkedIn'  },
   { icon: <MessageCircle size={17} />, href: 'https://wa.me/918978537368',                 label: 'WhatsApp'  },
 ]
