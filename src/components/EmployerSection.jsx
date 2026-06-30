@@ -259,7 +259,7 @@ export default function EmployerSection() {
               </button>
 
               <p className="text-white/40 font-body text-xs text-center">
-                Or email us directly at <a href="mailto:info@careervisaoverseas.com" className="text-accent hover:underline">info@careervisaoverseas.com</a>
+                Or email us directly at <a href="mailto:info@careervisaoverseas.com" className="text-accent hover:underline">info@careervisaoverseas.com</a> or <a href="mailto:hr@careervisaoverseas.com" className="text-accent hover:underline">hr@careervisaoverseas.com</a>
               </p>
             </form>
           </div>

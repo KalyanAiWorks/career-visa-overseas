@@ -3,8 +3,8 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useCountUp } from '../hooks/useCountUp'
 
 const highlights = [
-  'Government licensed & Ministry-of-External-Affairs approved',
-  '15,000+ workers deployed to Gulf countries since 2014',
+  'Government Approved Licensed',
+  '15,000+ workers deployed to Gulf countries since 2015',
   'Active employer network across all 6 GCC nations',
   'End-to-end support: registration → visa → deployment',
   'Zero hidden fees for candidates — 100% transparent',
@@ -45,8 +45,8 @@ export default function About() {
                     <Award size={16} className="text-white sm:w-[18px] sm:h-[18px]" />
                   </div>
                   <div className="min-w-0">
-                    <div className="font-heading font-bold text-xs sm:text-sm">MEA Licensed Agency</div>
-                    <div className="text-white/60 text-[10px] sm:text-xs">Govt. of India — Ministry of External Affairs</div>
+                    <div className="font-heading font-bold text-xs sm:text-sm">Government Approved Licensed</div>
+                    <div className="text-white/60 text-[10px] sm:text-xs">Licensed Overseas Recruitment Agency</div>
                   </div>
                 </div>
               </div>
@@ -69,7 +69,7 @@ export default function About() {
               Hyderabad's Most Trusted Overseas Recruitment Consultancy
             </h2>
             <p className="text-muted font-body text-sm sm:text-base leading-relaxed mb-3 sm:mb-5">
-              Established over a decade ago, Career Visa is a Ministry-of-External-Affairs–approved
+              Established over a decade ago, Career Visa is a government-approved
               overseas manpower recruitment firm. We specialize in sourcing, screening, and deploying
               skilled Indian workers to reputable employers across the GCC region.
             </p>

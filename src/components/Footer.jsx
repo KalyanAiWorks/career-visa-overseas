@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, MessageCircle, Award, Shield, ExternalLink } from 'lucide-react'
+import { Phone, Mail, MapPin, MessageCircle, ExternalLink } from 'lucide-react'
 
 const FacebookIcon = () => (
   <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
@@ -37,11 +37,6 @@ const socialLinks = [
   { icon: <MessageCircle size={17} />, href: 'https://wa.me/918978537368',                 label: 'WhatsApp'  },
 ]
 
-const certBadges = [
-  { icon: <Shield size={15} />,  label: 'MEA Licensed',     sub: 'Ministry of External Affairs' },
-  { icon: <Award size={15} />,   label: 'ISO 9001:2015',    sub: 'Quality Certified'            },
-  { icon: <Shield size={15} />,  label: 'Govt. Approved',   sub: 'Emigration Act 1983'          },
-]
 
 export default function Footer() {
   return (
@@ -63,19 +58,6 @@ export default function Footer() {
               A government-licensed overseas manpower recruitment consultancy based in Hyderabad, India.
               Placing skilled workers across the Gulf since 2014.
             </p>
-
-            {/* Certification badges */}
-            <div className="space-y-2 mb-5">
-              {certBadges.map((b) => (
-                <div key={b.label} className="flex items-center gap-2.5 bg-white/5 border border-white/8 rounded-xl px-3 py-2">
-                  <span className="text-accent flex-shrink-0">{b.icon}</span>
-                  <div>
-                    <div className="text-white font-bold text-xs">{b.label}</div>
-                    <div className="text-white/40 text-[10px]">{b.sub}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
 
             {/* Socials */}
             <div className="flex items-center gap-2">
@@ -117,6 +99,7 @@ export default function Footer() {
               {[
                 { href: 'tel:+918978537368', icon: <Phone size={15} />, label: 'Phone', value: '+91 89785 37368' },
                 { href: 'mailto:info@careervisaoverseas.com', icon: <Mail size={15} />, label: 'Email', value: 'info@careervisaoverseas.com' },
+                { href: 'mailto:hr@careervisaoverseas.com', icon: <Mail size={15} />, label: 'HR Email', value: 'hr@careervisaoverseas.com' },
                 { href: 'https://wa.me/918978537368', icon: <MessageCircle size={15} />, label: 'WhatsApp', value: '+91 89785 37368' },
               ].map((item) => (
                 <li key={item.label}>
