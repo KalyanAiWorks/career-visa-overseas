@@ -4,7 +4,7 @@ import { useCountUp } from '../hooks/useCountUp'
 
 const highlights = [
   'Government Approved Licensed',
-  '115,000+ workers deployed to Gulf countries since 2015',
+  '15,000+ workers deployed to Gulf countries since 2015',
   'Active employer network across all 6 GCC nations',
   'End-to-end support: registration → visa → deployment',
   'Zero hidden fees for candidates — 100% transparent',
